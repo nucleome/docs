@@ -1,5 +1,5 @@
 ============================================
-Nucleome Browser: A Multi-model Data Browser
+Nucleome Browser: A Multimodel Visualization for 4DN Nucleome
 ============================================
 
 `Nucleome Browser <https://vis.nucleome.org>`_ is a multimodal, interactive data visualization and exploration platform to integrate genomic, imaging, and 3D structure data.
