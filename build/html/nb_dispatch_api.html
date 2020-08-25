@@ -1,0 +1,332 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>NB-dispatch API &#8212; Nucleome Browser v0.9.3 documentation</title>
+    <link rel="stylesheet" href="_static/nb.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Data preparation" href="data_service.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="nb-dispatch-api">
+<h1>NB-dispatch API<a class="headerlink" href="#nb-dispatch-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Nucleome Browser uses the nb-dispatch library as a hierarchical event dispatcher to enable communication cross-panel or cross-domain.
+The nb-dispatch is inherited from d3-dispatch, meaning that nb-dispatch has the same initialize method and the same function interface on and call as d3-dispatch.</p>
+<p>In Nucleome Browser, nb-dispatch will use the Nucleome Bridge to dispatch events between tabs from different domains if chrome browser extension Nucleome Bridge is installed, otherwise, it will use web browser’s Broadcast Channel API to dispatch events between tabs within the same domain.</p>
+<p>Users can use <a class="reference external" href="https://github.com/nucleome/nb-dispatch">nb-dispatch</a> to connect their customized webs to Nucleome Browser and other supported data portals (e.g., the UCSC Genome Browser and the WashU EpiGenome Browser).
+It is worth to note that the Nucleome Bridge browser extension is required to communicate with the UCSC Genome Browser and the WashU Epigenome Browser.
+Once a website is connected, navigation or highlight operations on the Nucleome Browser can dispatch to customized websites or textit{vice versa}.
+Other websites that allowed to connect via Nucleome Bridge are listed in the manifest.json file (white list of websites) of the Nucleome Bridge.
+Currently, a whitelist of websites hosted in these two domains is automatically supported by Nucleome Bridge are shown below.</p>
+<ul>
+<li><p class="first">Localhost: 127.0.0.1</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://bl.ocks.org">https://bl.ocks.org</a>:</p>
+<blockquote>
+<div><p>Users can host their website on GitHub Gist and use <a class="reference external" href="https://bl.ocks.org">https://bl.ocks.org</a> to visualize it. Read more from <a class="reference external" href="https://bl.ocks.org/-/about">https://bl.ocks.org/-/about</a>. A few demos of usage of the nb-dispatch is shown at <a class="reference external" href="https://bl.ocks.org/nb1page">https://bl.ocks.org/nb1page</a>.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Please contact us if you want to add your website into the whitelist of websites in Nucleome Bridge.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>If you use NPM, install nb-dispatch via <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install&#64;nucleome/nb-dispatch</span></code>.
+You can also load it in your webpage.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/@nucleome/nb-dispatch&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">nb</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">,</span><span class="s2">&quot;brush&quot;</span><span class="p">);</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">status</span><span class="p">){</span>
+    <span class="c1">//add your code callback.</span>
+<span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="a-mininal-example">
+<h2>A mininal example<a class="headerlink" href="#a-mininal-example" title="Permalink to this headline">¶</a></h2>
+<p>Below is a minimal example showing the usage of nb-dispatch libary.
+The live version can be accessed from this <a class="reference external" href="https://bl.ocks.org/zocean/017a33abb667cc35247fbc7cc8b0704c">minimal example link</a>.
+Basically, in this example we show how to control Nucleome Browser to goto certain genomic region or highlight multiple regions (Part I).
+We also show how to monitor operations on Nucleome Browser via nb-dispatch.
+Note that this example requires the Nucleome Bridge browser extension.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>An exmaple of nb-dispatch<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="c">&lt;!-- Load nb-dispatch library --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/@nucleome/nb-dispatch&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is a minimal example showing how to create a customized website to communicate with Nucleome Browser using <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://github.com/nucleome/nb-dispatch&quot;</span><span class="p">&gt;</span>nb-dispatch<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Open <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://vis.nucleome.org&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span><span class="p">&gt;</span>Nucleome Browser<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Part I: Control Nucleome Browser<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Click the following buttons to goto centain genomic region or highligh multiple regions<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;connection&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="c">&lt;!-- Create two buttons. --&gt;</span>
+    <span class="c">&lt;!-- Click the &#39;Navigate&#39; button to navigate to target region --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;navigate()&quot;</span> <span class="p">&gt;</span>Navigate to chr1:0-10M <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="c">&lt;!-- Click the &#39;Highlight&#39; button to highligh regions on the genome with color --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;highlight()&quot;</span><span class="p">&gt;</span> Highlight multi-regions <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Part II: Monitor the operations of Nucleome Browser<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Navigate or highlight regions on Nucleome Browser and show the current genomic region or highlighted regions below<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        Current genomic region
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;current&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;min-height:50px&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        Current highlighted region
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;current_highlight&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;min-height:50px&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="kd">var</span> <span class="nx">chan</span> <span class="o">=</span> <span class="nx">nb</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="s2">&quot;navigate&quot;</span><span class="p">,</span><span class="s2">&quot;highlight&quot;</span><span class="p">)</span>
+        <span class="nx">chan</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">){</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;connection&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">connection</span>
+        <span class="p">})</span>
+        <span class="kd">var</span> <span class="nx">navigate</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">chan</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">,[{</span><span class="nx">chr</span><span class="o">:</span><span class="s2">&quot;chr1&quot;</span><span class="p">,</span><span class="nx">start</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span><span class="nx">end</span><span class="o">:</span><span class="mi">10000000</span><span class="p">}])</span>
+        <span class="p">}</span>
+        <span class="kd">var</span> <span class="nx">highlight</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">chan</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;brush&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">,[{</span>
+            <span class="nx">chr</span><span class="o">:</span><span class="s2">&quot;chr1&quot;</span><span class="p">,</span><span class="nx">start</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span><span class="nx">end</span><span class="o">:</span><span class="mi">1000000</span><span class="p">,</span><span class="nx">color</span><span class="o">:</span><span class="s2">&quot;red&quot;</span>
+        <span class="p">},{</span>
+            <span class="nx">chr</span><span class="o">:</span><span class="s2">&quot;chr1&quot;</span><span class="p">,</span><span class="nx">start</span><span class="o">:</span><span class="mi">2000000</span><span class="p">,</span><span class="nx">end</span><span class="o">:</span><span class="mi">3000000</span><span class="p">,</span><span class="nx">color</span><span class="o">:</span><span class="s2">&quot;orange&quot;</span>
+        <span class="p">},{</span>
+            <span class="nx">chr</span><span class="o">:</span><span class="s2">&quot;chr1&quot;</span><span class="p">,</span><span class="nx">start</span><span class="o">:</span><span class="mi">4000000</span><span class="p">,</span><span class="nx">end</span><span class="o">:</span><span class="mi">5000000</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span><span class="s2">&quot;yellow&quot;</span>
+        <span class="p">},{</span>
+            <span class="nx">chr</span><span class="o">:</span><span class="s2">&quot;chr1&quot;</span><span class="p">,</span><span class="nx">start</span><span class="o">:</span><span class="mi">6000000</span><span class="p">,</span> <span class="nx">end</span><span class="o">:</span><span class="mi">7000000</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span><span class="s2">&quot;green&quot;</span>
+        <span class="p">},{</span>
+            <span class="nx">chr</span><span class="o">:</span><span class="s2">&quot;chr1&quot;</span><span class="p">,</span><span class="nx">start</span><span class="o">:</span><span class="mi">8000000</span><span class="p">,</span> <span class="nx">end</span><span class="o">:</span><span class="mi">9000000</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span><span class="s2">&quot;blue&quot;</span>
+        <span class="p">}])</span>
+        <span class="p">}</span>
+        <span class="kd">var</span> <span class="nx">regionText</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">chr</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">end</span><span class="p">;</span>
+        <span class="p">};</span>
+        <span class="kd">var</span> <span class="nx">regionsText</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">regions</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="p">[];</span>
+            <span class="nx">regions</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">r</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">regionText</span><span class="p">(</span><span class="nx">d</span><span class="p">));</span>
+            <span class="p">});</span>
+            <span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">);</span>
+        <span class="p">};</span>
+        <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">nb</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">,</span><span class="s2">&quot;brush&quot;</span><span class="p">)</span>
+        <span class="nx">a</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">){</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;connection&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">connection</span>
+        <span class="p">})</span>
+        <span class="nx">a</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">){</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;current&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nx">regionsText</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
+        <span class="p">})</span>
+        <span class="nx">a</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;brush&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">){</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;current_highlight&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nx">regionsText</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
+        <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="api-reference">
+<h2>API reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
+<p>The nb-dispatch is built based on d3-dispatch.
+It has the same initialize method and the same function interface on and call as d3-dispatch.
+Below are specific features provided by nb-dispatch that are different from d3-dispatch.</p>
+<ul>
+<li><p class="first"><strong>nb.dispatch</strong> <em>(types)</em>:</p>
+<blockquote>
+<div><p>Create new nb-dispatch event object for specific event types.
+Here, each type should be a string such as <code class="docutils literal notranslate"><span class="pre">update</span></code> and <code class="docutils literal notranslate"><span class="pre">brush</span></code>.
+Event type <code class="docutils literal notranslate"><span class="pre">update</span></code> indicates navigating to current genomic region.
+Event type <code class="docutils literal notranslate"><span class="pre">brush</span></code> indicates highlight certain genomic regions. Example of usage:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">nb</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">,</span><span class="s2">&quot;brush&quot;</span><span class="p">)</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">status</span><span class="p">())</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">disconnect</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>nb.dispatch.call</strong> <em>(type[, that[, arguments…]])</em>:</p>
+<blockquote>
+<div><p>Invoke each callback for a specific type (update or brush).
+Arguments are a list of genomic regions each of which has a format of {genome:string, chr:string, start:int, end:int, color:color}.
+Note that the position of start and end is 0-base.
+Color is only effective for the brush type.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">navigate</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">chan</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;update&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">,[{</span><span class="nx">chr</span><span class="o">:</span><span class="s2">&quot;chr1&quot;</span><span class="p">,</span><span class="nx">start</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span><span class="nx">end</span><span class="o">:</span><span class="mi">10000000</span><span class="p">}])</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">highlight</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">chan</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;brush&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">,[{</span>
+        <span class="nx">chr</span><span class="o">:</span><span class="s2">&quot;chr1&quot;</span><span class="p">,</span><span class="nx">start</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span><span class="nx">end</span><span class="o">:</span><span class="mi">1000000</span><span class="p">,</span><span class="nx">color</span><span class="o">:</span><span class="s2">&quot;red&quot;</span>
+    <span class="p">},{</span>
+        <span class="nx">chr</span><span class="o">:</span><span class="s2">&quot;chr1&quot;</span><span class="p">,</span><span class="nx">start</span><span class="o">:</span><span class="mi">2000000</span><span class="p">,</span><span class="nx">end</span><span class="o">:</span><span class="mi">3000000</span><span class="p">,</span><span class="nx">color</span><span class="o">:</span><span class="s2">&quot;orange&quot;</span>
+    <span class="p">}])</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>nb.dispatch.connect</strong> <em>(callback)</em>:</p>
+<blockquote>
+<div><p>Connect to event-dispatch hub via the HMTL BroadCast Channel or Nucleome Bridge extension</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>nb.dispatch.disconnect</strong> <em>()</em>:</p>
+<blockquote>
+<div><p>Disconnect from the HMTL BroadCast Channel or Nucleome Bridge extension</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>nb.dispatch.status</strong> <em>()</em>:</p>
+<blockquote>
+<div><p>Check out the status of current connected channel.
+The output if one of <code class="docutils literal notranslate"><span class="pre">Extension</span></code>, <code class="docutils literal notranslate"><span class="pre">Channel</span></code>, or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>nb.dispatch.chanId</strong> <em>(channelName)</em>:</p>
+<blockquote>
+<div><p>Set the channel ID before connect to it.
+If there is not argument, it will retrun current channel ID.
+The default channel ID is <code class="docutils literal notranslate"><span class="pre">cnbChan0`</span></code></p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Nucleome Browser</a></h1>
+
+
+
+
+
+
+
+
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="design.html">Panel-container system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="design.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#what-is-a-panel">What is a panel?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#create-a-new-panel">Create a new panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#basic-operations">Basic operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#flexible-layout">Flexible layout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="components.html">Web component types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components.html#genome-browser">Genome browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#d-structure-viewer">3D structure viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#google-sheet-viewer">Google Sheet viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#fetch-dna-sequence">Fetch DNA sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#dn-dcic-imging-data">4DN DCIC imging data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugin.html">Plugin usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html#nucleome-bridge-extension">Nucleome Bridge extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html#google-spreadsheet-add-on">Google Spreadsheet add-on</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session.html">Session Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session.html#create-a-session-to-local">Create a session to local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session.html#open-a-saved-session">Open a saved session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session.html#session-management-tool">Session management tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session.html#share-session">Share session</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_service.html">Data preparation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_service.html#data-type-supported">Data type supported</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_service.html#genomic-data">Genomic data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_service.html#d-structure-data">3D structure data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NB-dispatch API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-mininal-example">A mininal example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-reference">API reference</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="data_service.html" title="previous chapter">Data preparation</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017-2020 Nucleome Browser Authors .
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/nb_dispatch_api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
