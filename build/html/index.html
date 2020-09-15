@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Nucleome Browser: A Multi-model Data Browser &#8212; Nucleome Browser v0.9.3 documentation</title>
+    <title>Nucleome Browser: A Multimodel Visualization for 4DN Nucleome &#8212; Nucleome Browser v0.9.3 documentation</title>
     <link rel="stylesheet" href="_static/nb.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -33,9 +33,9 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="nucleome-browser-a-multi-model-data-browser">
-<h1>Nucleome Browser: A Multi-model Data Browser<a class="headerlink" href="#nucleome-browser-a-multi-model-data-browser" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://vis.nucleome.org">Nucleome Browser</a> is a multimodal, interactive data visualization and exploration platform to integrate genomic, imaging, and 3D structure data.
+  <div class="section" id="nucleome-browser-a-multimodel-visualization-for-4dn-nucleome">
+<h1>Nucleome Browser: A Multimodel Visualization for 4DN Nucleome<a class="headerlink" href="#nucleome-browser-a-multimodel-visualization-for-4dn-nucleome" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://vis.nucleome.org">Nucleome Browser</a> is a multimodal, interactive data visualization and exploration platform to integrate genomic, imaging, and 3D genome structure data.
 It can empower investigators to fully utilize heterogeneous datasets to formulate hypotheses and gain new insights into the interplay among different constituents in the nucleus and their roles in 3D genome structure and function.</p>
 <div class="figure align-center" id="id1" style="width: 640px">
 <img alt="_images/NB_dispatch_v2.gif" src="_images/NB_dispatch_v2.gif" />
@@ -44,18 +44,20 @@ It can empower investigators to fully utilize heterogeneous datasets to formulat
 <div class="section" id="quick-start">
 <h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
 <p>To explore Nucleome Browser, go to the main portal of Nucleome Browser at <a class="reference external" href="https://vis.nucleome.org">https://vis.nucleome.org</a>.
-You can find all the resources related to the platform including examples of pre-configured browser sessions, detailed documentation, and a slack channel for discussion and reporting issues.</p>
+You can find all the resources related to the platform including examples of pre-configured browser sessions, documentation, a Slack channel for discussion and reporting issues, etc.</p>
 <div class="figure align-center" id="id2" style="width: 640px">
 <img alt="_images/ch1_home_page.png" src="_images/ch1_home_page.png" />
 <p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Home page of the Nucleome Browser</span></p>
 </div>
-<p>Clicking the <code class="docutils literal notranslate"><span class="pre">Example</span></code> button (<a class="reference internal" href="_images/icon-home-examples.png"><img alt="home_example" src="_images/icon-home-examples.png" style="height: 14px;" /></a>) on the top-right toolbar on the home page, you will see a series of thumbnails for browser sessions.
+<p>Clicking the <code class="docutils literal notranslate"><span class="pre">Examples</span></code> button (<a class="reference internal" href="_images/icon-home-examples.png"><img alt="home_example" src="_images/icon-home-examples.png" style="height: 14px;" /></a>) on the top-right toolbar on the home page, you will see a series of thumbnails of browser sessions.
 You can explore those examples by clicking the <code class="docutils literal notranslate"><span class="pre">enter</span></code> button (<a class="reference internal" href="_images/icon-example-go.png"><img alt="example_enter" src="_images/icon-example-go.png" style="height: 14px;" /></a>).
-For example, in the <strong>Multi-modal integrative analysis</strong> example, you will see a browser session showing a comparison between K562 and H1 cells.</p>
+For example, in the <strong>Multi-modal integrative analysis</strong> example shown below, you will see a browser session illustrating a comparison of the 3D nuclear organization between K562 and H1 cells.</p>
 <p>Two genome browser panels on the left show various genomic data between K562 and H1, including Hi-C contact matrices, TSA-seq, and DamID tracks mapping to multiple nuclear bodies (e.g., nuclear speckles, nuclear lamina, and nucleolus), and replication-timing profiles.
-On the right, there are two 3D structure panels show 3D structure with color representing genomic signals TSA-seq Lamina B1 signal in H1 and K562, respectively.
-Notably, in the middle genome browser component, you can see an image track showing DNA FISH data.
-Clicking on one image, a pop-out OMERO.iviewer window will appear allowing you to further explore the image.</p>
+On the right, there are two 3D structure panels illustrating 3D structur models with color representing TSA-seq signals on Lamina B1 in H1 and K562, respectively.
+It is also possible to explore imaging data using the Nucleome Browser.
+In the middle genome browser panel for K562, you can see an image track showing DNA FISH data.
+The target region of each probe is represented by a blue bar.
+Clicking on one image, a OMERO.iviewer window will pop-out allowing you to further explore the image using the OMERO.iviewer tool.</p>
 <div class="figure align-center" id="id3" style="width: 640px">
 <img alt="_images/ch1_example.png" src="_images/ch1_example.png" />
 <p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Nucleome Browser faciliates interactive exploration of multi-modal data</span></p>

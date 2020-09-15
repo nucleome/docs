@@ -4,19 +4,19 @@
 Web component types
 ===================
 
-Nucleome browser supports a series of composable, configurable, and communicable web components, including genome browser web component designed for presenting both 1D and 2D genomic data, 3D structure web component, web component specifically designed to efficiently view imaging data stored from the 4DN DCIC image portal, region-of-interest web component, DNA sequence web component, and customized web applications.
+Nucleome browser supports a series of composable, configurable, and communicable web components, including a genome browser web component designed for presenting both 1D and 2D genomic data, a 3D structure web component, a web component specifically designed to view imaging data stored from the 4DN DCIC data portal, a region-of-interest web component to explore a list of user-defined regions, a DNA sequence web component to fetch DNA sequence, and customized web applications supporting various custom data formats.
 
 Genome browser
 ==============
 
-Genome browser web component works as conventional genome browsers such as the UCSC Genome Browser, providing visualization support for commonly used genomic data including bigwig, bigbed, tabix, and .hic format.
+Genome browser web component works as conventional genome browsers such as the UCSC Genome Browser, providing visualization support for commonly used genomic data including bigWig, bigBed, tabix, and .hic format.
 
 Three visualization modes
 -------------------------
 
-:numref:`gbrowser_toolbar` summarizes the functions of buttons of the genome browser panel.
-Notably, since the Nucleome Browser supports synchronization across multiple panels, there are two additional navigation modes introduced in the genome browser web components.
-Users can control visualization mode by clicking the ``visualization mode`` button (|gb-mode|) on the right of the genome browser toolbar.
+:numref:`gbrowser_toolbar` summarizes the configuration buttons of the genome browser panel in the top toolbar.
+Notably, since the Nucleome Browser supports synchronization across multiple panels, two additional navigation modes are introduced in the genome browser web components, i.e., ``Map`` mode and ``Context`` mode.
+Users can choose a visualization mode by clicking the ``visualization mode`` button (|gb-mode|) on the right of the genome browser toolbar.
 
 .. figure:: img/figures_chapter_3/ch3_gbrowser_toolbar_v2.png
     :name: gbrowser_toolbar
@@ -30,31 +30,35 @@ Users can control visualization mode by clicking the ``visualization mode`` butt
 
 **Normal mode**: 
 
-In normal mode (|gb-mode-normal|), the genome browser web component will respond to operations sent from other web components (for genome browser component they must also be in normal or context mode). 
-For example, when a user navigates to or highlights a genomic region in other web components, this genome browser component will update itself accordingly. 
-Similarly, operations that happened in this component will broadcast to other components. 
-This mode is useful when you want to compare data hosted in different panels side-by-side.
+If a genome browser web component is in the normal mode (|gb-mode-normal|), it will automatically update itself according to operations dispatched from other web components (for genome browser component they must also be in normal or context mode). 
+For example, when a user navigates to or highlights a genomic region in other web components, this genome browser component will also go to that region or show the same highlighted region. 
+Conversely, any operations happened in this component will broadcast simultaneously to other components. 
+This mode is quite useful when you want to compare data hosted in different panels side-by-side.
 
 .. |gb-mode-normal| image:: img/other/icon/icon-genome-mode-normal.png
     :height: 14px
 
 **Context mode**: 
 
-Context mode is quite similar to the normal mode, except that users can set a zooming factor larger than 1x (e.g., 2x, 4x, etc.). 
-When a genome browser component is in the context mode, this component will automatically zooming-out by this scale factor. 
-For example, if other panels currently navigate to a 100kb region (e.g., chr1:10Mb-10.1Mb), a genome component with an 8x zooming factor will navigate to an 800kb region (chr1:9.65Mb-10.45Mb) centered on this 100kb region. 
-Furthermore, a light green transparent box will be shown in this genome browser to highlight the region on which other panels are focusing on.
+``Context mode`` is quite similar to the ``Normal mode``, except that users can set a zooming factor larger than 1x (e.g., 2x, 4x, etc.).
+If the zooming factor is 1x, the ``Context mode`` will act the same as the ``Normal mode``.
+However, when a genome browser component has a zooming factor larger than 1x, this component will automatically zooming-out by this scale factor relative to other components. 
+For example, if other panels currently navigate to a 100kb region (e.g., chr1:10Mb-10.1Mb), a genome component with an 8x zooming factor will navigate to the 800kb region (chr1:9.65Mb-10.45Mb) centered on this 100kb region. 
+To help users view the relationship between the default region and zoomed-out region, a light green transparent box will be shown in this genome browser to highlight the region on which other panels are viewing at.
 This mode is quite useful when you want to capture the big-picture of a region-of-interest. 
 For example, you can use one panel to visualize the details of a ChIP-seq peak and use another panel to reveal the context of the peak region without zoom-in and zoom-out back-and-forth.
 
 **Map mode**:
 
-Finally, you can turn off the synchronization of an individual genome browser component by clicking the button of navigation mode.
-In the map mode (|gb-mode-map|), this panel will not respond to operations happened in other panels, and will also not automatically broadcast its operations either navigation or highlight to other panels. 
-However, users can still highlight a region in this panel and clicking the ``go-to`` button to force all other panels to go to the highlighted region. 
-This mode is useful when you want to use one panel to view the big picture (i.e., the map) and reveal some details in other panels. 
+Finally, you can turn off the synchronization of a genome browser component by clicking the button of navigation mode until the icon becomes |gb-mode-map|.
+In the ``Map mode``, this panel will not respond to any operations that happened in other panels, and will also not automatically broadcast its operations to other panels. 
+However, users can still highlight a region in this panel and clicking the ``go-to`` button (|gb-goto|) to force all other panels to go to the highlighted region. 
+This mode is useful when you want to use one panel to view the big picture and examine details in other panels. 
 
 .. |gb-mode-map| image:: img/other/icon/icon-genome-mode-map.png
+    :height: 14px
+
+.. |gb-goto| image:: img/other/icon/icon-genome-go.png
     :height: 14px
 
 Navigate genome
@@ -62,13 +66,13 @@ Navigate genome
 
 **Type region(s) manually**
 
-You can navigate to a certain region(s) by manually typing the genomic coordinate(s) in the genomic coordinate box on the left of the toolbar.
-Genome browser component can recognize the common format of genomic coordinate such as ``chr1:1000-2000``.
+You can navigate to a certain region(s) by manually typing the genomic coordinate(s) in the genomic coordinate box located on the left of the toolbar.
+The genome browser component can recognize any  genomic coordinate formatted as chromosome:start-end, such as ``chr1:1000-2000``.
 Notably, it will assume the coordinates are 1-base and right-fully closed.
-Currently, the genome browser component also supports viewing multiple regions.
-You can type in at most five different genomic regions using a semicolon as the separator (e.g., ``chr1:1-20000;chr2:1-30000``).
-To view the entire chromosome, you can just type the name of a chromosome (e.g., ``chr1`` for viewing the whole chromosome 1, ``chr1;chr2`` for viewing multiple chromosome).
-Currently, at most five different chromosome can be viewed at the same time.
+It is also possible to view multiple regions together.
+Currently, you can type in at most five different genomic regions using a semicolon as the separator (e.g., ``chr1:1-20000;chr2:1-30000``).
+To view the entire chromosome, you can just type the name of a chromosome (e.g., ``chr1`` for viewing the whole chromosome 1, ``chr1;chr2`` for viewing chromosome 1 and chromosome 2 together).
+Similarly, at most five different chromosomes can be viewed at the same time.
 Nucleome Browser allows users to search for a gene by its name (requiring the gene annotation track).
 You can type the gene's name in the genomic coordinates box and choose the gene in the drop-down list.
 
@@ -86,6 +90,12 @@ Notably, multiple regions overlapping with each other will be automatically merg
     :figwidth: 480px
 
     Use genomic coordinate box to goto a certain region or use the navigation buttons to move along the genome and zoom-in/-out
+
+.. figure:: img/figures_chapter_3/ch3_gbrowser_navigate_example.png
+    :align: center
+    :figwidth: 420px
+
+    Illustration of the change of view using different navigation buttons
 
 .. |gb-zoom-out| image:: img/other/icon/icon-genome-zoomout-3x.png
     :height: 14px

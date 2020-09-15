@@ -59,7 +59,7 @@ You can control each panel using the configuration toolbar located on the top-ri
 
     Panel configuration toolbar on the top-right corner
 
-**Configuration mode of a panel (|panel-config|)**
+**Configuration mode of a panel**
 
 Clicking the ``configuration`` button (|panel-config|), you will see the configuration interface of this panel if that panel has the configuration mode. 
 In the configuration mode (the configuration button will turn to green color), you can go back to the visualization mode by clicking the button again.
@@ -73,7 +73,7 @@ In the configuration mode (the configuration button will turn to green color), y
 .. |panel-config| image:: img/other/icon/icon-panel-config_v2.png
     :height: 14px
 
-**Rename a panel (|panel-rename|)**
+**Rename a panel**
 
 Clicking the ``rename`` button (|panel-rename|), you will see a dialog popping out.
 You can then change the title of the this panel.
@@ -82,7 +82,7 @@ This title will also be the default name when you save this panel to the panel s
 .. |panel-rename| image:: img/other/icon/icon-panel-rename_v2.png
     :height: 14px
 
-**Save a panel to panel space (|panel-save|)**
+**Save a panel to panel space**
 
 Clicking the ``save`` button (|panel-save|), you can save the current panel into the panel space, which is hosted locally in the web browser’s IndexedDB.
 To view saved panels in the panel space, you can click the panel space button (|panel-space|) on the top menu bar.
@@ -109,7 +109,7 @@ Notably, since panels in the panel space are saved into the web browser's Indexe
 .. |panel-close| image:: img/other/icon/icon-top-close.png
     :height: 14px
 
-**Duplicate a panel (|panel-duplicate|)**
+**Duplicate a panel**
 
 Clicking the ``duplication`` button (|panel-duplicate|) of a panel, you can duplicate this panel in the same web tab.
 This feature is useful when you want to create a similar panel by making small changes to an existing panel.
@@ -118,7 +118,7 @@ It is also quite useful if you can create a similar genome browser panel with di
 .. |panel-duplicate| image:: img/other/icon/icon-panel-duplicate_v2.png
     :height: 14px
 
-**Pop-out (|panel-pop-out|) and pop-in (|panel-pop-in|) a panel**
+**Pop-out and pop-in a panel**
 
 Nucleome Browser allows users to create panels in different web tabs.
 Notably, panels in different web tabs are all synchronized with each other.
@@ -145,7 +145,7 @@ In the second method, you can create an extended panel by clicking the ``Extende
 .. |panel-extra| image:: img/other/icon/icon-top-extra.png
     :height: 14px
 
-**Maximize a panel (|panel-max|) / Back to standard view (|panel-min|)**
+**Maximize a panel / Back to standard view**
 
 Clicking the ``maximization`` button (|panel-max|) of a panel, you will see the panel taking the full width of the current web browser. 
 You can click the ``minimization`` button (|panel-min|) of that panel to change back to the compact layout.
@@ -156,7 +156,7 @@ You can click the ``minimization`` button (|panel-min|) of that panel to change 
 .. |panel-min| image:: img/other/icon/icon-panel-min_v2.png
     :height: 14px
 
-**Close a panel (|panel-close|)**
+**Close a panel**
 
 You can close a panel by clicking the ``close`` button (|panel-close|).
 

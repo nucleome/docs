@@ -1,8 +1,8 @@
 ============================================
-Nucleome Browser: A Multi-model Data Browser
+Nucleome Browser: A Multimodel Visualization for 4DN Nucleome
 ============================================
 
-`Nucleome Browser <https://vis.nucleome.org>`_ is a multimodal, interactive data visualization and exploration platform to integrate genomic, imaging, and 3D structure data.
+`Nucleome Browser <https://vis.nucleome.org>`_ is a multimodal, interactive data visualization and exploration platform to integrate genomic, imaging, and 3D genome structure data.
 It can empower investigators to fully utilize heterogeneous datasets to formulate hypotheses and gain new insights into the interplay among different constituents in the nucleus and their roles in 3D genome structure and function.
 
 .. figure:: img/other/NB_dispatch_v2.gif
@@ -15,7 +15,7 @@ Quick Start
 ~~~~~~~~~~~
 
 To explore Nucleome Browser, go to the main portal of Nucleome Browser at `https://vis.nucleome.org <https://vis.nucleome.org>`_.
-You can find all the resources related to the platform including examples of pre-configured browser sessions, detailed documentation, and a slack channel for discussion and reporting issues.
+You can find all the resources related to the platform including examples of pre-configured browser sessions, documentation, a Slack channel for discussion and reporting issues, etc.
 
 .. figure:: img/figures_chapter_1/ch1_home_page.png
     :align: center
@@ -24,9 +24,9 @@ You can find all the resources related to the platform including examples of pre
     Home page of the Nucleome Browser
 
 
-Clicking the ``Example`` button (|home_example|) on the top-right toolbar on the home page, you will see a series of thumbnails for browser sessions. 
+Clicking the ``Examples`` button (|home_example|) on the top-right toolbar on the home page, you will see a series of thumbnails of browser sessions. 
 You can explore those examples by clicking the ``enter`` button (|example_enter|). 
-For example, in the **Multi-modal integrative analysis** example, you will see a browser session showing a comparison between K562 and H1 cells. 
+For example, in the **Multi-modal integrative analysis** example shown below, you will see a browser session illustrating a comparison of the 3D nuclear organization between K562 and H1 cells. 
 
 .. |home_example| image:: img/other/icon/icon-home-examples.png
     :height: 14px
@@ -35,9 +35,11 @@ For example, in the **Multi-modal integrative analysis** example, you will see a
     :height: 14px
 
 Two genome browser panels on the left show various genomic data between K562 and H1, including Hi-C contact matrices, TSA-seq, and DamID tracks mapping to multiple nuclear bodies (e.g., nuclear speckles, nuclear lamina, and nucleolus), and replication-timing profiles. 
-On the right, there are two 3D structure panels show 3D structure with color representing genomic signals TSA-seq Lamina B1 signal in H1 and K562, respectively. 
-Notably, in the middle genome browser component, you can see an image track showing DNA FISH data. 
-Clicking on one image, a pop-out OMERO.iviewer window will appear allowing you to further explore the image.
+On the right, there are two 3D structure panels illustrating 3D structur models with color representing TSA-seq signals on Lamina B1 in H1 and K562, respectively.
+It is also possible to explore imaging data using the Nucleome Browser.
+In the middle genome browser panel for K562, you can see an image track showing DNA FISH data. 
+The target region of each probe is represented by a blue bar.
+Clicking on one image, a OMERO.iviewer window will pop-out allowing you to further explore the image using the OMERO.iviewer tool.
 
 .. figure:: img/figures_chapter_1/ch1_example.png
     :align: center
