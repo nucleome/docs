@@ -20,10 +20,10 @@ It can empower investigators to fully utilize heterogeneous datasets to formulat
 Quick Start
 ~~~~~~~~~~~
 
-To explore Nucleome Browser, go to the main portal of Nucleome Browser at |nb_real_link|.
+To explore Nucleome Browser, go to the main portal of Nucleome Browser at |nb_address|.
 You can find all the resources related to the platform including examples of pre-configured browser sessions, documentation, a Slack channel for discussion and reporting issues, etc.
 
-.. |nb_link| raw:: html
+.. |nb_address| raw:: html
 
     <a href="https://vis.nucleome.org" target="_blank">https://vis.nucleome.org</a>
     
