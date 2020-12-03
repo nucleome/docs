@@ -6,6 +6,7 @@ Nucleome Browser: A Multimodel Visualization for 4DN Nucleome
 It can empower investigators to fully utilize heterogeneous datasets to formulate hypotheses and gain new insights into the interplay among different constituents in the nucleus and their roles in 3D genome structure and function.
 
 .. |nb_link| raw:: html
+
     <a href="https://vis.nucleome.org" target="_blank">Nucleome Browser</a>
  
 .. figure:: img/other/NB_dispatch_v2.gif
