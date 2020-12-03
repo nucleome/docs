@@ -2,15 +2,22 @@
 Nucleome Browser: A Multimodel Visualization for 4DN Nucleome
 ============================================
 
-`Nucleome Browser <https://vis.nucleome.org target="_blank">`_ is a multimodal, interactive data visualization and exploration platform to integrate genomic, imaging, and 3D genome structure data.
+|Nucleome_Browser_Link| is a multimodal, interactive data visualization and exploration platform to integrate genomic, imaging, and 3D genome structure data.
 It can empower investigators to fully utilize heterogeneous datasets to formulate hypotheses and gain new insights into the interplay among different constituents in the nucleus and their roles in 3D genome structure and function.
 
+|Nucleome_Browser_Link|
+
+.. |Nucleome_Browser_Link| raw:: html
+    <a href="https://vis.nucleome.org" target="_blank">Nucleome Browser</a>
+ 
 .. figure:: img/other/NB_dispatch_v2.gif
     :align: center
     :figwidth: 640px
 
     Nucleome Browser consists of multiple comfigurable, communicable, and composable web components (panels) for visualization multi-modal data. Operation in any panel will be synchronized to all connected panels and external web sites such as the UCSC Genome Browser and the WashU Epigenome Browser.
 
+
+   
 Quick Start
 ~~~~~~~~~~~
 
