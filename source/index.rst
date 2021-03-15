@@ -61,6 +61,7 @@ Clicking on one image, a OMERO.iviewer window will pop-out allowing you to furth
     :hidden:
     :glob: 
     
+    tutorial
     design
     components
     plugin
