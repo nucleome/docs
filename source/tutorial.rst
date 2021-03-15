@@ -23,7 +23,7 @@ When the mouse hovers on the ``plus`` button (|top-plus|), you can choose to cre
 
 .. figure:: img/tutorial/GIF/NB_create_a_new_panel_compress.gif
     :align: center
-    :figwidth: 720px
+    :figwidth: 640px
 
     Create a new panel
 
@@ -35,7 +35,7 @@ Nucleome Browser supports flexibly adjust the composition of panels. You can dra
 
 .. figure:: img/tutorial/GIF/NB_flexible_layout_compress.gif
     :align: center
-    :figwidth: 720px
+    :figwidth: 640px
 
     Nucleome Browser support flexible layout to arrange multiple panels
 
@@ -46,7 +46,7 @@ You can use navigation buttons to move forward/backward on the chromosome or zoo
 
 .. figure:: img/tutorial/GIF/NB_navigation_button_compress.gif
     :align: center
-    :figwidth: 720px
+    :figwidth: 640px
     
     Use navigation button to move along the genome
 
@@ -57,7 +57,7 @@ To move to different regions on the same chromosome, you can also use the mouse 
 
 .. figure:: img/tutorial/GIF/NB_navigation_ideogram_compress.gif
     :align: center
-    :figwidth: 720px
+    :figwidth: 640px
     
     Brush on the ideogram for quick nagivation on the chromosome
 
@@ -68,7 +68,7 @@ Use the left button of the mouse to highlight on 1D or 2D genomic tracks. You ca
 
 .. figure:: img/tutorial/GIF/NB_highlight_compress.gif
     :align: center
-    :figwidth: 720px
+    :figwidth: 640px
     
     Highlight on 1D and 2D genomic tracks using mouse left button. Right click the highlighted region to zoom-into
 
@@ -79,7 +79,7 @@ You can click a region in the bigBed track to highlight this region. If this reg
 
 .. figure:: img/tutorial/GIF/NB_multiregion_highlight_compress.gif
     :align: center
-    :figwidth: 720px
+    :figwidth: 640px
     
     Click on one region on the bed track. Other regions with the same annotation (name) will be highlighted
 
@@ -93,7 +93,7 @@ You can open the scatterplot tool by clicking the ``scatterplot button`` (|gb-sc
 
 .. figure:: img/tutorial/GIF/NB_scatterplot_tool_compress.gif
     :align: center
-    :figwidth: 720px
+    :figwidth: 640px
     
     Use scaterplot tool to interactively explore genomic tracks
 
@@ -106,7 +106,7 @@ Zoom-in/-out: Use the center mouse wheel to zoom-in or zoom-out.
 
 .. figure:: img/tutorial/GIF/NB_3D_exploration_compress.gif
     :align: center
-    :figwidth: 720px
+    :figwidth: 640px
     
     Use the mouse the manipulate 3D structure
 
@@ -123,7 +123,7 @@ First, open the configuration window of the genome browser panel and enable rend
 
 .. figure:: img/tutorial/GIF/NB_3D_bigwig_superimpose_compress.gif
     :align: center
-    :figwidth: 720px
+    :figwidth: 640px
 
 Click segment on the 3D structure to navigate
 ---------------------------------------------
@@ -132,7 +132,7 @@ Enable clickable operation on 3D structure by clicking the pencil symbol on the 
 
 .. figure:: img/tutorial/GIF/NB_3D_click_compress.gif
     :align: center
-    :figwidth: 720px
+    :figwidth: 640px
     
     Use the mouse the manipulate 3D structure
 
@@ -143,7 +143,7 @@ Highlighted regions are synchronized between genome browser panel and 3D structu
 
 .. figure:: img/tutorial/GIF/NB_3D_highlight_compress.gif
     :align: center
-    :figwidth: 720px
+    :figwidth: 640px
     
     Use the mouse the manipulate 3D structure
 
