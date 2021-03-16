@@ -1,0 +1,32 @@
+
+p.caption {
+    font-size: 110%;
+}
+
+div.sphinxsidebar p {
+    font-size: 100%;
+    font-weight: 1000;
+    border-bottom: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #2b8cbe;
+}
+
+div.sphinxsidebarwrapper h1.logo {
+    margin-top: 0;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 1000;
+    margin-bottom: 10px;
+}
+
+div.sphinxsidebarwrapper h1.logo a {
+    margin-left: -9.05em;
+    border-bottom: 0;
+}
+
+div.sphinxsidebarwrapper h1.logo a:after {
+    content: ' Home';
+    color: #2b8cbe;
+}
+
