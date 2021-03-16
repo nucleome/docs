@@ -7,7 +7,7 @@ li {
 }
 
 p.caption {
-    font-size: 90%;
+    font-size: 110%;
 }
 
 div.body h1 { margin-bottom: 0.8em; font-size: 210%; }
@@ -90,6 +90,15 @@ div.sphinxsidebar ul li.toctree-l1 > a {
     margin-bottom: 0px;
 }
 
+div.sphinxsidebar p {
+    font-size: 100%;
+    font-weight: 1000;
+    border-bottom: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #2b8cbe;
+}
+
 div.sphinxsidebarwrapper {
     padding-top: 0;
 }
@@ -102,6 +111,8 @@ div.sphinxsidebarwrapper h1.logo {
     margin-top: 0;
     overflow: hidden;
     font-size: 16px;
+    font-weight: 1000;
+    margin-bottom: 10px;
 }
 
 div.sphinxsidebarwrapper h1.logo a {
@@ -111,6 +122,7 @@ div.sphinxsidebarwrapper h1.logo a {
 
 div.sphinxsidebarwrapper h1.logo a:after {
     content: ' Home';
+    color: #2b8cbe;
 }
 
 div.body li {

@@ -59,13 +59,27 @@ Clicking on one image, a OMERO.iviewer window will pop-out allowing you to furth
 
 .. toctree::
     :hidden:
+    :glob:
+    :caption: TUTORIALS
+
+    animation
+    dcic
+
+.. toctree::
+    :hidden:
     :glob: 
+    :caption: GETTING STARTED
     
-    tutorial
     design
     components
     plugin
     session
+
+.. toctree::
+    :hidden:
+    :glob:
+    :caption: ADVANCED TOPICS
+
     data_service
     nb_dispatch_api
 

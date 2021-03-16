@@ -1,14 +1,14 @@
-===========
-Tutorial
-===========
+==========
+Animations
+==========
 
 Overview
 ========
 
 This tutorial demonstrates several basic and useful features in Nucleome Browser. Note that there are a lot of GIF file in this page. We recommend you to view these examples using computers rather than cell phones. 
 
-Basic operations
-================
+Panel oraganization
+===================
 
 Create a new panel
 --------------------
@@ -38,6 +38,9 @@ Nucleome Browser supports flexibly adjust the composition of panels. You can dra
     :figwidth: 640px
 
     Nucleome Browser support flexible layout to arrange multiple panels
+
+Genome browser tutorial
+=======================
 
 Navigate the genome using nagivation buttons
 --------------------------------------------
@@ -97,6 +100,9 @@ You can open the scatterplot tool by clicking the ``scatterplot button`` (|gb-sc
     
     Use scaterplot tool to interactively explore genomic tracks
 
+3D structure tutorial
+=====================
+
 Panning, Rotating, and Zooming in/out on 3D structure
 -----------------------------------------------------
 
@@ -147,5 +153,3 @@ Highlighted regions are synchronized between genome browser panel and 3D structu
     
     Use the mouse the manipulate 3D structure
 
-Explore public 4DN data
-=======================
