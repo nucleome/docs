@@ -71,7 +71,9 @@ Clicking on one image, a OMERO.iviewer window will pop-out allowing you to furth
     :caption: GETTING STARTED
     
     design
-    components
+    component_genome
+    component_3d
+    component_other
     plugin
     session
 

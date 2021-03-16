@@ -6,30 +6,23 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Search &#8212; Nucleome Browser v0.9.3 documentation</title>
+    <title>Other components &#8212; Nucleome Browser v0.9.3 documentation</title>
     <link rel="stylesheet" href="_static/nb.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
-  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Plugin usage" href="plugin.html" />
+    <link rel="prev" title="3D structure viewer" href="component_3d.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
 
   </head><body>
   
@@ -41,29 +34,59 @@
 
           <div class="body" role="main">
             
-  <h1 id="search-documentation">Search</h1>
-  <div id="fallback" class="admonition warning">
-  <script type="text/javascript">$('#fallback').hide();</script>
-  <p>
-    Please activate JavaScript to enable the search
-    functionality.
-  </p>
-  </div>
-  <p>
-    From here you can search these documents. Enter your search
-    words into the box below and click "search". Note that the search
-    function will automatically search for all of the words. Pages
-    containing fewer words won't appear in the result list.
-  </p>
-  <form action="" method="get">
-    <input type="text" name="q" value="" />
-    <input type="submit" value="search" />
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
-  
-  <div id="search-results">
-  
-  </div>
+  <div class="section" id="other-components">
+<h1>Other components<a class="headerlink" href="#other-components" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="google-sheet-viewer">
+<h2>Google Sheet viewer<a class="headerlink" href="#google-sheet-viewer" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you may already have a list of regions that they want to inspect, such as a list of ChIP-seq peaks, differentially expressed genes.
+However, go through abundant regions one-by-one by copying and pasting genomic coordinates is both time-consuming and inefficient.
+Formating interesting regions into a bed file and plotting it as a track can provide a global profile of region-of-interest but still cannot solve the problem of efficient exploration of an individual region.
+Here, we provide a novel web component called Google Sheet viewer that can efficiently connect Genome Browser with a list of regions.</p>
+<p>This tool requires users to save a list of regions onto the Google Sheet following simple format guidance as shown below.
+After the Google Sheet is shared with the public by link, you can copy and paste the sheet ID into this web component.
+It will automatically load the data and you can go through these regions by clicking one region (row) or moving up and down in the table using arrow keys.
+Notably, all other connected panels will upstate their content automatically as you change the currently selected region.</p>
+<p><strong>Google Sheet format requirement</strong>
+- The first row is a header about the column’s name
+- The name of the first column is <code class="docutils literal notranslate"><span class="pre">Title</span></code> and the name of the second column is <code class="docutils literal notranslate"><span class="pre">Regions</span></code>
+- You can add more annotation in other columns
+- Put the label of each region under the <code class="docutils literal notranslate"><span class="pre">Title</span></code> column and make sure that label is unique for each row.
+- Genomic coordinates in the <code class="docutils literal notranslate"><span class="pre">Regions</span></code> column should be format as <code class="docutils literal notranslate"><span class="pre">chrom:start-end</span></code> (1-base)</p>
+<p>Clicking the <code class="docutils literal notranslate"><span class="pre">plus</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-top-plus.png"><img alt="top-plus" src="_images/icon-top-plus.png" style="height: 14px;" /></a>) on the top menu bar and selecting <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">Sheet</span> <span class="pre">or</span> <span class="pre">TSV</span></code> component you will see the default interface of the Google Sheet viewer.
+You can load a demo data by clicking the <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">demo</span> <span class="pre">button</span></code>.
+Next, you can use the mouse or the arrow keys to go through the region list.
+You can also search a region by its label using the region viewer shown at the bottom.
+It also supports multi-region visualization by using a comma to separate multiple regions.</p>
+<div class="figure align-center" id="id1" style="width: 640px">
+<img alt="_images/ch3_google_sheet_panel.png" src="_images/ch3_google_sheet_panel.png" />
+<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text">Use the Goolge Sheet web component to explore region of interest</span></p>
+</div>
+</div>
+<div class="section" id="fetch-dna-sequence">
+<h2>Fetch DNA sequence<a class="headerlink" href="#fetch-dna-sequence" title="Permalink to this headline">¶</a></h2>
+<p>We created a web component to allow users to get the DNA sequence of the currently viewed region.
+It can only show the DNA sequence if the region’s length does not exceed 10000 base pairs.
+Notably, when multiple regions are being viewed, this tool will show the DNA sequence of each region separately.</p>
+<div class="figure align-center" id="id2" style="width: 640px">
+<img alt="_images/ch3_fetch_DNA.png" src="_images/ch3_fetch_DNA.png" />
+<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">Fetch the DNA sequence of the currently viewed region (&lt; 10000bp)</span></p>
+</div>
+</div>
+<div class="section" id="dn-dcic-imging-data">
+<h2>4DN DCIC imging data<a class="headerlink" href="#dn-dcic-imging-data" title="Permalink to this headline">¶</a></h2>
+<p>The 4DN Data Coordination and Integration Center (DCIC) currently hosts abundant imaging data using an OMERO server.
+We have parsed the meta-information of those imaging data and stored that information if an image is labeled to specific genomic coordinates (e.g., DNA FISH data).
+In this web component, each track represents one imaging experiment.
+The red bars on top of a track indicate the target of each experiment such as the genomic region targeted by FISH probes.
+Different images taken in one experiment are shown as a list of clickable thumbnails.
+You can view the raw image on the OMERO.iviwer by clicking the thumbnail or explore the details of this data on the DCIC website by clicking the number icon associated with each image.</p>
+<div class="figure align-center" id="id3" style="width: 640px">
+<img alt="_images/ch3_dcic_image.png" src="_images/ch3_dcic_image.png" />
+<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Use the DCIC image web component to view imaging hosted on the 4DN DCIC data portal</span></p>
+</div>
+</div>
+</div>
+
 
           </div>
           
@@ -92,7 +115,7 @@
 <li class="toctree-l1"><a class="reference internal" href="dcic.html">Use 4DN DCIC data</a></li>
 </ul>
 <p class="caption"><span class="caption-text">GETTING STARTED</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="design.html">Panel-container system</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="design.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design.html#what-is-a-panel">What is a panel?</a></li>
@@ -118,10 +141,10 @@
 <li class="toctree-l2"><a class="reference internal" href="component_3d.html#interaction-across-panels">Interaction across panels</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="component_other.html">Other components</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="component_other.html#google-sheet-viewer">Google Sheet viewer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="component_other.html#fetch-dna-sequence">Fetch DNA sequence</a></li>
-<li class="toctree-l2"><a class="reference internal" href="component_other.html#dn-dcic-imging-data">4DN DCIC imging data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Other components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#google-sheet-viewer">Google Sheet viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fetch-dna-sequence">Fetch DNA sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dn-dcic-imging-data">4DN DCIC imging data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plugin.html">Plugin usage</a><ul>
@@ -158,9 +181,23 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="component_3d.html" title="previous chapter">3D structure viewer</a></li>
+      <li>Next: <a href="plugin.html" title="next chapter">Plugin usage</a></li>
   </ul></li>
 </ul>
 </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
 
 
 
@@ -180,6 +217,9 @@
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
+      |
+      <a href="_sources/component_other.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
 
     

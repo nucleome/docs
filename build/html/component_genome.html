@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Web component types &#8212; Nucleome Browser v0.9.3 documentation</title>
+    <title>Genome browser &#8212; Nucleome Browser v0.9.3 documentation</title>
     <link rel="stylesheet" href="_static/nb.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Plugin usage" href="plugin.html" />
+    <link rel="next" title="3D structure viewer" href="component_3d.html" />
     <link rel="prev" title="Panel-container system" href="design.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -34,14 +34,11 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="web-component-types">
-<span id="components"></span><h1>Web component types<a class="headerlink" href="#web-component-types" title="Permalink to this headline">¶</a></h1>
-<p>Nucleome browser supports a series of composable, configurable, and communicable web components, including a genome browser web component designed for presenting both 1D and 2D genomic data, a 3D structure web component, a web component specifically designed to view imaging data stored from the 4DN DCIC data portal, a region-of-interest web component to explore a list of user-defined regions, a DNA sequence web component to fetch DNA sequence, and customized web applications supporting various custom data formats.</p>
-<div class="section" id="genome-browser">
-<h2>Genome browser<a class="headerlink" href="#genome-browser" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="genome-browser">
+<span id="components"></span><h1>Genome browser<a class="headerlink" href="#genome-browser" title="Permalink to this headline">¶</a></h1>
 <p>Genome browser web component works as conventional genome browsers such as the UCSC Genome Browser, providing visualization support for commonly used genomic data including bigWig, bigBed, tabix, and .hic format.</p>
-<div class="section" id="three-visualization-modes">
-<h3>Three visualization modes<a class="headerlink" href="#three-visualization-modes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="visualization-modes">
+<h2>Visualization modes<a class="headerlink" href="#visualization-modes" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="#gbrowser-toolbar"><span class="std std-numref">Fig. 21</span></a> summarizes the configuration buttons of the genome browser panel in the top toolbar.
 Notably, since the Nucleome Browser supports synchronization across multiple panels, two additional navigation modes are introduced in the genome browser web components, i.e., <code class="docutils literal notranslate"><span class="pre">Map</span></code> mode and <code class="docutils literal notranslate"><span class="pre">Context</span></code> mode.
 Users can choose a visualization mode by clicking the <code class="docutils literal notranslate"><span class="pre">visualization</span> <span class="pre">mode</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-genome-mode-normal.png"><img alt="gb-mode" src="_images/icon-genome-mode-normal.png" style="height: 14px;" /></a>) on the right of the genome browser toolbar.</p>
@@ -49,12 +46,15 @@ Users can choose a visualization mode by clicking the <code class="docutils lite
 <img alt="_images/ch3_gbrowser_toolbar_v2.png" src="_images/ch3_gbrowser_toolbar_v2.png" />
 <p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Genome browser web component toolbar</span></p>
 </div>
-<p><strong>Normal mode</strong>:</p>
+<div class="section" id="normal-mode">
+<h3>Normal mode<a class="headerlink" href="#normal-mode" title="Permalink to this headline">¶</a></h3>
 <p>If a genome browser web component is in the normal mode (<a class="reference internal" href="_images/icon-genome-mode-normal.png"><img alt="gb-mode-normal" src="_images/icon-genome-mode-normal.png" style="height: 14px;" /></a>), it will automatically update itself according to operations dispatched from other web components (for genome browser component they must also be in normal or context mode).
 For example, when a user navigates to or highlights a genomic region in other web components, this genome browser component will also go to that region or show the same highlighted region.
 Conversely, any operations happened in this component will broadcast simultaneously to other components.
 This mode is quite useful when you want to compare data hosted in different panels side-by-side.</p>
-<p><strong>Context mode</strong>:</p>
+</div>
+<div class="section" id="context-mode">
+<h3>Context mode<a class="headerlink" href="#context-mode" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Context</span> <span class="pre">mode</span></code> is quite similar to the <code class="docutils literal notranslate"><span class="pre">Normal</span> <span class="pre">mode</span></code>, except that users can set a zooming factor larger than 1x (e.g., 2x, 4x, etc.).
 If the zooming factor is 1x, the <code class="docutils literal notranslate"><span class="pre">Context</span> <span class="pre">mode</span></code> will act the same as the <code class="docutils literal notranslate"><span class="pre">Normal</span> <span class="pre">mode</span></code>.
 However, when a genome browser component has a zooming factor larger than 1x, this component will automatically zooming-out by this scale factor relative to other components.
@@ -62,15 +62,19 @@ For example, if other panels currently navigate to a 100kb region (e.g., chr1:10
 To help users view the relationship between the default region and zoomed-out region, a light green transparent box will be shown in this genome browser to highlight the region on which other panels are viewing at.
 This mode is quite useful when you want to capture the big-picture of a region-of-interest.
 For example, you can use one panel to visualize the details of a ChIP-seq peak and use another panel to reveal the context of the peak region without zoom-in and zoom-out back-and-forth.</p>
-<p><strong>Map mode</strong>:</p>
+</div>
+<div class="section" id="map-mode">
+<h3>Map mode<a class="headerlink" href="#map-mode" title="Permalink to this headline">¶</a></h3>
 <p>Finally, you can turn off the synchronization of a genome browser component by clicking the button of navigation mode until the icon becomes <a class="reference internal" href="_images/icon-genome-mode-map.png"><img alt="gb-mode-map" src="_images/icon-genome-mode-map.png" style="height: 14px;" /></a>.
 In the <code class="docutils literal notranslate"><span class="pre">Map</span> <span class="pre">mode</span></code>, this panel will not respond to any operations that happened in other panels, and will also not automatically broadcast its operations to other panels.
 However, users can still highlight a region in this panel and clicking the <code class="docutils literal notranslate"><span class="pre">go-to</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-genome-go.png"><img alt="gb-goto" src="_images/icon-genome-go.png" style="height: 14px;" /></a>) to force all other panels to go to the highlighted region.
 This mode is useful when you want to use one panel to view the big picture and examine details in other panels.</p>
 </div>
+</div>
 <div class="section" id="navigate-genome">
-<h3>Navigate genome<a class="headerlink" href="#navigate-genome" title="Permalink to this headline">¶</a></h3>
-<p><strong>Type region(s) manually</strong></p>
+<h2>Navigate genome<a class="headerlink" href="#navigate-genome" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="type-region-s-manually">
+<h3>Type region(s) manually<a class="headerlink" href="#type-region-s-manually" title="Permalink to this headline">¶</a></h3>
 <p>You can navigate to a certain region(s) by manually typing the genomic coordinate(s) in the genomic coordinate box located on the left of the toolbar.
 The genome browser component can recognize any  genomic coordinate formatted as chromosome:start-end, such as <code class="docutils literal notranslate"><span class="pre">chr1:1000-2000</span></code>.
 Notably, it will assume the coordinates are 1-base and right-fully closed.
@@ -80,7 +84,9 @@ To view the entire chromosome, you can just type the name of a chromosome (e.g.,
 Similarly, at most five different chromosomes can be viewed at the same time.
 Nucleome Browser allows users to search for a gene by its name (requiring the gene annotation track).
 You can type the gene’s name in the genomic coordinates box and choose the gene in the drop-down list.</p>
-<p><strong>Navigation buttons</strong></p>
+</div>
+<div class="section" id="navigation-buttons">
+<h3>Navigation buttons<a class="headerlink" href="#navigation-buttons" title="Permalink to this headline">¶</a></h3>
 <p>You can use four buttons to quickly navigate through the genome.
 Clicking the <code class="docutils literal notranslate"><span class="pre">zoom-out</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-genome-zoomout-3x.png"><img alt="gb-zoom-out" src="_images/icon-genome-zoomout-3x.png" style="height: 14px;" /></a>) will zoom out to a 3x length of the current region.
 Clicking the <code class="docutils literal notranslate"><span class="pre">zoom-in</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-genome-zoomin-3x.png"><img alt="gb-zoom-in" src="_images/icon-genome-zoomin-3x.png" style="height: 14px;" /></a>) will zoom in to a 1/3x length of the current region.
@@ -95,7 +101,9 @@ Notably, multiple regions overlapping with each other will be automatically merg
 <img alt="_images/ch3_gbrowser_navigate_example.png" src="_images/ch3_gbrowser_navigate_example.png" />
 <p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Illustration of the change of view using different navigation buttons</span></p>
 </div>
-<p><strong>Highlight region(s)</strong></p>
+</div>
+<div class="section" id="highlight-region-s">
+<h3>Highlight region(s)<a class="headerlink" href="#highlight-region-s" title="Permalink to this headline">¶</a></h3>
 <p>You can left-click the mouse and drag it on tracks to highlight a particular region.
 When you drag it on the Hi-C 2D matrix track, two regions will be highlighted.
 After you release the mouse, you can then left-click on the highlight region(s) and drag it to move it along the genome.
@@ -113,7 +121,9 @@ Notably, multiple regions separated from each other on the genome will be pseudo
 <img alt="_images/ch3_gbrowser_multiregion.png" src="_images/ch3_gbrowser_multiregion.png" />
 <p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">If multiple regions are highlighted, right-clicking those region will zoom into regions by stitching discontiguous regions together.</span></p>
 </div>
-<p><strong>Use chromosome ideogram</strong></p>
+</div>
+<div class="section" id="use-chromosome-ideogram">
+<h3>Use chromosome ideogram<a class="headerlink" href="#use-chromosome-ideogram" title="Permalink to this headline">¶</a></h3>
 <p>Chromosome ideogram shows an overview of a chromosome.
 The currently viewed region is shown as a red bar just below the chromosome ideogram.
 You can left-click the red bar and drag it to quickly navigate to another region in the same chromosome.
@@ -123,12 +133,15 @@ You can also brush on the chromosome ideogram to highlight a region and right-cl
 <p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Navigate the genome using the chromosome ideogram</span></p>
 </div>
 </div>
-<div class="section" id="print-genome-browser-s-view">
-<h3>Print genome browser’s view<a class="headerlink" href="#print-genome-browser-s-view" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="export-browser-view">
+<h2>Export browser view<a class="headerlink" href="#export-browser-view" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="export-screenshot">
+<h3>Export screenshot<a class="headerlink" href="#export-screenshot" title="Permalink to this headline">¶</a></h3>
 <p>A save-to-png button (<a class="reference internal" href="_images/icon-genome-screenshot.png"><img alt="gb-screenshot" src="_images/icon-genome-screenshot.png" style="height: 14px;" /></a>) can directly export the screenshot of the current panel into a png image file.
 You can also create a high-quality image of the current genome browser’s view including the highlights using the print button (<a class="reference internal" href="_images/icon-genome-print.png"><img alt="gb-print" src="_images/icon-genome-print.png" style="height: 14px;" /></a>) in the genome browser toolbar.
 You can choose a file format for the downloaded image from pixel-based graphics (png format) and vector-based graphics (SVG, pdf).
-Vector-based graphics can be further edited for publication using software such as Adobe Illustrator.
+Vector-based graphics can be further edited for publication using the edit tool provided on the Nucleome Browser or commercial softwares such as Adobe Illustrator.
 Notably, the print function can only save the current panel into an image file.
 You need to save views for different genome browser panels one-by-one.</p>
 <div class="figure align-center" id="id6" style="width: 480px">
@@ -136,9 +149,19 @@ You need to save views for different genome browser panels one-by-one.</p>
 <p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Print the current view to png or SVG file</span></p>
 </div>
 </div>
+<div class="section" id="remove-guidelines">
+<h3>Remove guidelines<a class="headerlink" href="#remove-guidelines" title="Permalink to this headline">¶</a></h3>
+<p>Clicking the <code class="docutils literal notranslate"><span class="pre">remove</span> <span class="pre">guidelines</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-genome-guideline.png"><img alt="gb-guideline" src="_images/icon-genome-guideline.png" style="height: 14px;" /></a>), you can remove the vertical blue lines .</p>
+<div class="figure align-center" id="id7" style="width: 480px">
+<img alt="_images/ch3_gbrowser_guide_line.png" src="_images/ch3_gbrowser_guide_line.png" />
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Remove guide lines on the background</span></p>
+</div>
+</div>
+</div>
 <div class="section" id="configure-tracks">
-<h3>Configure tracks<a class="headerlink" href="#configure-tracks" title="Permalink to this headline">¶</a></h3>
-<p><strong>Configure a single track</strong></p>
+<h2>Configure tracks<a class="headerlink" href="#configure-tracks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configure-a-single-track">
+<h3>Configure a single track<a class="headerlink" href="#configure-a-single-track" title="Permalink to this headline">¶</a></h3>
 <p>Right-clicking on one track label on the left, and choosing the <code class="docutils literal notranslate"><span class="pre">config</span> <span class="pre">button</span></code> from the drop-down list, you will see the configuration dialog.
 You can then customize the appearance of a track by modifying the configuration.
 Some explanations of settings are shown below:</p>
@@ -154,21 +177,23 @@ Some explanations of settings are shown below:</p>
 <li><strong>oe</strong>: Whether to display observed vs expected (O/E) contact matrix rather than observed matrix for .hic data.</li>
 <li><strong>min_bp</strong>: Set the minimum resolution for a Hi-C contact matrix.</li>
 </ul>
-<div class="figure align-center" id="id7" style="width: 640px">
+<div class="figure align-center" id="id8" style="width: 640px">
 <img alt="_images/ch3_gbrowser_track_config.png" src="_images/ch3_gbrowser_track_config.png" />
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Configure a single track</span></p>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Configure a single track</span></p>
 </div>
 <p>To hide a track, you can right-click on the track label and click the <code class="docutils literal notranslate"><span class="pre">hide</span> <span class="pre">button</span></code> from the drop-down list.
 To re-order a track, you can drag that track and move it up or down to the preferred location.</p>
-<p><strong>Batch-configuration tool</strong></p>
+</div>
+<div class="section" id="batch-configuration-tool">
+<h3>Batch-configuration tool<a class="headerlink" href="#batch-configuration-tool" title="Permalink to this headline">¶</a></h3>
 <p>You can also configure a series of tracks together using the batch-configuration tool.
 Clicking the <code class="docutils literal notranslate"><span class="pre">batch-configuration</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-genome-batch.png"><img alt="gb-batch-config" src="_images/icon-genome-batch.png" style="height: 14px;" /></a>) in the genome browser panel toolbar, you will see the dialog of the batch-configuration tool.
 In this tool, you can select multiple tracks (holding the <code class="docutils literal notranslate"><span class="pre">Control</span></code> key to add a track one-by-one or the <code class="docutils literal notranslate"><span class="pre">Shift</span></code> key to select a range of tracks) and modify their appearance at the same time.
 Notably, only bigWig tracks are supported in this tool.
 This tool is quite useful to convert a large number of tracks into the dense mode or set the same color for those tracks.</p>
-<div class="figure align-center" id="id8" style="width: 640px">
+<div class="figure align-center" id="id9" style="width: 640px">
 <img alt="_images/ch3_gbrowser_bigwig_batch.png" src="_images/ch3_gbrowser_bigwig_batch.png" />
-<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Batch configure multiple bigWig tracks</span></p>
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Batch configure multiple bigWig tracks</span></p>
 </div>
 <p>We also provide two buttons to directly convert all bigwig tracks from the full view to a compact view and vice versa.
 You can access these buttons in the toolbar of the genome browser web component.</p>
@@ -176,8 +201,9 @@ You can access these buttons in the toolbar of the genome browser web component.
 <img alt="_images/ch3_gbrowser_bigwig_full_compact.png" src="_images/ch3_gbrowser_bigwig_full_compact.png" />
 </div>
 </div>
+</div>
 <div class="section" id="manage-tracks">
-<h3>Manage tracks<a class="headerlink" href="#manage-tracks" title="Permalink to this headline">¶</a></h3>
+<h2>Manage tracks<a class="headerlink" href="#manage-tracks" title="Permalink to this headline">¶</a></h2>
 <p>Clicking the <code class="docutils literal notranslate"><span class="pre">configuration</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-genome-config.png"><img alt="gb-config" src="_images/icon-genome-config.png" style="height: 14px;" /></a>) on the toolbar of the genome browser panel, you will see the configuration interface.
 You can also click the <code class="docutils literal notranslate"><span class="pre">panel-configuration</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-panel-config_v2.png"><img alt="panel-config" src="_images/icon-panel-config_v2.png" style="height: 14px;" /></a>) on the top-right of the panel to enter the configuration interface.
 In the configuration interface, you will see the web page is separated into three parts: 1) data service module on the top; 2) currently loaded tracks shown on the left; 3) available tracks from data service on the right.</p>
@@ -186,21 +212,13 @@ In the configuration interface, you will see the web page is separated into thre
 <p>In the available tracks module, you can select a datasheet and add tracks to the list of loaded tracks.
 You can filter tracks by clicking the <code class="docutils literal notranslate"><span class="pre">search</span> <span class="pre">button</span></code> and type in the keywords.
 Clicking the <code class="docutils literal notranslate"><span class="pre">read-more</span> <span class="pre">button</span></code>, you will be directed to a new website showing extra information about this track (for 4DN data, this leads to the meta-information website on the DCIC data portal).</p>
-<div class="figure align-center" id="id9" style="width: 640px">
+<div class="figure align-center" id="id10" style="width: 640px">
 <img alt="_images/ch3_gbrowser_config.png" src="_images/ch3_gbrowser_config.png" />
-<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Add or remove tracks in the configuration interface of the genome browser component</span></p>
-</div>
-</div>
-<div class="section" id="remove-guidelines">
-<h3>Remove guidelines<a class="headerlink" href="#remove-guidelines" title="Permalink to this headline">¶</a></h3>
-<p>Clicking the <code class="docutils literal notranslate"><span class="pre">remove</span> <span class="pre">guidelines</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-genome-guideline.png"><img alt="gb-guideline" src="_images/icon-genome-guideline.png" style="height: 14px;" /></a>), you can remove the vertical blue lines .</p>
-<div class="figure align-center" id="id10" style="width: 480px">
-<img alt="_images/ch3_gbrowser_guide_line.png" src="_images/ch3_gbrowser_guide_line.png" />
-<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Remove guide lines on the background</span></p>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Add or remove tracks in the configuration interface of the genome browser component</span></p>
 </div>
 </div>
 <div class="section" id="scatterplot-tool">
-<h3>Scatterplot tool<a class="headerlink" href="#scatterplot-tool" title="Permalink to this headline">¶</a></h3>
+<h2>Scatterplot tool<a class="headerlink" href="#scatterplot-tool" title="Permalink to this headline">¶</a></h2>
 <p>Nucleome Browser provides a convenient scatterplot tool to interactively compare signals between two bigWig tracks.
 Clicking the <code class="docutils literal notranslate"><span class="pre">scatterplot</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-genome-scatterplot.png"><img alt="gb-scatterplot" src="_images/icon-genome-scatterplot.png" style="height: 14px;" /></a>), a window will appear on the right side of the genome browser panel.
 After you select which tracks to be shown in the X-axis and Y-axis, an interactive scatterplot will be shown.
@@ -213,142 +231,6 @@ For other functions of the scatterplot tool such as pan, zoom, reset, etc., you 
 <div class="figure align-center" id="id11" style="width: 640px">
 <img alt="_images/ch3_gbrowser_scatterplot_v2.png" src="_images/ch3_gbrowser_scatterplot_v2.png" />
 <p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Use the scatterplot tool to explore relationship between two bigWig tracks</span></p>
-</div>
-</div>
-</div>
-<div class="section" id="d-structure-viewer">
-<h2>3D structure viewer<a class="headerlink" href="#d-structure-viewer" title="Permalink to this headline">¶</a></h2>
-<p>Nucleome Browser provides a 3D genome structure web component to visualize 3D structure data.
-3D structure data is stored as a custom format called Nucle3d.
-The documentation of the Nucle3d format can be accessed at <a class="reference external" href="https://github.com/nucleome/nucle3d">https://github.com/nucleome/nucle3d</a>.
-We also provided some scripts to convert common 3D structural data formats such as HSS and CMM into the Nucle3d format.
-You can download these scripts at <a class="reference external" href="https://github.com/nucleome/nucle">https://github.com/nucleome/nucle</a>.</p>
-<p>Once the data is formated, you can upload the data to a web server and put the link in the 3D data URI box as shown below.</p>
-<div class="figure align-center" id="id12" style="width: 640px">
-<img alt="_images/ch3_3d_toolbar.png" src="_images/ch3_3d_toolbar.png" />
-<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">3D structure viewer toolbar</span></p>
-</div>
-<div class="section" id="two-visualization-modes">
-<h3>Two visualization modes<a class="headerlink" href="#two-visualization-modes" title="Permalink to this headline">¶</a></h3>
-<p>By default, DNA molecules are shown as segments with color.
-Depending on the meaning of color, there are two visualization modes of 3D structures: 1) global mode showing all chromosomes; 2) local mode showing currently viewed regions.
-You can switch from these two modes by toggling the mode button.</p>
-<p><strong>Global view mode</strong></p>
-<p>In the global view mode, you can see all chromosomes.
-When the <code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">selection</span> <span class="pre">button</span></code> is on, you can control the currently viewed chromosome on other panels by clicking on chromosome on the 3D structure.</p>
-<p><strong>Local view mode</strong>
-In the local view mode, you can set what kind of scale of the currently viewed region.
-There are three options: 1) currently viewed chromosome(s); 2) currently viewed region(s); 3) highlighted region(s).</p>
-<div class="figure align-center" id="id13" style="width: 640px">
-<img alt="_images/ch3_3d_local_global_mode.png" src="_images/ch3_3d_local_global_mode.png" />
-<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">Different examples in global and local mode</span></p>
-</div>
-</div>
-<div class="section" id="change-atom-style">
-<h3>Change atom style<a class="headerlink" href="#change-atom-style" title="Permalink to this headline">¶</a></h3>
-<p>You can choose a atom style of 3D structure by clicking the atom style buttons on the toolbar.
-Currently four styles are implemented: line (<a class="reference internal" href="_images/icon-3d-style-line.png"><img alt="style-line" src="_images/icon-3d-style-line.png" style="height: 14px;" /></a>), stick (<a class="reference internal" href="_images/icon-3d-style-stick.png"><img alt="style-stick" src="_images/icon-3d-style-stick.png" style="height: 14px;" /></a>), cross (<a class="reference internal" href="_images/icon-3d-style-cross.png"><img alt="style-cross" src="_images/icon-3d-style-cross.png" style="height: 14px;" /></a>), and sphere (<a class="reference internal" href="_images/icon-3d-style-sphere.png"><img alt="style-sphere" src="_images/icon-3d-style-sphere.png" style="height: 14px;" /></a>).</p>
-<div class="figure align-center" id="id14" style="width: 640px">
-<img alt="_images/ch3_3d_atom_style.png" src="_images/ch3_3d_atom_style.png" />
-<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">The same 3D structure viewed in four atom styles</span></p>
-</div>
-</div>
-<div class="section" id="exploring-3d-structures">
-<h3>Exploring 3D structures<a class="headerlink" href="#exploring-3d-structures" title="Permalink to this headline">¶</a></h3>
-<p><strong>Rotate</strong></p>
-<p>Left-clicking any place in the 3D structure panel, holding the mouse and dragging it you will see views of the 3D structure from different angles.</p>
-<p><strong>Zoom-in and Zoom-out</strong></p>
-<p>You can use the scroll wheel of the mouse to zoom-in and zoom-out the 3D structure.</p>
-<p><strong>Pan</strong></p>
-<p>Holding the control key, left-clicking and holding the mouse you can move the 3D structure.</p>
-<div class="figure align-center" id="id15" style="width: 360px">
-<img alt="_images/ch3_3d_operation.png" src="_images/ch3_3d_operation.png" />
-<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">Users can easily manipulate 3D structures using different operations</span></p>
-</div>
-</div>
-<div class="section" id="configure-color">
-<h3>Configure color<a class="headerlink" href="#configure-color" title="Permalink to this headline">¶</a></h3>
-<p>You can also customize the color of 3D structure using three methods: 1) by chromosome; 2) by bigWig signal; 3) by bigBed annotation.</p>
-<div class="figure align-center" id="id16" style="width: 640px">
-<img alt="_images/ch3_3d_color_config.png" src="_images/ch3_3d_color_config.png" />
-<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">Config the color of 3D structures using chromosome IDs, bigWig signal, or bigBed annotatin.</span></p>
-</div>
-<p><strong>By chromosomes</strong></p>
-<p>In this mode, different chromosomes are colored by randomly selected colors.
-To turn on color by chromosome mode, you can click the <code class="docutils literal notranslate"><span class="pre">color-by-chromosome</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-3d-color-chrom.png"><img alt="color-chrom" src="_images/icon-3d-color-chrom.png" style="height: 14px;" /></a>) in the 3D structure toolbar.</p>
-<p><strong>By bigWig signals</strong></p>
-<p>Users can super-impose a bigwig track from the genome browser panel onto the 3D genome structure.
-First, you need to go to the configuration mode of the genome browser panel (see details in the genome browser web component).
-Next, you need to click the <code class="docutils literal notranslate"><span class="pre">color-by-bigWig</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-3d-color-bigwig.png"><img alt="color-bigwig" src="_images/icon-3d-color-bigwig.png" style="height: 14px;" /></a>) in the 3D structure toolbar.
-Finally, left-clicking the <code class="docutils literal notranslate"><span class="pre">send</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-genome-send.png"><img alt="track-send" src="_images/icon-genome-send.png" style="height: 14px;" /></a>) and dragging one bigwig track to the target box, you will see the color of DNA segments change into a green-to-red gradient.
-Here, the red color represents larger values and the green color represents lower values.</p>
-<p><strong>By bigBed annotations (experimental)</strong></p>
-<p>It is also possible to color 3D structure by categorical annotations from a bigBed track.
-Clicking the <code class="docutils literal notranslate"><span class="pre">color</span> <span class="pre">by</span> <span class="pre">bigBed</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-3d-color-bigbed.png"><img alt="color-bigbed" src="_images/icon-3d-color-bigbed.png" style="height: 14px;" /></a>) on the 3D structure toolbar, a new box will appear allowing users you drag-and-drop bigBed track from the genome browser panel to the 3D structure panel.
-The procedure is quite similar as compared to coloring the DNA using a bigWig track.
-Notably, this feature may be quite slow if you are viewing a large region.
-The volumes of spheres are proportional to the size of annotations and the spatial position of spheres are the average values of the corresponding DNA segments.</p>
-<div class="figure align-center" id="id17" style="width: 640px">
-<img alt="_images/ch3_3d_bigwig.png" src="_images/ch3_3d_bigwig.png" />
-<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">Super-impose bigWig/bigBed tracks onto the 3D structure</span></p>
-</div>
-</div>
-<div class="section" id="interaction-across-panels">
-<h3>Interaction across panels<a class="headerlink" href="#interaction-across-panels" title="Permalink to this headline">¶</a></h3>
-<p>There is no limit to the number of 3D structure panels opened in the Nucleome Browser.
-Users can configure each 3D panel individually by choosing different 3D data, different atom styles, different view modes, or different color settings.
-Notably, when you rotate or zoom a 3D structure in one panel, other panels showing the same data will rotate or zoom to the same viewpoint.
-This feature allows users to easily explore genomic signals on 3D structures.
-For example, you can super-imposed different bigWig signals on different 3D structure panel (with the same structure) and compare different signals.</p>
-</div>
-</div>
-<div class="section" id="google-sheet-viewer">
-<h2>Google Sheet viewer<a class="headerlink" href="#google-sheet-viewer" title="Permalink to this headline">¶</a></h2>
-<p>Sometimes you may already have a list of regions that they want to inspect, such as a list of ChIP-seq peaks, differentially expressed genes.
-However, go through abundant regions one-by-one by copying and pasting genomic coordinates is both time-consuming and inefficient.
-Formating interesting regions into a bed file and plotting it as a track can provide a global profile of region-of-interest but still cannot solve the problem of efficient exploration of an individual region.
-Here, we provide a novel web component called Google Sheet viewer that can efficiently connect Genome Browser with a list of regions.</p>
-<p>This tool requires users to save a list of regions onto the Google Sheet following simple format guidance as shown below.
-After the Google Sheet is shared with the public by link, you can copy and paste the sheet ID into this web component.
-It will automatically load the data and you can go through these regions by clicking one region (row) or moving up and down in the table using arrow keys.
-Notably, all other connected panels will upstate their content automatically as you change the currently selected region.</p>
-<p><strong>Google Sheet format requirement</strong>
-- The first row is a header about the column’s name
-- The name of the first column is <code class="docutils literal notranslate"><span class="pre">Title</span></code> and the name of the second column is <code class="docutils literal notranslate"><span class="pre">Regions</span></code>
-- You can add more annotation in other columns
-- Put the label of each region under the <code class="docutils literal notranslate"><span class="pre">Title</span></code> column and make sure that label is unique for each row.
-- Genomic coordinates in the <code class="docutils literal notranslate"><span class="pre">Regions</span></code> column should be format as <code class="docutils literal notranslate"><span class="pre">chrom:start-end</span></code> (1-base)</p>
-<p>Clicking the <code class="docutils literal notranslate"><span class="pre">plus</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-top-plus.png"><img alt="top-plus" src="_images/icon-top-plus.png" style="height: 14px;" /></a>) on the top menu bar and selecting <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">Sheet</span> <span class="pre">or</span> <span class="pre">TSV</span></code> component you will see the default interface of the Google Sheet viewer.
-You can load a demo data by clicking the <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">demo</span> <span class="pre">button</span></code>.
-Next, you can use the mouse or the arrow keys to go through the region list.
-You can also search a region by its label using the region viewer shown at the bottom.
-It also supports multi-region visualization by using a comma to separate multiple regions.</p>
-<div class="figure align-center" id="id18" style="width: 640px">
-<img alt="_images/ch3_google_sheet_panel.png" src="_images/ch3_google_sheet_panel.png" />
-<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text">Use the Goolge Sheet web component to explore region of interest</span></p>
-</div>
-</div>
-<div class="section" id="fetch-dna-sequence">
-<h2>Fetch DNA sequence<a class="headerlink" href="#fetch-dna-sequence" title="Permalink to this headline">¶</a></h2>
-<p>We created a web component to allow users to get the DNA sequence of the currently viewed region.
-It can only show the DNA sequence if the region’s length does not exceed 10000 base pairs.
-Notably, when multiple regions are being viewed, this tool will show the DNA sequence of each region separately.</p>
-<div class="figure align-center" id="id19" style="width: 640px">
-<img alt="_images/ch3_fetch_DNA.png" src="_images/ch3_fetch_DNA.png" />
-<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">Fetch the DNA sequence of the currently viewed region (&lt; 10000bp)</span></p>
-</div>
-</div>
-<div class="section" id="dn-dcic-imging-data">
-<h2>4DN DCIC imging data<a class="headerlink" href="#dn-dcic-imging-data" title="Permalink to this headline">¶</a></h2>
-<p>The 4DN Data Coordination and Integration Center (DCIC) currently hosts abundant imaging data using an OMERO server.
-We have parsed the meta-information of those imaging data and stored that information if an image is labeled to specific genomic coordinates (e.g., DNA FISH data).
-In this web component, each track represents one imaging experiment.
-The red bars on top of a track indicate the target of each experiment such as the genomic region targeted by FISH probes.
-Different images taken in one experiment are shown as a list of clickable thumbnails.
-You can view the raw image on the OMERO.iviwer by clicking the thumbnail or explore the details of this data on the DCIC website by clicking the number icon associated with each image.</p>
-<div class="figure align-center" id="id20" style="width: 640px">
-<img alt="_images/ch3_dcic_image.png" src="_images/ch3_dcic_image.png" />
-<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Use the DCIC image web component to view imaging hosted on the 4DN DCIC data portal</span></p>
 </div>
 </div>
 </div>
@@ -390,12 +272,27 @@ You can view the raw image on the OMERO.iviwer by clicking the thumbnail or expl
 <li class="toctree-l2"><a class="reference internal" href="design.html#flexible-layout">Flexible layout</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Web component types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#genome-browser">Genome browser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#d-structure-viewer">3D structure viewer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#google-sheet-viewer">Google Sheet viewer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fetch-dna-sequence">Fetch DNA sequence</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dn-dcic-imging-data">4DN DCIC imging data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Genome browser</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#visualization-modes">Visualization modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#navigate-genome">Navigate genome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#export-browser-view">Export browser view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-tracks">Configure tracks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manage-tracks">Manage tracks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scatterplot-tool">Scatterplot tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="component_3d.html">3D structure viewer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="component_3d.html#two-visualization-modes">Two visualization modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_3d.html#change-atom-style">Change atom style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_3d.html#exploring-structures">Exploring structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_3d.html#configure-color">Configure color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_3d.html#interaction-across-panels">Interaction across panels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="component_other.html">Other components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="component_other.html#google-sheet-viewer">Google Sheet viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_other.html#fetch-dna-sequence">Fetch DNA sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_other.html#dn-dcic-imging-data">4DN DCIC imging data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plugin.html">Plugin usage</a><ul>
@@ -433,7 +330,7 @@ You can view the raw image on the OMERO.iviwer by clicking the thumbnail or expl
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="design.html" title="previous chapter">Panel-container system</a></li>
-      <li>Next: <a href="plugin.html" title="next chapter">Plugin usage</a></li>
+      <li>Next: <a href="component_3d.html" title="next chapter">3D structure viewer</a></li>
   </ul></li>
 </ul>
 </div>
@@ -469,7 +366,7 @@ You can view the raw image on the OMERO.iviwer by clicking the thumbnail or expl
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/components.rst.txt"
+      <a href="_sources/component_genome.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
