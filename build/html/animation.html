@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Animations &#8212; Nucleome Browser v0.9.3 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/nb.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -156,31 +156,13 @@ Zoom-in/-out: Use the center mouse wheel to zoom-in or zoom-out.</p>
 
 
 
-<h3>Navigation</h3>
 <p class="caption"><span class="caption-text">TUTORIALS</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Animations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#panel-oraganization">Panel oraganization</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-new-panel">Create a new panel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#flexible-layout">Flexible layout</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#genome-browser-tutorial">Genome browser tutorial</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#navigate-the-genome-using-nagivation-buttons">Navigate the genome using nagivation buttons</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#navigate-the-genome-using-ideogram">Navigate the genome using ideogram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#left-click-to-highlight-right-click-to-zoom-in">Left-click to highlight &amp; right-click to zoom-in</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#click-annotation-to-highlight-multiple-regions">Click annotation to highlight multiple regions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#interactive-scatterplot-tool">Interactive scatterplot tool</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#d-structure-tutorial">3D structure tutorial</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#panning-rotating-and-zooming-in-out-on-3d-structure">Panning, Rotating, and Zooming in/out on 3D structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#super-impose-bigwig-on-3d-structure">Super-impose bigwig on 3D structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#click-segment-on-the-3d-structure-to-navigate">Click segment on the 3D structure to navigate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#synchronized-highlight-between-genome-browser-and-3d-structure">Synchronized highlight between genome browser and 3D structure</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#panel-oraganization">Panel oraganization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#genome-browser-tutorial">Genome browser tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d-structure-tutorial">3D structure tutorial</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dcic.html">Use 4DN DCIC data</a></li>
@@ -196,24 +178,8 @@ Zoom-in/-out: Use the center mouse wheel to zoom-in or zoom-out.</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="components.html">Web component types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="components.html#genome-browser">Genome browser</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="components.html#three-visualization-modes">Three visualization modes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="components.html#navigate-genome">Navigate genome</a></li>
-<li class="toctree-l3"><a class="reference internal" href="components.html#print-genome-browser-s-view">Print genome browser’s view</a></li>
-<li class="toctree-l3"><a class="reference internal" href="components.html#configure-tracks">Configure tracks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="components.html#manage-tracks">Manage tracks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="components.html#remove-guidelines">Remove guidelines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="components.html#scatterplot-tool">Scatterplot tool</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="components.html#d-structure-viewer">3D structure viewer</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="components.html#two-visualization-modes">Two visualization modes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="components.html#change-atom-style">Change atom style</a></li>
-<li class="toctree-l3"><a class="reference internal" href="components.html#exploring-3d-structures">Exploring 3D structures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="components.html#configure-color">Configure color</a></li>
-<li class="toctree-l3"><a class="reference internal" href="components.html#interaction-across-panels">Interaction across panels</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#genome-browser">Genome browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#d-structure-viewer">3D structure viewer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components.html#google-sheet-viewer">Google Sheet viewer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components.html#fetch-dna-sequence">Fetch DNA sequence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components.html#dn-dcic-imging-data">4DN DCIC imging data</a></li>
@@ -236,12 +202,7 @@ Zoom-in/-out: Use the center mouse wheel to zoom-in or zoom-out.</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="data_service.html">Data preparation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="data_service.html#data-type-supported">Data type supported</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data_service.html#genomic-data">Genomic data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="data_service.html#nucleserver-and-nucledata">NucleServer and NucleData</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data_service.html#prepare-the-configuration-file-using-public-google-sheet">Prepare the configuration file using public Google Sheet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data_service.html#host-private-data-in-a-remote-server">Host private data in a remote server</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="data_service.html#genomic-data">Genomic data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_service.html#d-structure-data">3D structure data</a></li>
 </ul>
 </li>
