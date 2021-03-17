@@ -39,12 +39,12 @@
 <p>Genome browser web component works as conventional genome browsers such as the UCSC Genome Browser, providing visualization support for commonly used genomic data including bigWig, bigBed, tabix, and .hic format.</p>
 <div class="section" id="visualization-modes">
 <h2>Visualization modes<a class="headerlink" href="#visualization-modes" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="#gbrowser-toolbar"><span class="std std-numref">Fig. 21</span></a> summarizes the configuration buttons of the genome browser panel in the top toolbar.
+<p><a class="reference internal" href="#gbrowser-toolbar"><span class="std std-numref">Fig. 26</span></a> summarizes the configuration buttons of the genome browser panel in the top toolbar.
 Notably, since the Nucleome Browser supports synchronization across multiple panels, two additional navigation modes are introduced in the genome browser web components, i.e., <code class="docutils literal notranslate"><span class="pre">Map</span></code> mode and <code class="docutils literal notranslate"><span class="pre">Context</span></code> mode.
 Users can choose a visualization mode by clicking the <code class="docutils literal notranslate"><span class="pre">visualization</span> <span class="pre">mode</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-genome-mode-normal.png"><img alt="gb-mode" src="_images/icon-genome-mode-normal.png" style="height: 14px;" /></a>) on the right of the genome browser toolbar.</p>
 <div class="figure align-center" id="gbrowser-toolbar" style="width: 640px">
 <img alt="_images/ch3_gbrowser_toolbar_v2.png" src="_images/ch3_gbrowser_toolbar_v2.png" />
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Genome browser web component toolbar</span></p>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Genome browser web component toolbar</span></p>
 </div>
 <div class="section" id="normal-mode">
 <h3>Normal mode<a class="headerlink" href="#normal-mode" title="Permalink to this headline">¶</a></h3>
@@ -95,11 +95,11 @@ Clicking the <code class="docutils literal notranslate"><span class="pre">move</
 Notably, multiple regions overlapping with each other will be automatically merged when you zoom out.</p>
 <div class="figure align-center" id="id1" style="width: 480px">
 <img alt="_images/ch3_gbrowser_navigate.png" src="_images/ch3_gbrowser_navigate.png" />
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Use genomic coordinate box to goto a certain region or use the navigation buttons to move along the genome and zoom-in/-out</span></p>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Use genomic coordinate box to goto a certain region or use the navigation buttons to move along the genome and zoom-in/-out</span></p>
 </div>
 <div class="figure align-center" id="id2" style="width: 420px">
 <img alt="_images/ch3_gbrowser_navigate_example.png" src="_images/ch3_gbrowser_navigate_example.png" />
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Illustration of the change of view using different navigation buttons</span></p>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Illustration of the change of view using different navigation buttons</span></p>
 </div>
 </div>
 <div class="section" id="highlight-region-s">
@@ -111,7 +111,7 @@ Notably, when you highlight a region or move the highlighted region in one panel
 This synchronization also works for highlights on multiple regions.</p>
 <div class="figure align-center" id="id3" style="width: 640px">
 <img alt="_images/ch3_gbrowser_highlight_v2.png" src="_images/ch3_gbrowser_highlight_v2.png" />
-<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Right-click the mouse to zoom into any highlighted track or Hi-C contact matrix</span></p>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Right-click the mouse to zoom into any highlighted track or Hi-C contact matrix</span></p>
 </div>
 <p>Right-clicking any place on the highlighted region, you will zoom into the region of highlight.
 If a bed track shows categorical data with different colors (e.g., SPIN states, Hi-C subcomponents), you can highlight all the regions with the same annotation/color by left-clicking one region.
@@ -119,7 +119,7 @@ Right-clicking on these highlighted regions, a zoom-in view of the highlighted r
 Notably, multiple regions separated from each other on the genome will be pseudo-merged together as shown below.</p>
 <div class="figure align-center" id="id4" style="width: 640px">
 <img alt="_images/ch3_gbrowser_multiregion.png" src="_images/ch3_gbrowser_multiregion.png" />
-<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">If multiple regions are highlighted, right-clicking those region will zoom into regions by stitching discontiguous regions together.</span></p>
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">If multiple regions are highlighted, right-clicking those region will zoom into regions by stitching discontiguous regions together.</span></p>
 </div>
 </div>
 <div class="section" id="use-chromosome-ideogram">
@@ -130,7 +130,7 @@ You can left-click the red bar and drag it to quickly navigate to another region
 You can also brush on the chromosome ideogram to highlight a region and right-click the highlighted region to zoom into that region.</p>
 <div class="figure align-center" id="id5" style="width: 480px">
 <img alt="_images/ch3_gbrowser_ideogram.png" src="_images/ch3_gbrowser_ideogram.png" />
-<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Navigate the genome using the chromosome ideogram</span></p>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Navigate the genome using the chromosome ideogram</span></p>
 </div>
 </div>
 </div>
@@ -146,7 +146,7 @@ Notably, the print function can only save the current panel into an image file.
 You need to save views for different genome browser panels one-by-one.</p>
 <div class="figure align-center" id="id6" style="width: 480px">
 <img alt="_images/ch3_gbrowser_print.png" src="_images/ch3_gbrowser_print.png" />
-<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Print the current view to png or SVG file</span></p>
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Print the current view to png or SVG file</span></p>
 </div>
 </div>
 <div class="section" id="remove-guidelines">
@@ -154,7 +154,7 @@ You need to save views for different genome browser panels one-by-one.</p>
 <p>Clicking the <code class="docutils literal notranslate"><span class="pre">remove</span> <span class="pre">guidelines</span> <span class="pre">button</span></code> (<a class="reference internal" href="_images/icon-genome-guideline.png"><img alt="gb-guideline" src="_images/icon-genome-guideline.png" style="height: 14px;" /></a>), you can remove the vertical blue lines .</p>
 <div class="figure align-center" id="id7" style="width: 480px">
 <img alt="_images/ch3_gbrowser_guide_line.png" src="_images/ch3_gbrowser_guide_line.png" />
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Remove guide lines on the background</span></p>
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Remove guide lines on the background</span></p>
 </div>
 </div>
 </div>
@@ -179,7 +179,7 @@ Some explanations of settings are shown below:</p>
 </ul>
 <div class="figure align-center" id="id8" style="width: 640px">
 <img alt="_images/ch3_gbrowser_track_config.png" src="_images/ch3_gbrowser_track_config.png" />
-<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Configure a single track</span></p>
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">Configure a single track</span></p>
 </div>
 <p>To hide a track, you can right-click on the track label and click the <code class="docutils literal notranslate"><span class="pre">hide</span> <span class="pre">button</span></code> from the drop-down list.
 To re-order a track, you can drag that track and move it up or down to the preferred location.</p>
@@ -193,7 +193,7 @@ Notably, only bigWig tracks are supported in this tool.
 This tool is quite useful to convert a large number of tracks into the dense mode or set the same color for those tracks.</p>
 <div class="figure align-center" id="id9" style="width: 640px">
 <img alt="_images/ch3_gbrowser_bigwig_batch.png" src="_images/ch3_gbrowser_bigwig_batch.png" />
-<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Batch configure multiple bigWig tracks</span></p>
+<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">Batch configure multiple bigWig tracks</span></p>
 </div>
 <p>We also provide two buttons to directly convert all bigwig tracks from the full view to a compact view and vice versa.
 You can access these buttons in the toolbar of the genome browser web component.</p>
@@ -214,7 +214,7 @@ You can filter tracks by clicking the <code class="docutils literal notranslate"
 Clicking the <code class="docutils literal notranslate"><span class="pre">read-more</span> <span class="pre">button</span></code>, you will be directed to a new website showing extra information about this track (for 4DN data, this leads to the meta-information website on the DCIC data portal).</p>
 <div class="figure align-center" id="id10" style="width: 640px">
 <img alt="_images/ch3_gbrowser_config.png" src="_images/ch3_gbrowser_config.png" />
-<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Add or remove tracks in the configuration interface of the genome browser component</span></p>
+<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">Add or remove tracks in the configuration interface of the genome browser component</span></p>
 </div>
 </div>
 <div class="section" id="scatterplot-tool">
@@ -230,7 +230,7 @@ Conversely, when you use the rectangle or lasso selection tool to manually selec
 For other functions of the scatterplot tool such as pan, zoom, reset, etc., you can view the documentation on the plotly website (<a class="reference external" href="https://plotly.com">https://plotly.com</a>).</p>
 <div class="figure align-center" id="id11" style="width: 640px">
 <img alt="_images/ch3_gbrowser_scatterplot_v2.png" src="_images/ch3_gbrowser_scatterplot_v2.png" />
-<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Use the scatterplot tool to explore relationship between two bigWig tracks</span></p>
+<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">Use the scatterplot tool to explore relationship between two bigWig tracks</span></p>
 </div>
 </div>
 </div>
@@ -260,7 +260,12 @@ For other functions of the scatterplot tool such as pan, zoom, reset, etc., you 
 <li class="toctree-l2"><a class="reference internal" href="animation.html#d-structure-tutorial">3D structure tutorial</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="dcic.html">Use 4DN DCIC data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcic.html">Use 4DN DCIC data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dcic.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dcic.html#use-4dn-public-data">Use 4DN public data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dcic.html#explore-microscopy-data">Explore microscopy data</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">GETTING STARTED</span></p>
 <ul class="current">
