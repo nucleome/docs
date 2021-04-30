@@ -8,13 +8,13 @@ Data type supported
 Nucleome Browser supports multimodal data for visualization and exploration.
 For genomic data, Nucleome Browser supports data in bigBed, bigWig, tabix, and .hic format.
 For imaging data, Nucleome Browser utilizes the OMERO server to host imaging data.
-The supported formats of imaging data for OMERO server are list at the `OMERO's website <https://docs.openmicroscopy.org/bio-formats/5.9.2/supported-formats.html>`_.
+The supported formats of imaging data for the OMERO server are listed on the `OMERO's website <https://docs.openmicroscopy.org/bio-formats/5.9.2/supported-formats.html>`_.
 For 3D genome structure data, Nucleome Browser uses a custom format that can be easily transformed from popular formats such as `cmm <http://www.cgl.ucsf.edu/chimera/docs/ContributedSoftware/volumepathtracer/volumepathtracer.html#markerfiles>`_.
 
 Genomic data
 ============
 
-We provide a command-line tool (NucleServer) or its GUI version (NucleData) to host your own data server across macOS, Windows, and Linux systems. 
+We provide a command-line tool (NucleServer) or its GUI version (NucleData) to host your data server across macOS, Windows, and Linux systems. 
 Both NucleServer and NucleData will start a local data server given a configuration file provided by the user.
 Once the data server is started, it will connect to the Nucleome Browser hosted in our main portal (`http://vis.nucleome.org <http://vis.nucleome.org>`_) and you can load the data from your local data server in Nucleome Browser main portal.
 `NucleServer <https://github.com/nucleome/nucleserver>`_ and `NucleData <https://github.com/nucleome/nucledata>`_ for different platforms can be downloaded from GitHub.
@@ -46,9 +46,9 @@ After the Golang environment is installed, the source code can be cloned using t
 
 **Prepare a configuration file**
 
-Both NucleServer and NucleData requires an Excel file to specify the source of data and their configurations.
+Both NucleServer and NucleData require an Excel file to specify the source of data and their configurations.
 We recommend you create this Excel file using the Google Sheet and downloading it in the .xlsx format so that you easily share it with others.
-Alternatively, you can create an Excel file using the Microsoft Excel software.
+Alternatively, you can create an Excel file using Microsoft Excel software.
 A template of the configuration Excel file can be downloaded from `https://vis.nucleome.org/static/ndata/cnb.xlsx <https://vis.nucleome.org/static/ndata/cnb.xlsx>`_.
 
 :numref:`worksheet_overall` shows the overall architecture of the configuration Excel file.
@@ -68,7 +68,7 @@ The rest worksheets contain the details of the source of data and configuration.
     :align: center
     :figwidth: 480px
 
-    Examples of worksheet in a configuration file
+    Examples of the worksheet in a configuration file
 
 - **Config sheet**:
 
@@ -79,9 +79,9 @@ The rest worksheets contain the details of the source of data and configuration.
     The purpose of this parameter is to help users conveniently migrate data between computers.
     For example, if all the files are stored in a folder under the path (``/home/tom/project/genomic-data/``), you can set the value of root in the column of Value as /home/john/project/genomic-data/.
     Later, when you fill in the worksheet of data, you can just put the filename of a data in the file link column (see below) and NucleServer and NucleData will know where to look for these files.
-    It is possible that some of the data are stored on the cloud.
+    It is possible that some of the data are stored in the cloud.
     In that case, you can just put the URLs of data in the worksheet of data.
-    NucleServer and NucleData assume that file links of data do not start with HTTP or HTTPS are all stored locally on your computer.
+    NucleServer and NucleData assume that file links of data that do not start with HTTP or HTTPS are all stored locally on your computer.
 
 .. figure:: img/figures_chapter_6/Data_sheet_config.png
     :align: center
@@ -99,7 +99,7 @@ The rest worksheets contain the details of the source of data and configuration.
     Nucleome Browser supports all the reference assembly provided by the UCSC genome browser.
     The genome assembly name should be in lowercase letters and all data in that data worksheet is based on the same genome assembly.
     The second column is the name of a specific data worksheet.
-    The third column is set for future features and currently not used (you can put 'track' here).
+    The third column is set for future features and is currently not used (you can put 'track' here).
 
 .. figure:: img/figures_chapter_6/Data_sheet_index_v3.png
     :name: sheet_index
@@ -113,7 +113,7 @@ The rest worksheets contain the details of the source of data and configuration.
     The fourth and fifth columns of the Index sheet contain the most important parameters of data.
     There are two types of ways to configure this column: **two-column** setting and **four-column** setting. 
     The fourth column indicates the short label of each data.
-    In the two-column setting, the fourth column is the column-index of the short label of each data, and the fifth column refers to the column-index of the file path (or URL) in the data worksheets.
+    In the two-column setting, the fourth column is the column index of the short label of each data, and the fifth column refers to the column index of the file path (or URL) in the data worksheets.
     In the four-column setting, the fourth column is the column-index of the short label of each data, and the fifth column refers to the column-index of the file path (or URL), URL of meta-information, and long label.
     Note that in the four-column setting, the order of the column-index must be the file path, URL of meta-information link matters. 
     The column-index of the file path in a data worksheet can be arbitrary but it must be the first one in the fifth column in the Index sheet. 
@@ -123,12 +123,12 @@ The rest worksheets contain the details of the source of data and configuration.
     :figwidth: 640px
 
     Scheme of the Data worksheet. 
-    In the two-column setting, the shortLabel and file link is required. In the four-column setting, shortLabe, file link, metaLink, and longLabel is required. Note that the first row is the header and can be named to anything. Other data can be stored in other columns. The order of columns does not matter, as long as the order index of the column is correct in the Index worksheet.
+    In the two-column setting, the shortLabel and file link is required. In the four-column setting, shortLabel, file link, metaLink, and longLabel are required. Note that the first row is the header and can be named to anything. Other data can be stored in other columns. The order of columns does not matter, as long as the order index of the column is correct in the Index worksheet.
 
 BigBed and bigWig files are binary indexed files with data in multiple resolutions.
-For data stored in the web, NucleServer and NucleData will only fetch index files (usually only less than 1\% size of the original file) from web links and store them locally.
+For data stored on the web, NucleServer and NucleData will only fetch index files (usually only less than 1\% size of the original file) from web links and store them locally.
 The default location for storing the index files is ``<user's home directory>/.nucle/index``.
-However, we highly recommend downloading .hic file to your local computer and host them locally to provide the fastest speed of browsing.
+However, we highly recommend downloading .hic files to your local computer and host them locally to provide the fastest speed of browsing.
 
 **Start a data service**
 
@@ -168,12 +168,12 @@ Go to the default genome browser panel or create a new genome browser panel.
 
 If you use the default port 8611, this local data server should automatically load in the Nucleome Browser.
 Otherwise, you can load it manually by following the procedures in :numref:`load_data_service`.
-First, click the \textbf{config} button in the genome browser panel as shown in the Step 1 in :numref:`load_data_service`.
+First, click the \textbf{config} button in the genome browser panel as shown in Step 1 in :numref:`load_data_service`.
 In the configuration interface, click the data server setting button (gear icon in step 2 in :numref:`load_data_service`.
 In the data server setting menu, type a name for your data server in the ``Id`` column and type the web link of your local data server (e.g., ``http://127.0.0.1:<port id>``, here port id is the port specified in NucleServer or NucleData) in the ``URI`` column.
 Click the ``fresh`` button.
 Click the ``Update`` button to refresh the interface and you should see **Active (in green text)** in the rightmost column.
-Finally, select the tracks you want to visualize from the selection boxes of tracks, and click the ``config`` button again to return to the interface of the genome browser. 
+Finally, select the tracks you want to visualize from the selection boxes of tracks and click the ``config`` button again to return to the interface of the genome browser. 
 
 .. figure:: img/figures_chapter_6/Load_data_server_manually.png
     :name: load_data_service
@@ -188,7 +188,7 @@ Prepare the configuration file using public Google Sheet
 NucleServer also supports using a Google Sheet as a configuration file in the cloud. 
 This feature is particularly useful when you want to share your data server with others. 
 Others can simply start a data server using the public URLs of this Google Sheet.
-To do that, you need to first prepare a configuration file using Google Sheet and make this Sheet public (anyone with the link can access this sheet , if this sheet is private only you can use it to start a local data server, see below).
+To do that, you need to first prepare a configuration file using Google Sheet and make this Sheet public (anyone with the link can access this sheet, if this sheet is private only you can use it to start a local data server, see below).
 Next, you need to identify the unique ID of this Sheet.
 
 .. figure:: img/figures_chapter_6/Google_sheet_id.png
@@ -209,7 +209,7 @@ Note that if this is the first time you use NucleServer with Google Sheet, it wi
     :align: center
     :figwidth: 640px
 
-    For the first time to connect NucleServer to Google Sheet, you need to give permission of NucleServer to read the data on your public Google Sheet.
+    For the first time to connect NucleServer to Google Sheet, you need to permit NucleServer to read the data on your public Google Sheet.
 
 Open that link in a web browser, log in using your Google account, and grant the permissions.
 
@@ -217,7 +217,7 @@ Open that link in a web browser, log in using your Google account, and grant the
     :align: center
     :figwidth: 420px
 
-    Give permission to NucleServer using your Google account
+    Permit NucleServer using your Google account
 
 Once this is done, Google should provide you a token in response.
 Copy this token and paste it in the terminal to finish this process and your local server is ready to use. 
@@ -240,7 +240,7 @@ To do that, simply add an argument ``-c`` with a password when you start a local
 
     nucleserver start -i nucle.xlsx -c password
 
-To visualize those private data in the Nucleome Browser, users have to first login with the password through the following web page.
+To visualize those private data in the Nucleome Browser, users have to first log in with the password through the following web page.
 
 .. code-block:: bash
 
@@ -250,4 +250,4 @@ To visualize those private data in the Nucleome Browser, users have to first log
 =================
 
 We provide multiple useful tools to help users prepare data/web service to visualize genome 3D structure data in Nucleome Browser. 
-Those tools can be get from `https://github.com/nucleome/nucle <https://github.com/nucleome/nucle>`_.
+Those tools can get from `https://github.com/nucleome/nucle <https://github.com/nucleome/nucle>`_.
