@@ -6,7 +6,7 @@ Google Sheet viewer
 ===================
 
 Sometimes you may already have a list of regions that they want to inspect, such as a list of ChIP-seq peaks, differentially expressed genes.
-However, go through abundant regions one-by-one by copying and pasting genomic coordinates is both time-consuming and inefficient. 
+However, go through abundant regions one by one by copying and pasting genomic coordinates is both time-consuming and inefficient. 
 Formating interesting regions into a bed file and plotting it as a track can provide a global profile of region-of-interest but still cannot solve the problem of efficient exploration of an individual region.
 Here, we provide a novel web component called Google Sheet viewer that can efficiently connect Genome Browser with a list of regions. 
 
@@ -19,11 +19,11 @@ Notably, all other connected panels will upstate their content automatically as 
 - The first row is a header about the column's name
 - The name of the first column is ``Title`` and the name of the second column is ``Regions``
 - You can add more annotation in other columns
-- Put the label of each region under the ``Title`` column and make sure that label is unique for each row.
+- Put the label of each region under the ``Title`` column and make sure that the label is unique for each row.
 - Genomic coordinates in the ``Regions`` column should be format as ``chrom:start-end`` (1-base)
 
-Clicking the ``plus button`` (|top-plus|) on the top menu bar and selecting ``Google Sheet or TSV`` component you will see the default interface of the Google Sheet viewer. 
-You can load a demo data by clicking the ``load demo button``. 
+Clicking the ``plus button`` (|top-plus|) on the top menu bar and selecting the ``Google Sheet or TSV`` component you will see the default interface of the Google Sheet viewer. 
+You can load demo data by clicking the ``load demo button``. 
 Next, you can use the mouse or the arrow keys to go through the region list. 
 You can also search a region by its label using the region viewer shown at the bottom. 
 It also supports multi-region visualization by using a comma to separate multiple regions.
@@ -35,7 +35,7 @@ It also supports multi-region visualization by using a comma to separate multipl
     :align: center
     :figwidth: 640px
 
-    Use the Goolge Sheet web component to explore region of interest
+    Use the Google Sheet web component to explore the region of interest
 
 Fetch DNA sequence
 ==================
@@ -50,7 +50,7 @@ Notably, when multiple regions are being viewed, this tool will show the DNA seq
 
     Fetch the DNA sequence of the currently viewed region (< 10000bp)
 
-4DN DCIC imging data
+4DN DCIC imaging data
 ====================
 
 The 4DN Data Coordination and Integration Center (DCIC) currently hosts abundant imaging data using an OMERO server. 
