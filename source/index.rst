@@ -13,7 +13,7 @@ It can empower investigators to fully utilize heterogeneous datasets to formulat
     :align: center
     :figwidth: 640px
 
-    Nucleome Browser consists of multiple comfigurable, communicable, and composable web components (panels) for visualization multi-modal data. Operation in any panel will be synchronized to all connected panels and external web sites such as the UCSC Genome Browser and the WashU Epigenome Browser.
+    Nucleome Browser consists of multiple configurable, communicable, and composable web components (panels) for visualization of multi-modal data. Operation in any panel will be synchronized to all connected panels and external websites such as the UCSC Genome Browser and the WashU Epigenome Browser.
 
 
    
@@ -45,17 +45,17 @@ For example, in the **Multi-modal integrative analysis** example shown below, yo
     :height: 14px
 
 Two genome browser panels on the left show various genomic data between K562 and H1, including Hi-C contact matrices, TSA-seq, and DamID tracks mapping to multiple nuclear bodies (e.g., nuclear speckles, nuclear lamina, and nucleolus), and replication-timing profiles. 
-On the right, there are two 3D structure panels illustrating 3D structur models with color representing TSA-seq signals on Lamina B1 in H1 and K562, respectively.
+On the right, two 3D structure panels are illustrating two 3D structural models with color representing TSA-seq signals on Lamina B1 in H1 and K562, respectively.
 It is also possible to explore imaging data using the Nucleome Browser.
 In the middle genome browser panel for K562, you can see an image track showing DNA FISH data. 
 The target region of each probe is represented by a blue bar.
-Clicking on one image, a OMERO.iviewer window will pop-out allowing you to further explore the image using the OMERO.iviewer tool.
+Clicking on one image, an OMERO.iviewer window will pop out allowing you to further explore the image using the OMERO.iviewer tool.
 
 .. figure:: img/figures_chapter_1/ch1_example.png
     :align: center
     :figwidth: 640px
 
-    Nucleome Browser faciliates interactive exploration of multi-modal data
+    Nucleome Browser facilitates interactive exploration of multi-modal data
 
 .. toctree::
     :hidden:
