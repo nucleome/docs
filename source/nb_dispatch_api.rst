@@ -8,27 +8,39 @@ Overview
 The Nucleome Browser uses the nb-dispatch library as a hierarchical event dispatcher to enable communication cross-panel or cross-domain.
 The nb-dispatch is inherited from d3-dispatch, meaning that nb-dispatch has the same initialize method and the same function interface on and call as d3-dispatch.
 
-In Nucleome Browser, nb-dispatch will use the Nucleome Bridge to dispatch events between tabs from different domains if chrome browser extension Nucleome Bridge is installed, otherwise, it will use web browser's Broadcast Channel API to dispatch events between tabs within the same domain.
+In Nucleome Browser, nb-dispatch will use the Nucleome Bridge to dispatch events between tabs from different domains if chrome browser extension Nucleome Bridge is installed, otherwise, it will use the web browser's Broadcast Channel API to dispatch events between tabs within the same domain.
 
 Users can use `nb-dispatch <https://github.com/nucleome/nb-dispatch>`_ to connect their customized webs to Nucleome Browser and other supported data portals (e.g., the UCSC Genome Browser and the WashU EpiGenome Browser). 
-It is worth to note that the Nucleome Bridge browser extension is required to communicate with the UCSC Genome Browser and the WashU Epigenome Browser. 
+It is worth noting that the Nucleome Bridge browser extension is required to communicate with the UCSC Genome Browser and the WashU Epigenome Browser. 
 Once a website is connected, navigation or highlight operations on the Nucleome Browser can dispatch to customized websites or \textit{vice versa}.
-Other websites that allowed to connect via Nucleome Bridge are listed in the manifest.json file (white list of websites) of the Nucleome Bridge. 
-Currently, a whitelist of websites hosted in these two domains is automatically supported by Nucleome Bridge are shown below.
+Other websites that are allowed to connect via Nucleome Bridge are listed in the manifest.json file (white list of websites) of the Nucleome Bridge. 
+Currently, a whitelist of websites hosted in these two domains is automatically supported by Nucleome Bridge is shown below.
 
-- Localhost: 127.0.0.1
-
-- `https://bl.ocks.org <https://bl.ocks.org>`_:
+- “*://*.openmicroscopy.org/*”,
+- “*://epigenomegateway.wustl.edu/*”,
+- “*://*.4dnucleome.org/*”,
+- “*://127.0.0.1:*/*“,
+- “*://localhost:*/*“,
+- “https://docs.google.com/*”,
+- “https://*.googleusercontent.com/*”,
+- “*://bl.ocks.org/*”,
+- “*://*.slack.com/*”,
+- “*://codepen.io/*”,
+- “*://cdpn.io/*”,
+- “*://jsfiddle.net/*”,
+- “*://fiddle.jshell.net/*”,
+- “*://*.allencell.org/*”,
+- “*://allencell.org/*”
 
     Users can host their website on GitHub Gist and use `https://bl.ocks.org <https://bl.ocks.org>`_ to visualize it. Read more from `https://bl.ocks.org/-/about <https://bl.ocks.org/-/about>`_. A few demos of usage of the nb-dispatch is shown at `https://bl.ocks.org/nb1page <https://bl.ocks.org/nb1page>`_.
 
-Please contact us if you want to add your website into the whitelist of websites in Nucleome Bridge.
+Please contact us if you want to add your website to the allow-list of websites in Nucleome Bridge.
 
 Installation
 ============
 
 If you use NPM, install nb-dispatch via ``npm install@nucleome/nb-dispatch``.
-You can also load it in your webpage. 
+You can also load it on your webpage. 
 
 .. code-block:: html
 
@@ -40,12 +52,12 @@ You can also load it in your webpage.
     });
     </script>
 
-A mininal example
+A minimal example
 =================
 
-Below is a minimal example showing the usage of nb-dispatch libary. 
+Below is a minimal example showing the usage of the nb-dispatch library. 
 The live version can be accessed from this `minimal example link <https://bl.ocks.org/zocean/017a33abb667cc35247fbc7cc8b0704c>`_.
-Basically, in this example we show how to control Nucleome Browser to goto certain genomic region or highlight multiple regions (Part I). 
+Basically, in this example, we show how to control the Nucleome Browser to go to a genomic region or highlight multiple regions (Part I). 
 We also show how to monitor operations on Nucleome Browser via nb-dispatch.
 Note that this example requires the Nucleome Bridge browser extension.
 
@@ -136,7 +148,7 @@ Below are specific features provided by nb-dispatch that are different from d3-d
     
     Create new nb-dispatch event object for specific event types.
     Here, each type should be a string such as ``update`` and ``brush``.
-    Event type ``update`` indicates navigating to current genomic region.
+    Event type ``update`` indicates navigating to the current genomic region.
     Event type ``brush`` indicates highlight certain genomic regions. Example of usage:
 
     .. code-block:: javascript
@@ -178,10 +190,10 @@ Below are specific features provided by nb-dispatch that are different from d3-d
 - **nb.dispatch.status** *()*:
     
     Check out the status of current connected channel.
-    The output if one of ``Extension``, ``Channel``, or ``None``
+    The output is one of ``Extension``, ``Channel``, or ``None``
 
 - **nb.dispatch.chanId** *(channelName)*:
     
     Set the channel ID before connect to it.
-    If there is not argument, it will retrun current channel ID.
+    If there are no arguments, it will return the current channel ID.
     The default channel ID is ``cnbChan0```
