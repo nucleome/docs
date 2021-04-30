@@ -28,7 +28,7 @@ Normal mode
 
 If a genome browser web component is in the normal mode (|gb-mode-normal|), it will automatically update itself according to operations dispatched from other web components (for genome browser component they must also be in normal or context mode). 
 For example, when a user navigates to or highlights a genomic region in other web components, this genome browser component will also go to that region or show the same highlighted region. 
-Conversely, any operations happened in this component will broadcast simultaneously to other components. 
+Conversely, any operations that happened in this component will broadcast simultaneously to other components. 
 This mode is quite useful when you want to compare data hosted in different panels side-by-side.
 
 .. |gb-mode-normal| image:: img/other/icon/icon-genome-mode-normal.png
@@ -39,9 +39,9 @@ Context mode
 
 ``Context mode`` is quite similar to the ``Normal mode``, except that users can set a zooming factor larger than 1x (e.g., 2x, 4x, etc.).
 If the zooming factor is 1x, the ``Context mode`` will act the same as the ``Normal mode``.
-However, when a genome browser component has a zooming factor larger than 1x, this component will automatically zooming-out by this scale factor relative to other components. 
+However, when a genome browser component has a zooming factor larger than 1x, this component will automatically zoom out by this scale factor relative to other components. 
 For example, if other panels currently navigate to a 100kb region (e.g., chr1:10Mb-10.1Mb), a genome component with an 8x zooming factor will navigate to the 800kb region (chr1:9.65Mb-10.45Mb) centered on this 100kb region. 
-To help users view the relationship between the default region and zoomed-out region, a light green transparent box will be shown in this genome browser to highlight the region on which other panels are viewing at.
+To help users view the relationship between the default region and the zoomed-out region, a light green transparent box will be shown in this genome browser to highlight the region on which other panels are viewing at.
 This mode is quite useful when you want to capture the big-picture of a region-of-interest. 
 For example, you can use one panel to visualize the details of a ChIP-seq peak and use another panel to reveal the context of the peak region without zoom-in and zoom-out back-and-forth.
 
@@ -66,7 +66,7 @@ Type region(s) manually
 -----------------------
 
 You can navigate to a certain region(s) by manually typing the genomic coordinate(s) in the genomic coordinate box located on the left of the toolbar.
-The genome browser component can recognize any  genomic coordinate formatted as chromosome:start-end, such as ``chr1:1000-2000``.
+The genome browser component can recognize any genomic coordinate formatted as chromosome:start-end, such as ``chr1:1000-2000``.
 Notably, it will assume the coordinates are 1-base and right-fully closed.
 It is also possible to view multiple regions together.
 Currently, you can type in at most five different genomic regions using a semicolon as the separator (e.g., ``chr1:1-20000;chr2:1-30000``).
@@ -89,7 +89,7 @@ Notably, multiple regions overlapping with each other will be automatically merg
     :align: center
     :figwidth: 480px
 
-    Use genomic coordinate box to goto a certain region or use the navigation buttons to move along the genome and zoom-in/-out
+    Use the genomic coordinate box to go to a certain region or use the navigation buttons to move along the genome and zoom-in/-out
 
 .. figure:: img/figures_chapter_3/ch3_gbrowser_navigate_example.png
     :align: center
@@ -133,7 +133,7 @@ Notably, multiple regions separated from each other on the genome will be pseudo
     :align: center
     :figwidth: 640px
 
-    If multiple regions are highlighted, right-clicking those region will zoom into regions by stitching discontiguous regions together.
+    If multiple regions are highlighted, right-clicking those regions will zoom into regions by stitching discontiguous regions together.
 
 Use chromosome ideogram
 -----------------------
@@ -158,7 +158,7 @@ Export screenshot
 A save-to-png button (|gb-screenshot|) can directly export the screenshot of the current panel into a png image file.
 You can also create a high-quality image of the current genome browser's view including the highlights using the print button (|gb-print|) in the genome browser toolbar. 
 You can choose a file format for the downloaded image from pixel-based graphics (png format) and vector-based graphics (SVG, pdf). 
-Vector-based graphics can be further edited for publication using the edit tool provided on the Nucleome Browser or commercial softwares such as Adobe Illustrator.
+Vector-based graphics can be further edited for publication using the edit tool provided on the Nucleome Browser or commercial software such as Adobe Illustrator.
 Notably, the print function can only save the current panel into an image file. 
 You need to save views for different genome browser panels one-by-one.
 
@@ -178,7 +178,7 @@ You need to save views for different genome browser panels one-by-one.
 Remove guidelines
 -----------------
 
-Clicking the ``remove guidelines button`` (|gb-guideline|), you can remove the vertical blue lines .
+Clicking the ``remove guidelines button`` (|gb-guideline|), you can remove the vertical blue lines.
 
 .. |gb-guideline| image:: img/other/icon/icon-genome-guideline.png
     :height: 14px
@@ -187,7 +187,7 @@ Clicking the ``remove guidelines button`` (|gb-guideline|), you can remove the v
     :align: center
     :figwidth: 480px
     
-    Remove guide lines on the background 
+    Remove guidelines on the background 
 
 Configure tracks
 ================
@@ -226,7 +226,7 @@ You can also configure a series of tracks together using the batch-configuration
 Clicking the ``batch-configuration button`` (|gb-batch-config|) in the genome browser panel toolbar, you will see the dialog of the batch-configuration tool.
 In this tool, you can select multiple tracks (holding the ``Control`` key to add a track one-by-one or the ``Shift`` key to select a range of tracks) and modify their appearance at the same time.
 Notably, only bigWig tracks are supported in this tool.
-This tool is quite useful to convert a large number of tracks into the dense mode or set the same color for those tracks.
+This tool is quite useful to convert a large number of tracks into dense mode or set the same color for those tracks.
 
 .. figure:: img/figures_chapter_3/ch3_gbrowser_bigwig_batch.png
     :align: center
@@ -282,14 +282,14 @@ Notably, if you highlight regions on genomic tracks or the ideogram of a chromos
 When you drag the highlighted region, highlighted dots will automatically update.
 Conversely, when you use the rectangle or lasso selection tool to manually select a set of dots on the scatterplot, those regions will be highlighted on the tracks as well. 
 
-This tool is quite useful to facilitate researchers to discover interesting regions showing unexpected a relationship between two signals.
-For other functions of the scatterplot tool such as pan, zoom, reset, etc., you can view the documentation on the plotly website (`https://plotly.com <https://plotly.com>`_).
+This tool is quite useful to facilitate researchers to discover interesting regions showing an unexpected relationship between two signals.
+For other functions of the scatterplot tool such as pan, zoom, reset, etc., you can view the documentation on the Plotly website (`https://plotly.com <https://plotly.com>`_).
 
 .. figure:: img/figures_chapter_3/ch3_gbrowser_scatterplot_v2.png
     :align: center
     :figwidth: 640px
 
-    Use the scatterplot tool to explore relationship between two bigWig tracks
+    Use the scatterplot tool to explore the relationship between two bigWig tracks
 
 .. |gb-scatterplot| image:: img/other/icon/icon-genome-scatterplot.png
     :height: 14px
