@@ -8,9 +8,9 @@ Overview
 Nucleome Browser adopts the concept of modular design in its architecture. 
 First, we created a series of composable, configurable, and communicable web components (i.e., customized HTML elements) to visualize and explore different types of data. 
 Each web component is built to handle a specific type of data (e.g., genomic data, 3D genome structures, or imaging data).
-Next, we standardized different web components into web-containers (web panels) with the same interface such that these different web components can **communicate** with each other. 
+Next, we standardized different web components into web containers (web panels) with the same interface such that these different web components can **communicate** with each other. 
 Therefore, users can combine multiple components/panels into tabs of the web browser in a flexible and user-friendly manner. 
-Currently, two types of the messages triggered by a user can transmit bidirectionaly across web components,  including 1) current viewed genomic regions; 2) highlighted genomic regions. 
+Currently, two types of messages triggered by a user can transmit bidirectionally across web components,  including 1) current viewed genomic regions; 2) highlighted genomic regions. 
 Furthermore, Nucleome Browser supports messages dispatching between web panels in the same web tab, across web tabs in the same domain, or even across web tabs in different domains (e.g., the UCSC Genome Browser). 
 This versatile and powerful feature is achieved through a hierarchical ``event-driven communication`` protocol. 
 To summarize, the Nucleome Browser is the first web-based platform that supports interactively browsing multi-modal.
@@ -27,7 +27,7 @@ What is a panel?
 Web panel is perhaps the most important concept introduced by Nucleome Browser.
 You can consider different web panels as Lego bricks such that they have distinct functionalities while still possess the ability to **communicate** with each other.
 In Nucleome Browser, web panels are all contained in the same panel-container system, allowing web panels to synchronize with each other.
-Next, we will formally introduce some basic operations of web panels, including the creation of a new web panel, duplication of existing web panel, a panel-space widget to conveniently organize web panels, .etc.
+Next, we will formally introduce some basic operations of web panels, including the creation of a new web panel, duplication of existing web panels, a panel-space widget to conveniently organize web panels, .etc.
 
 Create a new panel
 ==================
@@ -76,7 +76,7 @@ In the configuration mode (the configuration button will turn to green color), y
 **Rename a panel**
 
 Clicking the ``rename`` button (|panel-rename|), you will see a dialog popping out.
-You can then change the title of the this panel.
+You can then change the title of this panel.
 This title will also be the default name when you save this panel to the panel space.
 
 .. |panel-rename| image:: img/other/icon/icon-panel-rename_v2.png
@@ -88,7 +88,7 @@ Clicking the ``save`` button (|panel-save|), you can save the current panel into
 To view saved panels in the panel space, you can click the panel space button (|panel-space|) on the top menu bar.
 A window of panel space will be shown on the left side of the panel.
 Users can load panels saved in the panel space to the current web tab using the upload button (|panel-upload|) or delete saved panels using buttons next to each panel using the delete button (|panel-delete|).
-Panel space works similarly as the bookmarks of the web browser, allowing users to easily re-use and compose previous panels from different sessions.
+Panel space works similarly to the bookmarks of the web browser, allowing users to easily re-use and compose previous panels from different sessions.
 Notably, since panels in the panel space are saved into the web browser's IndexedDB, you will not find them if you use another computer.
 
 .. figure:: img/figures_chapter_2/ch2_panel_space_v2.png
@@ -122,7 +122,7 @@ It is also quite useful if you can create a similar genome browser panel with di
 
 Nucleome Browser allows users to create panels in different web tabs.
 Notably, panels in different web tabs are all synchronized with each other.
-However, there is a main tab to which all the other extended panels are attached.
+However, there is the main tab to which all the other extended panels are attached.
 If you close the main tab, all the extended panels will also be closed.
 There are two ways to create an extended panel.
 First, you can click the ``pop-out`` button (|panel-pop-out|) to convert a panel into an individual web window.
@@ -134,7 +134,7 @@ In the second method, you can create an extended panel by clicking the ``Extende
     :align: center
     :figwidth: 640px
 
-    Pop out a panel into an exntended window
+    Pop-out a panel into an extended window
 
 .. |panel-pop-out| image:: img/other/icon/icon-panel-popout_v2.png
     :height: 14px
@@ -178,4 +178,4 @@ You can then click and hold the mouse to change the height or width of a panel.
     :align: center
     :figwidth: 640px
 
-    Nucleome Browser support flexible layout to arrange multiple panels
+    Nucleome Browser support a flexible layout to arrange multiple panels
