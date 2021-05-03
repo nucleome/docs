@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Data preparation &#8212; Nucleome Browser v0.9.3 documentation</title>
     <link rel="stylesheet" href="_static/nb.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -39,16 +37,18 @@
 <div class="section" id="data-type-supported">
 <h2>Data type supported<a class="headerlink" href="#data-type-supported" title="Permalink to this headline">¶</a></h2>
 <p>Nucleome Browser supports multimodal data for visualization and exploration.
-For genomic data, Nucleome Browser supports data in bigBed, bigWig, tabix, and .hic format.
+For genomic data, Nucleome Browser supports data in <cite>bigBed</cite>, <cite>bigWig</cite>, <cite>tabix</cite>, and <cite>.hic</cite> format.
 For imaging data, Nucleome Browser utilizes the OMERO server to host imaging data.
-The supported formats of imaging data for OMERO server are list at the <a class="reference external" href="https://docs.openmicroscopy.org/bio-formats/5.9.2/supported-formats.html">OMERO’s website</a>.
-For 3D genome structure data, Nucleome Browser uses a custom format that can be easily transformed from popular formats such as <a class="reference external" href="http://www.cgl.ucsf.edu/chimera/docs/ContributedSoftware/volumepathtracer/volumepathtracer.html#markerfiles">cmm</a>.</p>
+The supported formats of imaging data for the OMERO server are listed on the <a class="reference external" href="https://docs.openmicroscopy.org/bio-formats/5.9.2/supported-formats.html">OMERO’s website</a>.
+Users can explore thumbnails of image on the genome browser panel and view the raw image on OMERO.iviewer.
+For 3D genome structure data, Nucleome Browser uses a custom format called nucle3D that can be easily transformed from popular formats such as <a class="reference external" href="http://www.cgl.ucsf.edu/chimera/docs/ContributedSoftware/volumepathtracer/volumepathtracer.html#markerfiles">cmm</a>.
+The details on the nucle3D format is shown <a class="reference external" href="https://github.com/nucleome/nucle3d">here</a>.</p>
 </div>
 <div class="section" id="genomic-data">
 <h2>Genomic data<a class="headerlink" href="#genomic-data" title="Permalink to this headline">¶</a></h2>
-<p>We provide a command-line tool (NucleServer) or its GUI version (NucleData) to host your own data server across macOS, Windows, and Linux systems.
-Both NucleServer and NucleData will start a local data server given a configuration file provided by the user.
-Once the data server is started, it will connect to the Nucleome Browser hosted in our main portal (<a class="reference external" href="http://vis.nucleome.org">http://vis.nucleome.org</a>) and you can load the data from your local data server in Nucleome Browser main portal.
+<p>We provide a command-line tool (NucleServer) or its GUI version (NucleData) to host your data server across macOS, Windows, and Linux systems.
+Both NucleServer and NucleData start a local data server using a configuration file/link provided by the user.
+Once the data server is started, it will connect to the Nucleome Browser hosted in our main portal (<a class="reference external" href="https://vis.nucleome.org">https://vis.nucleome.org</a> or <a class="reference external" href="http://vis.nucleome.org">http://vis.nucleome.org</a>) and you can load the data from your local data server in Nucleome Browser main portal.
 <a class="reference external" href="https://github.com/nucleome/nucleserver">NucleServer</a> and <a class="reference external" href="https://github.com/nucleome/nucledata">NucleData</a> for different platforms can be downloaded from GitHub.</p>
 <div class="section" id="nucleserver-and-nucledata">
 <h3>NucleServer and NucleData<a class="headerlink" href="#nucleserver-and-nucledata" title="Permalink to this headline">¶</a></h3>
@@ -69,24 +69,24 @@ go get -u github.com/nucleome/nucleserver
 </pre></div>
 </div>
 <p><strong>Prepare a configuration file</strong></p>
-<p>Both NucleServer and NucleData requires an Excel file to specify the source of data and their configurations.
+<p>Both NucleServer and NucleData require an Excel file to specify the source of data and their configurations.
 We recommend you create this Excel file using the Google Sheet and downloading it in the .xlsx format so that you easily share it with others.
-Alternatively, you can create an Excel file using the Microsoft Excel software.
+Alternatively, you can create an Excel file using Microsoft Excel software.
 A template of the configuration Excel file can be downloaded from <a class="reference external" href="https://vis.nucleome.org/static/ndata/cnb.xlsx">https://vis.nucleome.org/static/ndata/cnb.xlsx</a>.</p>
 <p><a class="reference internal" href="#worksheet-overall"><span class="std std-numref">Fig. 53</span></a> shows the overall architecture of the configuration Excel file.
 The configuration file (.xlsx format) is formulated as 2+ worksheets.</p>
 <div class="figure align-center" id="worksheet-overall" style="width: 640px">
 <img alt="_images/Data_sheet_overall.png" src="_images/Data_sheet_overall.png" />
-<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">The overall structure of the configuration Excel file</span></p>
+<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">The overall structure of the configuration Excel file</span><a class="headerlink" href="#worksheet-overall" title="Permalink to this image">¶</a></p>
 </div>
 <p>The first worksheet must be named as <code class="docutils literal notranslate"><span class="pre">Config</span></code>, and the second one must be named as <code class="docutils literal notranslate"><span class="pre">Index</span></code>.
 The rest worksheets contain the details of the source of data and configuration.</p>
 <div class="figure align-center" id="id2" style="width: 480px">
 <img alt="_images/Data_sheet_name.png" src="_images/Data_sheet_name.png" />
-<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">Examples of worksheet in a configuration file</span></p>
+<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">Examples of the worksheet in a configuration file</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
-<li><p class="first"><strong>Config sheet</strong>:</p>
+<li><p><strong>Config sheet</strong>:</p>
 <blockquote>
 <div><p>The Config worksheet contains global parameters.
 The first row of the Config worksheet is the header and should be named as <code class="docutils literal notranslate"><span class="pre">Var</span></code> and <code class="docutils literal notranslate"><span class="pre">Value</span></code>, respectively.
@@ -95,18 +95,18 @@ This <code class="docutils literal notranslate"><span class="pre">root</span></c
 The purpose of this parameter is to help users conveniently migrate data between computers.
 For example, if all the files are stored in a folder under the path (<code class="docutils literal notranslate"><span class="pre">/home/tom/project/genomic-data/</span></code>), you can set the value of root in the column of Value as /home/john/project/genomic-data/.
 Later, when you fill in the worksheet of data, you can just put the filename of a data in the file link column (see below) and NucleServer and NucleData will know where to look for these files.
-It is possible that some of the data are stored on the cloud.
+It is possible that some of the data are stored in the cloud.
 In that case, you can just put the URLs of data in the worksheet of data.
-NucleServer and NucleData assume that file links of data do not start with HTTP or HTTPS are all stored locally on your computer.</p>
+NucleServer and NucleData assume that file links of data that do not start with HTTP or HTTPS are all stored locally on your computer.</p>
 </div></blockquote>
 </li>
 </ul>
 <div class="figure align-center" id="id3" style="width: 640px">
 <img alt="_images/Data_sheet_config.png" src="_images/Data_sheet_config.png" />
-<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Required parameters in the Config worksheet</span></p>
+<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Required parameters in the Config worksheet</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
-<li><p class="first"><strong>Index sheet</strong>:</p>
+<li><p><strong>Index sheet</strong>:</p>
 <blockquote>
 <div><p>The Index sheet contains the info of all the Data Sheets.
 The meaning of each column is shown in <a class="reference internal" href="#sheet-index"><span class="std std-numref">Fig. 56</span></a>.
@@ -116,21 +116,21 @@ The first column is the genome assembly of data.
 Nucleome Browser supports all the reference assembly provided by the UCSC genome browser.
 The genome assembly name should be in lowercase letters and all data in that data worksheet is based on the same genome assembly.
 The second column is the name of a specific data worksheet.
-The third column is set for future features and currently not used (you can put ‘track’ here).</p>
+The third column is set for future features and is currently not used (you can put ‘track’ here).</p>
 </div></blockquote>
 </li>
 </ul>
 <div class="figure align-center" id="sheet-index" style="width: 640px">
 <img alt="_images/Data_sheet_index_v3.png" src="_images/Data_sheet_index_v3.png" />
-<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Scheme of the Index worksheet</span></p>
+<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Scheme of the Index worksheet</span><a class="headerlink" href="#sheet-index" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
-<li><p class="first"><strong>Data sheet</strong></p>
+<li><p><strong>Data sheet</strong></p>
 <blockquote>
 <div><p>The fourth and fifth columns of the Index sheet contain the most important parameters of data.
 There are two types of ways to configure this column: <strong>two-column</strong> setting and <strong>four-column</strong> setting.
 The fourth column indicates the short label of each data.
-In the two-column setting, the fourth column is the column-index of the short label of each data, and the fifth column refers to the column-index of the file path (or URL) in the data worksheets.
+In the two-column setting, the fourth column is the column index of the short label of each data, and the fifth column refers to the column index of the file path (or URL) in the data worksheets.
 In the four-column setting, the fourth column is the column-index of the short label of each data, and the fifth column refers to the column-index of the file path (or URL), URL of meta-information, and long label.
 Note that in the four-column setting, the order of the column-index must be the file path, URL of meta-information link matters.
 The column-index of the file path in a data worksheet can be arbitrary but it must be the first one in the fifth column in the Index sheet.</p>
@@ -140,12 +140,12 @@ The column-index of the file path in a data worksheet can be arbitrary but it mu
 <div class="figure align-center" id="id4" style="width: 640px">
 <img alt="_images/Data_sheet_two-four_column.png" src="_images/Data_sheet_two-four_column.png" />
 <p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Scheme of the Data worksheet.
-In the two-column setting, the shortLabel and file link is required. In the four-column setting, shortLabe, file link, metaLink, and longLabel is required. Note that the first row is the header and can be named to anything. Other data can be stored in other columns. The order of columns does not matter, as long as the order index of the column is correct in the Index worksheet.</span></p>
+In the two-column setting, the shortLabel and file link is required. In the four-column setting, shortLabel, file link, metaLink, and longLabel are required. Note that the first row is the header and can be named to anything. Other data can be stored in other columns. The order of columns does not matter, as long as the order index of the column is correct in the Index worksheet.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p>BigBed and bigWig files are binary indexed files with data in multiple resolutions.
-For data stored in the web, NucleServer and NucleData will only fetch index files (usually only less than 1% size of the original file) from web links and store them locally.
+For data stored on the web, NucleServer and NucleData will only fetch index files (usually only less than 1% size of the original file) from web links and store them locally.
 The default location for storing the index files is <code class="docutils literal notranslate"><span class="pre">&lt;user's</span> <span class="pre">home</span> <span class="pre">directory&gt;/.nucle/index</span></code>.
-However, we highly recommend downloading .hic file to your local computer and host them locally to provide the fastest speed of browsing.</p>
+However, we highly recommend downloading .hic files to your local computer and host them locally to provide the fastest speed of browsing.</p>
 <p><strong>Start a data service</strong></p>
 <p>Start a local server using NucleServer and NucleData is very simple.
 The command to start a server in Mac OS or Linux using NucleServer is the following.</p>
@@ -161,26 +161,26 @@ You can change that by setting the -p argument.
 In NucleServer, if everything goes fine, you should see a log similar to below.</p>
 <div class="figure align-center" id="id5" style="width: 640px">
 <img alt="_images/Server_start_successful.png" src="_images/Server_start_successful.png" />
-<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Screenshot showing a log of NucleServer starting a local data server</span></p>
+<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Screenshot showing a log of NucleServer starting a local data server</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p>If you use NucleData, just follow the instructions on the interface to load the Excel file and set the port manually as shown below:</p>
 <p>Next, go to Nucleome Browser by typing <a class="reference external" href="http://vis.nucleome.org">http://vis.nucleome.org</a> in your web browser.
 Go to the default genome browser panel or create a new genome browser panel.</p>
 <div class="figure align-center" id="id6" style="width: 420px">
 <img alt="_images/Create_a_genome_browser_panel.png" src="_images/Create_a_genome_browser_panel.png" />
-<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">Steps to create a new genome browser panel</span></p>
+<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">Steps to create a new genome browser panel</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <p>If you use the default port 8611, this local data server should automatically load in the Nucleome Browser.
 Otherwise, you can load it manually by following the procedures in <a class="reference internal" href="#load-data-service"><span class="std std-numref">Fig. 60</span></a>.
-First, click the textbf{config} button in the genome browser panel as shown in the Step 1 in <a class="reference internal" href="#load-data-service"><span class="std std-numref">Fig. 60</span></a>.
+First, click the textbf{config} button in the genome browser panel as shown in Step 1 in <a class="reference internal" href="#load-data-service"><span class="std std-numref">Fig. 60</span></a>.
 In the configuration interface, click the data server setting button (gear icon in step 2 in <a class="reference internal" href="#load-data-service"><span class="std std-numref">Fig. 60</span></a>.
 In the data server setting menu, type a name for your data server in the <code class="docutils literal notranslate"><span class="pre">Id</span></code> column and type the web link of your local data server (e.g., <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:&lt;port</span> <span class="pre">id&gt;</span></code>, here port id is the port specified in NucleServer or NucleData) in the <code class="docutils literal notranslate"><span class="pre">URI</span></code> column.
 Click the <code class="docutils literal notranslate"><span class="pre">fresh</span></code> button.
 Click the <code class="docutils literal notranslate"><span class="pre">Update</span></code> button to refresh the interface and you should see <strong>Active (in green text)</strong> in the rightmost column.
-Finally, select the tracks you want to visualize from the selection boxes of tracks, and click the <code class="docutils literal notranslate"><span class="pre">config</span></code> button again to return to the interface of the genome browser.</p>
+Finally, select the tracks you want to visualize from the selection boxes of tracks and click the <code class="docutils literal notranslate"><span class="pre">config</span></code> button again to return to the interface of the genome browser.</p>
 <div class="figure align-center" id="load-data-service" style="width: 640px">
 <img alt="_images/Load_data_server_manually.png" src="_images/Load_data_server_manually.png" />
-<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">Five steps to manually load local data servers. Users can organize their local data server using the local server configuration interface.</span></p>
+<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">Five steps to manually load local data servers. Users can organize their local data server using the local server configuration interface.</span><a class="headerlink" href="#load-data-service" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="prepare-the-configuration-file-using-public-google-sheet">
@@ -188,11 +188,11 @@ Finally, select the tracks you want to visualize from the selection boxes of tra
 <p>NucleServer also supports using a Google Sheet as a configuration file in the cloud.
 This feature is particularly useful when you want to share your data server with others.
 Others can simply start a data server using the public URLs of this Google Sheet.
-To do that, you need to first prepare a configuration file using Google Sheet and make this Sheet public (anyone with the link can access this sheet , if this sheet is private only you can use it to start a local data server, see below).
+To do that, you need to first prepare a configuration file using Google Sheet and make this Sheet public (anyone with the link can access this sheet, if this sheet is private only you can use it to start a local data server, see below).
 Next, you need to identify the unique ID of this Sheet.</p>
 <div class="figure align-center" id="id7" style="width: 640px">
 <img alt="_images/Google_sheet_id.png" src="_images/Google_sheet_id.png" />
-<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">An example of Google Sheet ID</span></p>
+<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">An example of Google Sheet ID</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p>Finally, you can start your server using the Google Sheet ID as shown below:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nucleserver start -i &lt;Google Sheet ID&gt;
@@ -201,18 +201,18 @@ Next, you need to identify the unique ID of this Sheet.</p>
 <p>Note that if this is the first time you use NucleServer with Google Sheet, it will firstly print a web link in the terminal, asking for permissions.</p>
 <div class="figure align-center" id="id8" style="width: 640px">
 <img alt="_images/Google_sheet_step_1.png" src="_images/Google_sheet_step_1.png" />
-<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">For the first time to connect NucleServer to Google Sheet, you need to give permission of NucleServer to read the data on your public Google Sheet.</span></p>
+<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">For the first time to connect NucleServer to Google Sheet, you need to permit NucleServer to read the data on your public Google Sheet.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 <p>Open that link in a web browser, log in using your Google account, and grant the permissions.</p>
 <div class="figure align-center" id="id9" style="width: 420px">
 <img alt="_images/Google_sheet_step_2.png" src="_images/Google_sheet_step_2.png" />
-<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">Give permission to NucleServer using your Google account</span></p>
+<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">Permit NucleServer using your Google account</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <p>Once this is done, Google should provide you a token in response.
 Copy this token and paste it in the terminal to finish this process and your local server is ready to use.</p>
 <div class="figure align-center" id="id10" style="width: 420px">
 <img alt="_images/Google_sheet_step_3.png" src="_images/Google_sheet_step_3.png" />
-<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">Copy the token back to the terminal</span></p>
+<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">Copy the token back to the terminal</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 <p>A credential token will be stored in <code class="docutils literal notranslate"><span class="pre">[Your</span> <span class="pre">Home</span> <span class="pre">Dir]/.nucle/credentials/gsheet.json</span></code> so that next time you do not need to permit NucleServer to read public Google sheet on your Google account again.</p>
 </div>
@@ -223,7 +223,7 @@ To do that, simply add an argument <code class="docutils literal notranslate"><s
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nucleserver start -i nucle.xlsx -c password
 </pre></div>
 </div>
-<p>To visualize those private data in the Nucleome Browser, users have to first login with the password through the following web page.</p>
+<p>To visualize those private data in the Nucleome Browser, users have to first log in with the password through the following web page.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://<span class="o">[</span>yourwebsite<span class="o">]</span>:8611/main.html
 </pre></div>
 </div>
@@ -231,8 +231,35 @@ To do that, simply add an argument <code class="docutils literal notranslate"><s
 </div>
 <div class="section" id="d-structure-data">
 <h2>3D structure data<a class="headerlink" href="#d-structure-data" title="Permalink to this headline">¶</a></h2>
-<p>We provide multiple useful tools to help users prepare data/web service to visualize genome 3D structure data in Nucleome Browser.
-Those tools can be get from <a class="reference external" href="https://github.com/nucleome/nucle">https://github.com/nucleome/nucle</a>.</p>
+<div class="section" id="the-nucle3d-format">
+<h3>The nucle3d format<a class="headerlink" href="#the-nucle3d-format" title="Permalink to this headline">¶</a></h3>
+<p>In Nucleome Browser, the 3D structure panel uses the <a class="reference external" href="https://github.com/nucleome/nucle3d">nucle3d</a> format to prepresent the 3D structure of chromatin.</p>
+<p>An example of a nucle3D file is shown below. Each file represents a 3D structure of chromatin with a fixed bin size. The first several rows (tab-delimited) indicate the name (TITLE) of this structure, genome assembly version (GENOME), and bin size (BINSIZE). Note that the nucle3D format requires that all chromatin segments have the same bin size and those chromatin segments are non-overlapping. For each chromosome, a row starting with CHR tells to which chromosome the following bins belongs. Then, the following bins show the bin-id (0-base) and XYZ positions of this chromatin segment. For example, if the bin-size is 100kb, the first bin (0 to 100kb) should have bin-id 0. Bin-id and XYZ positions are separated by comma as shown in the example below. You can skip bins if there is no data on those bins.</p>
+<p>Support for variable bin sizes, diploid genome, and visualization of nuclear bodies will be added in the next version of the Nucle3D format.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TITLE</span>   <span class="p">[</span><span class="n">NAME</span><span class="p">]</span>        <span class="c1"># Tab split</span>
+<span class="n">GENOME</span>  <span class="n">hg38</span>          <span class="c1"># Tab split</span>
+<span class="n">BINSIZE</span> <span class="p">[</span><span class="n">binsize</span><span class="p">]</span>
+<span class="n">CHR</span> <span class="n">chr1</span> <span class="c1"># Tab split</span>
+<span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span>
+<span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span>
+<span class="o">..</span>
+<span class="n">CHR</span> <span class="n">chr2</span>
+<span class="o">..</span>
+</pre></div>
+</div>
+<p>We also provide multiple useful tools to help users prepare data/web service to visualize genome 3D structure data in Nucleome Browser.
+Those tools can get from <a class="reference external" href="https://github.com/nucleome/nucle">https://github.com/nucleome/nucle</a>.</p>
+</div>
+<div class="section" id="host-3d-structure-using-nucleserver">
+<h3>Host 3D structure using nucleserver<a class="headerlink" href="#host-3d-structure-using-nucleserver" title="Permalink to this headline">¶</a></h3>
+<p>You can use nucleserver to host custom 3D structural data. Please follow the instruction on nucleserver repo to install it.</p>
+<p>You can put all 3D structural data in a folder (e.g. 3D). You can then start a data service to host these data using the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># assume the folder 3D contains the structural data, each file represent a 3D structure</span>
+nucleserver file --root 3D
+</pre></div>
+</div>
+<p>You should see a message like this “Please open <cite>http://127.0.0.1:8611</cite>”. This means that all the 3D structural data can be retrieved under URL <cite>http://127.0.0.1:8611/get/</cite>. You can copy the URL of the 3D structural data into the input data box in the 3D structure panel of the Nucleome Browser.</p>
+</div>
 </div>
 </div>
 
@@ -256,7 +283,7 @@ Those tools can be get from <a class="reference external" href="https://github.c
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="animation.html">Animations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="animation.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="animation.html#panel-oraganization">Panel oraganization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation.html#panel-organization">Panel organization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="animation.html#genome-browser-tutorial">Genome browser tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="animation.html#d-structure-tutorial">3D structure tutorial</a></li>
 </ul>
@@ -298,7 +325,7 @@ Those tools can be get from <a class="reference external" href="https://github.c
 <li class="toctree-l1"><a class="reference internal" href="component_other.html">Other components</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="component_other.html#google-sheet-viewer">Google Sheet viewer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="component_other.html#fetch-dna-sequence">Fetch DNA sequence</a></li>
-<li class="toctree-l2"><a class="reference internal" href="component_other.html#dn-dcic-imging-data">4DN DCIC imging data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_other.html#dn-dcic-imaging-data">4DN DCIC imaging data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plugin.html">Plugin usage</a><ul>
@@ -325,7 +352,7 @@ Those tools can be get from <a class="reference external" href="https://github.c
 <li class="toctree-l1"><a class="reference internal" href="nb_dispatch_api.html">NB-dispatch API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#a-mininal-example">A mininal example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#a-minimal-example">A minimal example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#api-reference">API reference</a></li>
 </ul>
 </li>
@@ -341,13 +368,11 @@ Those tools can be get from <a class="reference external" href="https://github.c
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -368,7 +393,7 @@ Those tools can be get from <a class="reference external" href="https://github.c
       &copy;2017-2020 Nucleome Browser Authors .
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

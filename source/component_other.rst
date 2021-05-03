@@ -51,7 +51,7 @@ Notably, when multiple regions are being viewed, this tool will show the DNA seq
     Fetch the DNA sequence of the currently viewed region (< 10000bp)
 
 4DN DCIC imaging data
-====================
+=====================
 
 The 4DN Data Coordination and Integration Center (DCIC) currently hosts abundant imaging data using an OMERO server. 
 We have parsed the meta-information of those imaging data and stored that information if an image is labeled to specific genomic coordinates (e.g., DNA FISH data).

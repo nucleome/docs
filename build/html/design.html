@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Panel-container system &#8212; Nucleome Browser v0.9.3 documentation</title>
     <link rel="stylesheet" href="_static/nb.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -41,15 +39,15 @@
 <p>Nucleome Browser adopts the concept of modular design in its architecture.
 First, we created a series of composable, configurable, and communicable web components (i.e., customized HTML elements) to visualize and explore different types of data.
 Each web component is built to handle a specific type of data (e.g., genomic data, 3D genome structures, or imaging data).
-Next, we standardized different web components into web-containers (web panels) with the same interface such that these different web components can <strong>communicate</strong> with each other.
+Next, we standardized different web components into web containers (web panels) with the same interface such that these different web components can <strong>communicate</strong> with each other.
 Therefore, users can combine multiple components/panels into tabs of the web browser in a flexible and user-friendly manner.
-Currently, two types of the messages triggered by a user can transmit bidirectionaly across web components,  including 1) current viewed genomic regions; 2) highlighted genomic regions.
+Currently, two types of messages triggered by a user can transmit bidirectionally across web components,  including 1) current viewed genomic regions; 2) highlighted genomic regions.
 Furthermore, Nucleome Browser supports messages dispatching between web panels in the same web tab, across web tabs in the same domain, or even across web tabs in different domains (e.g., the UCSC Genome Browser).
 This versatile and powerful feature is achieved through a hierarchical <code class="docutils literal notranslate"><span class="pre">event-driven</span> <span class="pre">communication</span></code> protocol.
 To summarize, the Nucleome Browser is the first web-based platform that supports interactively browsing multi-modal.</p>
 <div class="figure align-center" id="id1" style="width: 640px">
 <img alt="_images/ch2_architecture.png" src="_images/ch2_architecture.png" />
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">The roadmap of the Nucleome Browser: from data service to synchronization of heterogeneous web components</span></p>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">The roadmap of the Nucleome Browser: from data service to synchronization of heterogeneous web components</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="what-is-a-panel">
@@ -57,7 +55,7 @@ To summarize, the Nucleome Browser is the first web-based platform that supports
 <p>Web panel is perhaps the most important concept introduced by Nucleome Browser.
 You can consider different web panels as Lego bricks such that they have distinct functionalities while still possess the ability to <strong>communicate</strong> with each other.
 In Nucleome Browser, web panels are all contained in the same panel-container system, allowing web panels to synchronize with each other.
-Next, we will formally introduce some basic operations of web panels, including the creation of a new web panel, duplication of existing web panel, a panel-space widget to conveniently organize web panels, .etc.</p>
+Next, we will formally introduce some basic operations of web panels, including the creation of a new web panel, duplication of existing web panels, a panel-space widget to conveniently organize web panels, .etc.</p>
 </div>
 <div class="section" id="create-a-new-panel">
 <h2>Create a new panel<a class="headerlink" href="#create-a-new-panel" title="Permalink to this headline">¶</a></h2>
@@ -66,7 +64,7 @@ When the mouse hovers on the <code class="docutils literal notranslate"><span cl
 Clicking one type of web panel, a default panel will be added to the current web tab.</p>
 <div class="figure align-center" id="id2" style="width: 420px">
 <img alt="_images/ch2_create_a_panel.png" src="_images/ch2_create_a_panel.png" />
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Users can create a new panel using the top menu bar</span></p>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Users can create a new panel using the top menu bar</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="basic-operations">
@@ -76,29 +74,29 @@ You can control each panel using the configuration toolbar located on the top-ri
 <a class="reference internal" href="#panel-menu"><span class="std std-numref">Fig. 21</span></a> shows the function of each button on the panel’s configuration toolbar.</p>
 <div class="figure align-center" id="panel-menu" style="width: 640px">
 <img alt="_images/ch2_panel_menu_v2.png" src="_images/ch2_panel_menu_v2.png" />
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Panel configuration toolbar on the top-right corner</span></p>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Panel configuration toolbar on the top-right corner</span><a class="headerlink" href="#panel-menu" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Configuration mode of a panel</strong></p>
 <p>Clicking the <code class="docutils literal notranslate"><span class="pre">configuration</span></code> button (<a class="reference internal" href="_images/icon-panel-config_v2.png"><img alt="panel-config" src="_images/icon-panel-config_v2.png" style="height: 14px;" /></a>), you will see the configuration interface of this panel if that panel has the configuration mode.
 In the configuration mode (the configuration button will turn to green color), you can go back to the visualization mode by clicking the button again.</p>
 <div class="figure align-center" id="id3" style="width: 640px">
 <img alt="_images/ch2_toggle_config_mode_v2.png" src="_images/ch2_toggle_config_mode_v2.png" />
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Toggle Configuration / Visualization mode</span></p>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Toggle Configuration / Visualization mode</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Rename a panel</strong></p>
 <p>Clicking the <code class="docutils literal notranslate"><span class="pre">rename</span></code> button (<a class="reference internal" href="_images/icon-panel-rename_v2.png"><img alt="panel-rename" src="_images/icon-panel-rename_v2.png" style="height: 14px;" /></a>), you will see a dialog popping out.
-You can then change the title of the this panel.
+You can then change the title of this panel.
 This title will also be the default name when you save this panel to the panel space.</p>
 <p><strong>Save a panel to panel space</strong></p>
 <p>Clicking the <code class="docutils literal notranslate"><span class="pre">save</span></code> button (<a class="reference internal" href="_images/icon-panel-save_v2.png"><img alt="panel-save" src="_images/icon-panel-save_v2.png" style="height: 14px;" /></a>), you can save the current panel into the panel space, which is hosted locally in the web browser’s IndexedDB.
 To view saved panels in the panel space, you can click the panel space button (<a class="reference internal" href="_images/icon-top-space.png"><img alt="panel-space" src="_images/icon-top-space.png" style="height: 14px;" /></a>) on the top menu bar.
 A window of panel space will be shown on the left side of the panel.
 Users can load panels saved in the panel space to the current web tab using the upload button (<a class="reference internal" href="_images/icon-top-upload.png"><img alt="panel-upload" src="_images/icon-top-upload.png" style="height: 14px;" /></a>) or delete saved panels using buttons next to each panel using the delete button (<a href="#id7"><span class="problematic" id="id8">|panel-delete|</span></a>).
-Panel space works similarly as the bookmarks of the web browser, allowing users to easily re-use and compose previous panels from different sessions.
+Panel space works similarly to the bookmarks of the web browser, allowing users to easily re-use and compose previous panels from different sessions.
 Notably, since panels in the panel space are saved into the web browser’s IndexedDB, you will not find them if you use another computer.</p>
 <div class="figure align-center" id="id4" style="width: 640px">
 <img alt="_images/ch2_panel_space_v2.png" src="_images/ch2_panel_space_v2.png" />
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Save a panel to Panel Space</span></p>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Save a panel to Panel Space</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Duplicate a panel</strong></p>
 <p>Clicking the <code class="docutils literal notranslate"><span class="pre">duplication</span></code> button (<a class="reference internal" href="_images/icon-panel-duplicate_v2.png"><img alt="panel-duplicate" src="_images/icon-panel-duplicate_v2.png" style="height: 14px;" /></a>) of a panel, you can duplicate this panel in the same web tab.
@@ -107,7 +105,7 @@ It is also quite useful if you can create a similar genome browser panel with di
 <p><strong>Pop-out and pop-in a panel</strong></p>
 <p>Nucleome Browser allows users to create panels in different web tabs.
 Notably, panels in different web tabs are all synchronized with each other.
-However, there is a main tab to which all the other extended panels are attached.
+However, there is the main tab to which all the other extended panels are attached.
 If you close the main tab, all the extended panels will also be closed.
 There are two ways to create an extended panel.
 First, you can click the <code class="docutils literal notranslate"><span class="pre">pop-out</span></code> button (<a class="reference internal" href="_images/icon-panel-popout_v2.png"><img alt="panel-pop-out" src="_images/icon-panel-popout_v2.png" style="height: 14px;" /></a>) to convert a panel into an individual web window.
@@ -116,7 +114,7 @@ Clicking the pop-in button, the pop-out panel will be added back to the main tab
 In the second method, you can create an extended panel by clicking the <code class="docutils literal notranslate"><span class="pre">Extended</span> <span class="pre">Window</span></code> button (<a class="reference internal" href="_images/icon-top-extra.png"><img alt="panel-extra" src="_images/icon-top-extra.png" style="height: 14px;" /></a>) in the drop-down menu of the <code class="docutils literal notranslate"><span class="pre">plus</span></code> button on the top menu bar.</p>
 <div class="figure align-center" id="id5" style="width: 640px">
 <img alt="_images/ch2_pop_out_v2.png" src="_images/ch2_pop_out_v2.png" />
-<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Pop out a panel into an exntended window</span></p>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Pop-out a panel into an extended window</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Maximize a panel / Back to standard view</strong></p>
 <p>Clicking the <code class="docutils literal notranslate"><span class="pre">maximization</span></code> button (<a class="reference internal" href="_images/icon-panel-max_v2.png"><img alt="panel-max" src="_images/icon-panel-max_v2.png" style="height: 14px;" /></a>) of a panel, you will see the panel taking the full width of the current web browser.
@@ -135,7 +133,7 @@ The mouse will turn into a resizing form when it close to the boundary of a pane
 You can then click and hold the mouse to change the height or width of a panel.</p>
 <div class="figure align-center" id="id6" style="width: 640px">
 <img alt="_images/ch2_panel_layout.png" src="_images/ch2_panel_layout.png" />
-<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Nucleome Browser support flexible layout to arrange multiple panels</span></p>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Nucleome Browser support a flexible layout to arrange multiple panels</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -160,7 +158,7 @@ You can then click and hold the mouse to change the height or width of a panel.<
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="animation.html">Animations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="animation.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="animation.html#panel-oraganization">Panel oraganization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation.html#panel-organization">Panel organization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="animation.html#genome-browser-tutorial">Genome browser tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="animation.html#d-structure-tutorial">3D structure tutorial</a></li>
 </ul>
@@ -202,7 +200,7 @@ You can then click and hold the mouse to change the height or width of a panel.<
 <li class="toctree-l1"><a class="reference internal" href="component_other.html">Other components</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="component_other.html#google-sheet-viewer">Google Sheet viewer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="component_other.html#fetch-dna-sequence">Fetch DNA sequence</a></li>
-<li class="toctree-l2"><a class="reference internal" href="component_other.html#dn-dcic-imging-data">4DN DCIC imging data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_other.html#dn-dcic-imaging-data">4DN DCIC imaging data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plugin.html">Plugin usage</a><ul>
@@ -229,7 +227,7 @@ You can then click and hold the mouse to change the height or width of a panel.<
 <li class="toctree-l1"><a class="reference internal" href="nb_dispatch_api.html">NB-dispatch API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#a-mininal-example">A mininal example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#a-minimal-example">A minimal example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#api-reference">API reference</a></li>
 </ul>
 </li>
@@ -245,13 +243,11 @@ You can then click and hold the mouse to change the height or width of a panel.<
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -272,7 +268,7 @@ You can then click and hold the mouse to change the height or width of a panel.<
       &copy;2017-2020 Nucleome Browser Authors .
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

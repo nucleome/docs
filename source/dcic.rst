@@ -44,17 +44,13 @@ Notably, we have manually curated track names to make them easier to understand.
 Config tracks
 -------------
 
-The track id (file id) from 4DN is just a combination of letters and numbers. To better distinguish different tracks, you can give an alias to a track. You can also click the long track name to open its' metadata link on the DCIC web portal
+The track id (file id) from 4DN is just a combination of letters and numbers. To better distinguish different tracks, you can give an alias to a track. You can also click the long track name to open its metadata link on the DCIC web portal
 
-.. figure:: img/tutorial/GIF/NB_4DN_track_usage.gif
+.. figure:: img/tutorial/GIF/NB_4DN_track_usage_1.8x.gif
     :align: center
     :figwidth: 640px
 
-.. figure:: img/tutorial/tutorial_4DN_track_config.png
-    :align: center
-    :figwidth: 640px
-    
-    Give an alias to track
+    Click long label of a track open its metadata link on the DCIC web site. You can also give an alias to a track
 
 Explore microscopy data
 =======================

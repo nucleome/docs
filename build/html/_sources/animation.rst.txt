@@ -5,13 +5,13 @@ Animations
 Overview
 ========
 
-This tutorial demonstrates several basic and useful features in Nucleome Browser. Note that there are a lot of GIF file in this page. We recommend you to view these examples using computers rather than cell phones. 
+This tutorial demonstrates several basic and useful features in Nucleome Browser. Note that there are a lot of GIF files on this page. We recommend you to view these examples using computers rather than cell phones. 
 
-Panel oraganization
+Panel organization
 ===================
 
 Create a new panel
---------------------
+------------------
 
 When the mouse hovers on the ``plus`` button (|top-plus|), you can choose to create a panel from the drop-down menu. You can also duplicate a panel by clicking the ``duplication`` button (|panel-duplicate|) in the configuration toolbar located on the top-right of the panel.
 
@@ -37,12 +37,12 @@ Nucleome Browser supports flexibly adjust the composition of panels. You can dra
     :align: center
     :figwidth: 640px
 
-    Nucleome Browser support flexible layout to arrange multiple panels
+    Nucleome Browser supports a flexible layout to arrange multiple panels
 
 Genome browser tutorial
 =======================
 
-Navigate the genome using nagivation buttons
+Navigate the genome using navigation buttons
 --------------------------------------------
 
 You can use navigation buttons to move forward/backward on the chromosome or zoom-in/-out.
@@ -51,21 +51,21 @@ You can use navigation buttons to move forward/backward on the chromosome or zoo
     :align: center
     :figwidth: 640px
     
-    Use navigation button to move along the genome
+    Use the navigation buttons to move along the genome
 
-Navigate the genome using ideogram
-----------------------------------
+Navigate the genome using the ideogram
+--------------------------------------
 
-To move to different regions on the same chromosome, you can also use the mouse to brush the ideogram of chromosome on the top. You can further adjust the brushed region using the left-button of the mouse or zoom into the brushed region by right-clicking the mouse. 
+To move to different regions on the same chromosome, you can also use the mouse to brush the ideogram of the chromosome on the top. You can further adjust the brushed region using the left button of the mouse or zoom into the brushed region by right-clicking the mouse. 
 
 .. figure:: img/tutorial/GIF/NB_navigation_ideogram_compress.gif
     :align: center
     :figwidth: 640px
     
-    Brush on the ideogram for quick nagivation on the chromosome
+    Brush on the ideogram for quick navigation on the chromosome
 
-Left-click to highlight & right-click to zoom-in
-------------------------------------------------
+Left-click to highlight & right-click to zoo in
+-----------------------------------------------
 
 Use the left button of the mouse to highlight on 1D or 2D genomic tracks. You can further move the highlighted region by dragging the highlighted region. Use right-click to zoom-into the highlighted region(s). 
 
@@ -89,32 +89,32 @@ You can click a region in the bigBed track to highlight this region. If this reg
 Interactive scatterplot tool
 ----------------------------
 
-You can open the scatterplot tool by clicking the ``scatterplot button`` (|gb-scatterplot|). Each dot represents a genomic region with X-/Y-axis represent signals from different genomic tracks. You can then use the mouse to select interests dots and visualize their locations on the genome browser. Highlight regions on the genomic tracks will also show as highlighted dots in the scatterplot tool.
+You can open the scatterplot tool by clicking the ``scatterplot button`` (|gb-scatterplot|). Each dot represents a genomic region with X-/Y-axis represent signals from different genomic tracks. You can then use the mouse to select dots and visualize their locations on the genome browser. Highlight regions on the genomic tracks will also show as highlighted dots in the scatterplot tool.
 
 .. |gb-scatterplot| image:: img/other/icon/icon-genome-scatterplot.png
     :height: 14px
 
-.. figure:: img/tutorial/GIF/NB_scatterplot_tool_compress.gif
+.. figure:: img/tutorial/GIF/NB_scatterplot_tool_compress_1.8x.gif
     :align: center
     :figwidth: 640px
     
-    Use scaterplot tool to interactively explore genomic tracks
+    Use scatterplot tool to interactively explore genomic tracks
 
 3D structure tutorial
 =====================
 
-Panning, Rotating, and Zooming in/out on 3D structure
------------------------------------------------------
+Panning, Rotating, and Zooming in/out on the 3D structure
+---------------------------------------------------------
 
 Pan: Press the **Control** key and use the left button of the mouse to move.
 Rotate: Click and hold the left button of the mouse to rotate the 3D strcuture.
-Zoom-in/-out: Use the center mouse wheel to zoom-in or zoom-out.
+Zoom in/out: Use the center mouse wheel to zoom in or zoom out.
 
 .. figure:: img/tutorial/GIF/NB_3D_exploration_compress.gif
     :align: center
     :figwidth: 640px
     
-    Use the mouse the manipulate 3D structure
+    Use the mouse to manipulate 3D structure
 
 Super-impose bigwig on 3D structure
 -----------------------------------
@@ -127,29 +127,29 @@ First, open the configuration window of the genome browser panel and enable rend
 .. |track-send| image:: img/other/icon/icon-genome-send.png
     :height: 14px
 
-.. figure:: img/tutorial/GIF/NB_3D_bigwig_superimpose_compress.gif
+.. figure:: img/tutorial/GIF/NB_3D_bigwig_superimpose_compress_1.8x.gif
     :align: center
     :figwidth: 640px
 
 Click segment on the 3D structure to navigate
 ---------------------------------------------
 
-Enable clickable operation on 3D structure by clicking the pencil symbol on the 3D structure toolbar (the button will become darker). Left-click the mouse on the 3D structure to navigate to that region.
+Enable clickable operation on 3D structure by clicking the pencil symbol on the the 3D structure toolbar (the button will become darker). Left-click the mouse on the 3D structure to navigate to that region.
 
 .. figure:: img/tutorial/GIF/NB_3D_click_compress.gif
     :align: center
     :figwidth: 640px
     
-    Use the mouse the manipulate 3D structure
+    Use the mouse to manipulate the 3D structure
 
-Synchronized highlight between genome browser and 3D structure
---------------------------------------------------------------
+Synchronized highlight between genome browser and the 3D structure
+------------------------------------------------------------------
 
-Highlighted regions are synchronized between genome browser panel and 3D structure panel. 
+Highlighted regions are synchronized between the genome browser panel and the 3D structure panel. 
 
-.. figure:: img/tutorial/GIF/NB_3D_highlight_compress.gif
+.. figure:: img/tutorial/GIF/NB_3D_highlight_1.8x.gif
     :align: center
     :figwidth: 640px
     
-    Use the mouse the manipulate 3D structure
+    Use the mouse to manipulate the 3D structure
 

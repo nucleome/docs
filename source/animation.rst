@@ -11,7 +11,7 @@ Panel organization
 ===================
 
 Create a new panel
---------------------
+------------------
 
 When the mouse hovers on the ``plus`` button (|top-plus|), you can choose to create a panel from the drop-down menu. You can also duplicate a panel by clicking the ``duplication`` button (|panel-duplicate|) in the configuration toolbar located on the top-right of the panel.
 
@@ -65,7 +65,7 @@ To move to different regions on the same chromosome, you can also use the mouse 
     Brush on the ideogram for quick navigation on the chromosome
 
 Left-click to highlight & right-click to zoo in
-------------------------------------------------
+-----------------------------------------------
 
 Use the left button of the mouse to highlight on 1D or 2D genomic tracks. You can further move the highlighted region by dragging the highlighted region. Use right-click to zoom-into the highlighted region(s). 
 
@@ -94,7 +94,7 @@ You can open the scatterplot tool by clicking the ``scatterplot button`` (|gb-sc
 .. |gb-scatterplot| image:: img/other/icon/icon-genome-scatterplot.png
     :height: 14px
 
-.. figure:: img/tutorial/GIF/NB_scatterplot_tool_compress.gif
+.. figure:: img/tutorial/GIF/NB_scatterplot_tool_compress_1.8x.gif
     :align: center
     :figwidth: 640px
     
@@ -104,7 +104,7 @@ You can open the scatterplot tool by clicking the ``scatterplot button`` (|gb-sc
 =====================
 
 Panning, Rotating, and Zooming in/out on the 3D structure
------------------------------------------------------
+---------------------------------------------------------
 
 Pan: Press the **Control** key and use the left button of the mouse to move.
 Rotate: Click and hold the left button of the mouse to rotate the 3D strcuture.
@@ -127,7 +127,7 @@ First, open the configuration window of the genome browser panel and enable rend
 .. |track-send| image:: img/other/icon/icon-genome-send.png
     :height: 14px
 
-.. figure:: img/tutorial/GIF/NB_3D_bigwig_superimpose_compress.gif
+.. figure:: img/tutorial/GIF/NB_3D_bigwig_superimpose_compress_1.8x.gif
     :align: center
     :figwidth: 640px
 
@@ -143,11 +143,11 @@ Enable clickable operation on 3D structure by clicking the pencil symbol on the 
     Use the mouse to manipulate the 3D structure
 
 Synchronized highlight between genome browser and the 3D structure
---------------------------------------------------------------
+------------------------------------------------------------------
 
 Highlighted regions are synchronized between the genome browser panel and the 3D structure panel. 
 
-.. figure:: img/tutorial/GIF/NB_3D_highlight_compress.gif
+.. figure:: img/tutorial/GIF/NB_3D_highlight_1.8x.gif
     :align: center
     :figwidth: 640px
     

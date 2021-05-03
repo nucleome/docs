@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Plugin usage &#8212; Nucleome Browser v0.9.3 documentation</title>
     <link rel="stylesheet" href="_static/nb.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -36,28 +34,28 @@
             
   <div class="section" id="plugin-usage">
 <h1>Plugin usage<a class="headerlink" href="#plugin-usage" title="Permalink to this headline">¶</a></h1>
-<p>Nucleome Browser allows user to sync genome coordinates between other web applications/pages.
+<p>Nucleome Browser allows users to sync genome coordinates between other web applications/pages.
 The Nucleome Bridge web extension is available in <a class="reference external" href="https://chrome.google.com/webstore/detail/nucleome-bridge/djcdicpaejhpgncicoglfckiappkoeof">Chrome store</a>, and can be used in several web browsers such as Chrome, Brave, Opera, and Edge (based on Chromium).
-It also works in browsers which supports <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable">external_connectable</a> web API.</p>
+It also works in browsers that support <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable">external_connectable</a> web API.</p>
 <div class="section" id="nucleome-bridge-extension">
 <h2>Nucleome Bridge extension<a class="headerlink" href="#nucleome-bridge-extension" title="Permalink to this headline">¶</a></h2>
 <p>Nucleome Browser can communicate genome coordinates event within the <a class="reference external" href="https://genome.ucsc.edu">UCSC Genome Browser</a> and the <a class="reference external" href="https://epigenomegateway.wustl.edu">WashU Epigenome Browser</a> through the <a class="reference external" href="https://chrome.google.com/webstore/detail/nucleome-bridge/djcdicpaejhpgncicoglfckiappkoeof?hl=en">Nucleome Bridge</a>.</p>
-<p>When user open these two web applications in Nucleome Bridge, genome coordinates can be automatically sync between nucleome browser and these two genome browsers. User can navigate in any one browser, and the others will respond accordingly. Meanwhile, user can highlight regions in Nucleome Browser, the UCSC Genome Browser and/or WashU Epigenome Browser will respond as well. This feature makes user can easily compare tracks in two or three different genome browsers.</p>
+<p>When the user opens these two web applications in Nucleome Bridge, genome coordinates can be automatically synced between the nucleome browser and these two genome browsers. Users can navigate in any one browser, and the others will respond accordingly. Meanwhile, the user can highlight regions in Nucleome Browser, the UCSC Genome Browser, and/or WashU Epigenome Browser will respond as well. This feature makes users can easily compare tracks in two or three different genome browsers.</p>
 <div class="figure align-center" id="id1" style="width: 640px">
 <img alt="_images/ch4_3_browser.png" src="_images/ch4_3_browser.png" />
-<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Use nucleome bridge web browser extension to sync genomic coordinates between nucleome browser, UCSC genome browser, and WashU genome browser.</span></p>
+<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Use nucleome bridge web browser extension to sync genomic coordinates between nucleome browser, UCSC genome browser, and WashU genome browser.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<p>Once the Nucleome Bridge web browser extension is installed, user can open UCSC Genome Browser or WashU Epigenome Browser by clicking the Nucleome Bridge icon.</p>
-<p>When user open UCSC Genome Browser or WashU Epigenome Browser from Nucleome Bridge, a piece of JavaScript code will insert into this browser and  pass genome coordinates event message between this browser and Nucleome Bridge. When user navigate genome from this browser, the updated genome coordinates will post to Nucleome Bridge, and Nucleome Bridge will pass this genome coordinates to other connected web applications include Nucleome Browser. On the other hand, when user update genome coordinates or highlight some genome regions, these genome coordinates will post to Nucleome Bridge, and Nucleome Bridge will pass to UCSC/WashU browser and this browser will update its genome coordinates automatically. User can open multiple UCSC/WashU windows.</p>
+<p>Once the Nucleome Bridge web browser extension is installed, the user can open UCSC Genome Browser or WashU Epigenome Browser by clicking the Nucleome Bridge icon.</p>
+<p>When the user opens UCSC Genome Browser or WashU Epigenome Browser from Nucleome Bridge, a piece of JavaScript code will insert into this browser and pass the genomic coordinates event message between this browser and Nucleome Bridge. When the user navigates genome from this browser, the updated genome coordinates will post to Nucleome Bridge, and Nucleome Bridge will pass genome coordinates to other connected web applications include Nucleome Browser. On the other hand, when the user update genome coordinates or highlights some genome regions, these genome coordinates will post to Nucleome Bridge, and Nucleome Bridge will pass to UCSC/WashU browser and this browser will update its genome coordinates automatically. Users can open multiple UCSC/WashU windows.</p>
 <div class="figure align-center" id="id2" style="width: 400px">
 <img alt="_images/ch4_nucleome_bridge.png" src="_images/ch4_nucleome_bridge.png" />
-<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Nucleome Bridge web browser extension</span></p>
+<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Nucleome Bridge web browser extension</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="google-spreadsheet-add-on">
 <h2>Google Spreadsheet add-on<a class="headerlink" href="#google-spreadsheet-add-on" title="Permalink to this headline">¶</a></h2>
-<p>As a proof-of-concept, by importing nb-dispatch into Google Sheet app script, we provide a Google Sheet addon to make Nucleome Browser work with Google Sheet web application.</p>
-<p>When user navigate to some genomic regions they are interested, they would like to mark down this region for future investigation.
+<p>As a proof-of-concept, by importing nb-dispatch into Google Sheet app script, we provide a Google Sheet add-on to make Nucleome Browser work with the Google Sheet web application.</p>
+<p>When users navigate to some genomic regions they are interested, they would like to markdown this region for future investigation.
 We provide this function in a web application integration approach.</p>
 <p>Here is <a class="reference external" href="https://docs.google.com/spreadsheets/d/1gD6rWNDDkxS-PTb4DmCsV1B57MircZ18RfNxVgjHOhk">an example template</a>.
 Users can clone this sheet and use it as a note application or even revise it into a more powerful tool.</p>
@@ -84,7 +82,7 @@ Users can clone this sheet and use it as a note application or even revise it in
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="animation.html">Animations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="animation.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="animation.html#panel-oraganization">Panel oraganization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation.html#panel-organization">Panel organization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="animation.html#genome-browser-tutorial">Genome browser tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="animation.html#d-structure-tutorial">3D structure tutorial</a></li>
 </ul>
@@ -126,7 +124,7 @@ Users can clone this sheet and use it as a note application or even revise it in
 <li class="toctree-l1"><a class="reference internal" href="component_other.html">Other components</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="component_other.html#google-sheet-viewer">Google Sheet viewer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="component_other.html#fetch-dna-sequence">Fetch DNA sequence</a></li>
-<li class="toctree-l2"><a class="reference internal" href="component_other.html#dn-dcic-imging-data">4DN DCIC imging data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_other.html#dn-dcic-imaging-data">4DN DCIC imaging data</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Plugin usage</a><ul>
@@ -153,7 +151,7 @@ Users can clone this sheet and use it as a note application or even revise it in
 <li class="toctree-l1"><a class="reference internal" href="nb_dispatch_api.html">NB-dispatch API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#a-mininal-example">A mininal example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#a-minimal-example">A minimal example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#api-reference">API reference</a></li>
 </ul>
 </li>
@@ -169,13 +167,11 @@ Users can clone this sheet and use it as a note application or even revise it in
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -196,7 +192,7 @@ Users can clone this sheet and use it as a note application or even revise it in
       &copy;2017-2020 Nucleome Browser Authors .
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

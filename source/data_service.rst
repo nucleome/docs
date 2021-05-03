@@ -6,17 +6,19 @@ Data type supported
 ===================
 
 Nucleome Browser supports multimodal data for visualization and exploration.
-For genomic data, Nucleome Browser supports data in bigBed, bigWig, tabix, and .hic format.
-For imaging data, Nucleome Browser utilizes the OMERO server to host imaging data.
+For genomic data, Nucleome Browser supports data in `bigBed`, `bigWig`, `tabix`, and `.hic` format.
+For imaging data, Nucleome Browser utilizes the OMERO server to host imaging data. 
 The supported formats of imaging data for the OMERO server are listed on the `OMERO's website <https://docs.openmicroscopy.org/bio-formats/5.9.2/supported-formats.html>`_.
-For 3D genome structure data, Nucleome Browser uses a custom format that can be easily transformed from popular formats such as `cmm <http://www.cgl.ucsf.edu/chimera/docs/ContributedSoftware/volumepathtracer/volumepathtracer.html#markerfiles>`_.
+Users can explore thumbnails of image on the genome browser panel and view the raw image on OMERO.iviewer. 
+For 3D genome structure data, Nucleome Browser uses a custom format called nucle3D that can be easily transformed from popular formats such as `cmm <http://www.cgl.ucsf.edu/chimera/docs/ContributedSoftware/volumepathtracer/volumepathtracer.html#markerfiles>`_.
+The details on the nucle3D format is shown `here <https://github.com/nucleome/nucle3d>`_.
 
 Genomic data
 ============
 
 We provide a command-line tool (NucleServer) or its GUI version (NucleData) to host your data server across macOS, Windows, and Linux systems. 
-Both NucleServer and NucleData will start a local data server given a configuration file provided by the user.
-Once the data server is started, it will connect to the Nucleome Browser hosted in our main portal (`http://vis.nucleome.org <http://vis.nucleome.org>`_) and you can load the data from your local data server in Nucleome Browser main portal.
+Both NucleServer and NucleData start a local data server using a configuration file/link provided by the user.
+Once the data server is started, it will connect to the Nucleome Browser hosted in our main portal (`https://vis.nucleome.org <https://vis.nucleome.org>`_ or `http://vis.nucleome.org <http://vis.nucleome.org>`_) and you can load the data from your local data server in Nucleome Browser main portal.
 `NucleServer <https://github.com/nucleome/nucleserver>`_ and `NucleData <https://github.com/nucleome/nucledata>`_ for different platforms can be downloaded from GitHub.
 
 NucleServer and NucleData
@@ -249,5 +251,43 @@ To visualize those private data in the Nucleome Browser, users have to first log
 3D structure data
 =================
 
-We provide multiple useful tools to help users prepare data/web service to visualize genome 3D structure data in Nucleome Browser. 
+
+The nucle3d format
+------------------
+
+In Nucleome Browser, the 3D structure panel uses the `nucle3d <https://github.com/nucleome/nucle3d>`_ format to prepresent the 3D structure of chromatin.
+
+An example of a nucle3D file is shown below. Each file represents a 3D structure of chromatin with a fixed bin size. The first several rows (tab-delimited) indicate the name (TITLE) of this structure, genome assembly version (GENOME), and bin size (BINSIZE). Note that the nucle3D format requires that all chromatin segments have the same bin size and those chromatin segments are non-overlapping. For each chromosome, a row starting with CHR tells to which chromosome the following bins belongs. Then, the following bins show the bin-id (0-base) and XYZ positions of this chromatin segment. For example, if the bin-size is 100kb, the first bin (0 to 100kb) should have bin-id 0. Bin-id and XYZ positions are separated by comma as shown in the example below. You can skip bins if there is no data on those bins.
+
+Support for variable bin sizes, diploid genome, and visualization of nuclear bodies will be added in the next version of the Nucle3D format.
+
+::
+
+    TITLE   [NAME]        # Tab split
+    GENOME  hg38          # Tab split
+    BINSIZE [binsize]
+    CHR chr1 # Tab split
+    i,x,y,z
+    i,x,y,z
+    ..
+    CHR chr2
+    ..
+
+We also provide multiple useful tools to help users prepare data/web service to visualize genome 3D structure data in Nucleome Browser. 
 Those tools can get from `https://github.com/nucleome/nucle <https://github.com/nucleome/nucle>`_.
+
+Host 3D structure using nucleserver
+-----------------------------------
+
+You can use nucleserver to host custom 3D structural data. Please follow the instruction on nucleserver repo to install it.
+
+You can put all 3D structural data in a folder (e.g. 3D). You can then start a data service to host these data using the following command.
+
+.. code-block:: bash
+
+    # assume the folder 3D contains the structural data, each file represent a 3D structure
+    nucleserver file --root 3D
+
+
+You should see a message like this "Please open `http://127.0.0.1:8611`". This means that all the 3D structural data can be retrieved under URL `http://127.0.0.1:8611/get/`. You can copy the URL of the 3D structural data into the input data box in the 3D structure panel of the Nucleome Browser.
+
