@@ -83,6 +83,7 @@ Clicking on one image, an OMERO.iviewer window will pop out allowing you to furt
     :caption: ADVANCED TOPICS
 
     data_service
+    publish
     nb_dispatch_api
 
 .. toctree::
