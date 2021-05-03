@@ -2,6 +2,9 @@
 Publish your session
 ====================
 
+Nucleome Browser Gallery
+========================
+
 Nucleome Browser supports users to publish their sessions/data servers onto our `Gallery website <https://gallery.nucleome.org>`_.
 
 

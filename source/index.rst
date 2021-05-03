@@ -84,6 +84,7 @@ Clicking on one image, an OMERO.iviewer window will pop out allowing you to furt
 
     data_service
     publish
+    custom
     nb_dispatch_api
 
 .. toctree::
