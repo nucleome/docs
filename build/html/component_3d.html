@@ -1,9 +1,11 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>3D structure viewer &#8212; Nucleome Browser v0.9.3 documentation</title>
     <link rel="stylesheet" href="_static/nb.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -42,7 +44,7 @@ You can download these scripts at <a class="reference external" href="https://gi
 <p>Once the data is formatted, you can upload the data to a web server and put the link in the 3D data URI box as shown below.</p>
 <div class="figure align-center" id="id1" style="width: 640px">
 <img alt="_images/ch3_3d_toolbar.png" src="_images/ch3_3d_toolbar.png" />
-<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">3D structure viewer toolbar</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">3D structure viewer toolbar</span></p>
 </div>
 <div class="section" id="two-visualization-modes">
 <h2>Two visualization modes<a class="headerlink" href="#two-visualization-modes" title="Permalink to this headline">¶</a></h2>
@@ -60,7 +62,7 @@ When the <code class="docutils literal notranslate"><span class="pre">enable</sp
 There are three options: 1) currently viewed chromosome(s); 2) currently viewed region(s); 3) highlighted region(s).</p>
 <div class="figure align-center" id="id2" style="width: 640px">
 <img alt="_images/ch3_3d_local_global_mode.png" src="_images/ch3_3d_local_global_mode.png" />
-<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text">Different examples in global and local mode</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text">Different examples in global and local mode</span></p>
 </div>
 </div>
 </div>
@@ -70,7 +72,7 @@ There are three options: 1) currently viewed chromosome(s); 2) currently viewed 
 Currently four styles are implemented: line (<a class="reference internal" href="_images/icon-3d-style-line.png"><img alt="style-line" src="_images/icon-3d-style-line.png" style="height: 14px;" /></a>), stick (<a class="reference internal" href="_images/icon-3d-style-stick.png"><img alt="style-stick" src="_images/icon-3d-style-stick.png" style="height: 14px;" /></a>), cross (<a class="reference internal" href="_images/icon-3d-style-cross.png"><img alt="style-cross" src="_images/icon-3d-style-cross.png" style="height: 14px;" /></a>), and sphere (<a class="reference internal" href="_images/icon-3d-style-sphere.png"><img alt="style-sphere" src="_images/icon-3d-style-sphere.png" style="height: 14px;" /></a>).</p>
 <div class="figure align-center" id="id3" style="width: 640px">
 <img alt="_images/ch3_3d_atom_style.png" src="_images/ch3_3d_atom_style.png" />
-<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">The same 3D structure viewed in four atom styles</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">The same 3D structure viewed in four atom styles</span></p>
 </div>
 </div>
 <div class="section" id="exploring-structures">
@@ -83,7 +85,7 @@ Currently four styles are implemented: line (<a class="reference internal" href=
 <p>Holding the control key, left-clicking, and holding the mouse you can move the 3D structure.</p>
 <div class="figure align-center" id="id4" style="width: 360px">
 <img alt="_images/ch3_3d_operation.png" src="_images/ch3_3d_operation.png" />
-<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Users can easily manipulate 3D structures using different operations</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Users can easily manipulate 3D structures using different operations</span></p>
 </div>
 </div>
 <div class="section" id="configure-color">
@@ -91,7 +93,7 @@ Currently four styles are implemented: line (<a class="reference internal" href=
 <p>You can also customize the color of the 3D structure using three methods: 1) by chromosome; 2) by bigWig signal; 3) by bigBed annotation.</p>
 <div class="figure align-center" id="id5" style="width: 640px">
 <img alt="_images/ch3_3d_color_config.png" src="_images/ch3_3d_color_config.png" />
-<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Config the color of 3D structures using chromosome IDs, bigWig signal, or bigBed annotation.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Config the color of 3D structures using chromosome IDs, bigWig signal, or bigBed annotation.</span></p>
 </div>
 <div class="section" id="by-chromosomes">
 <h3>By chromosomes<a class="headerlink" href="#by-chromosomes" title="Permalink to this headline">¶</a></h3>
@@ -115,7 +117,7 @@ Notably, this feature may be quite slow if you are viewing a large region.
 The volumes of spheres are proportional to the size of annotations and the spatial position of spheres are the average values of the corresponding DNA segments.</p>
 <div class="figure align-center" id="id6" style="width: 640px">
 <img alt="_images/ch3_3d_bigwig.png" src="_images/ch3_3d_bigwig.png" />
-<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Super-impose bigWig/bigBed tracks onto the 3D structure</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Super-impose bigWig/bigBed tracks onto the 3D structure</span></p>
 </div>
 </div>
 </div>
@@ -215,6 +217,16 @@ For example, you can super-imposed different bigWig signals on different 3D stru
 <li class="toctree-l2"><a class="reference internal" href="data_service.html#d-structure-data">3D structure data</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="publish.html">Publish your session</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publish.html#nucleome-browser-gallery">Nucleome Browser Gallery</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Link to customized app</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="custom.html#link-to-a-customized-webpage">Link to a customized webpage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom.html#link-to-dcic-jupyter-notebook">Link to DCIC Jupyter notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom.html#link-to-higlass">Link to HiGlass</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="nb_dispatch_api.html">NB-dispatch API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#installation">Installation</a></li>
@@ -234,11 +246,13 @@ For example, you can super-imposed different bigWig signals on different 3D stru
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -259,7 +273,7 @@ For example, you can super-imposed different bigWig signals on different 3D stru
       &copy;2017-2020 Nucleome Browser Authors .
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

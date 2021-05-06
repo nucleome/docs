@@ -106,7 +106,7 @@ Notably, since panels in the panel space are saved into the web browser's Indexe
 .. |panel-upload| image:: img/other/icon/icon-top-upload.png
     :height: 14px
 
-.. |panel-close| image:: img/other/icon/icon-top-close.png
+.. |panel-delete| image:: img/other/icon/icon-top-close.png
     :height: 14px
 
 **Duplicate a panel**

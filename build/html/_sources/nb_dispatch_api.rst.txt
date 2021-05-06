@@ -16,21 +16,21 @@ Once a website is connected, navigation or highlight operations on the Nucleome 
 Other websites that are allowed to connect via Nucleome Bridge are listed in the manifest.json file (white list of websites) of the Nucleome Bridge. 
 Currently, a whitelist of websites hosted in these two domains is automatically supported by Nucleome Bridge is shown below.
 
-- “*://*.openmicroscopy.org/*”,
-- “*://epigenomegateway.wustl.edu/*”,
-- “*://*.4dnucleome.org/*”,
-- “*://127.0.0.1:*/*“,
-- “*://localhost:*/*“,
-- “https://docs.google.com/*”,
-- “https://*.googleusercontent.com/*”,
-- “*://bl.ocks.org/*”,
-- “*://*.slack.com/*”,
-- “*://codepen.io/*”,
-- “*://cdpn.io/*”,
-- “*://jsfiddle.net/*”,
-- “*://fiddle.jshell.net/*”,
-- “*://*.allencell.org/*”,
-- “*://allencell.org/*”
+- `*://*.openmicroscopy.org/*`,
+- `*://epigenomegateway.wustl.edu/*`,
+- `*://*.4dnucleome.org/*`,
+- `*://127.0.0.1:*/*`,
+- `*://localhost:*/*`,
+- `https://docs.google.com/*`,
+- `https://*.googleusercontent.com/*`,
+- `*://bl.ocks.org/*`,
+- `*://*.slack.com/*`,
+- `*://codepen.io/*`,
+- `*://cdpn.io/*`,
+- `*://jsfiddle.net/*`,
+- `*://fiddle.jshell.net/*`,
+- `*://*.allencell.org/*`,
+- `*://allencell.org/*`
 
     Users can host their website on GitHub Gist and use `https://bl.ocks.org <https://bl.ocks.org>`_ to visualize it. Read more from `https://bl.ocks.org/-/about <https://bl.ocks.org/-/about>`_. A few demos of usage of the nb-dispatch is shown at `https://bl.ocks.org/nb1page <https://bl.ocks.org/nb1page>`_.
 

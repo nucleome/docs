@@ -1,9 +1,11 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Session Management &#8212; Nucleome Browser v0.9.3 documentation</title>
     <link rel="stylesheet" href="_static/nb.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -48,7 +50,7 @@ Click the <code class="docutils literal notranslate"><span class="pre">Save</spa
 A named session is saved in the web browser’s local storage of your computer after you click the Save button.</p>
 <div class="figure align-center" id="id1" style="width: 640px">
 <img alt="_images/ch5_session_local.png" src="_images/ch5_session_local.png" />
-<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">Create a session in local storage</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">Create a session in local storage</span></p>
 </div>
 </div>
 <div class="section" id="open-a-saved-session">
@@ -58,7 +60,7 @@ Click the <code class="docutils literal notranslate"><span class="pre">Load</spa
 Select a session and click it to open it in a new browser tab.</p>
 <div class="figure align-center" id="id2" style="width: 640px">
 <img alt="_images/ch5_session_load.png" src="_images/ch5_session_load.png" />
-<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">Open a saved local session</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">Open a saved local session</span></p>
 </div>
 </div>
 <div class="section" id="session-management-tool">
@@ -72,7 +74,7 @@ You can click the download button to download the session setting file and save 
 You can also open a saved session or delete it from local storage.</p>
 <div class="figure align-center" id="manage-session" style="width: 640px">
 <img alt="_images/ch5_session_manage.png" src="_images/ch5_session_manage.png" />
-<p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text">Mage saved sessions using the session tool</span><a class="headerlink" href="#manage-session" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text">Mage saved sessions using the session tool</span></p>
 </div>
 </div>
 <div class="section" id="share-session">
@@ -86,7 +88,7 @@ In the pulldown menu, click the <code class="docutils literal notranslate"><span
 In the pop-out dialog box, copy the session URL into the clipboard, and share it with others.</p>
 <div class="figure align-center" id="id3" style="width: 480px">
 <img alt="_images/ch5_session_share.png" src="_images/ch5_session_share.png" />
-<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">Share a session with others using session URL</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">Share a session with others using session URL</span></p>
 </div>
 </div>
 </div>
@@ -177,6 +179,16 @@ In the pop-out dialog box, copy the session URL into the clipboard, and share it
 <li class="toctree-l2"><a class="reference internal" href="data_service.html#d-structure-data">3D structure data</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="publish.html">Publish your session</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publish.html#nucleome-browser-gallery">Nucleome Browser Gallery</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Link to customized app</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="custom.html#link-to-a-customized-webpage">Link to a customized webpage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom.html#link-to-dcic-jupyter-notebook">Link to DCIC Jupyter notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom.html#link-to-higlass">Link to HiGlass</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="nb_dispatch_api.html">NB-dispatch API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nb_dispatch_api.html#installation">Installation</a></li>
@@ -196,11 +208,13 @@ In the pop-out dialog box, copy the session URL into the clipboard, and share it
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -221,7 +235,7 @@ In the pop-out dialog box, copy the session URL into the clipboard, and share it
       &copy;2017-2020 Nucleome Browser Authors .
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
