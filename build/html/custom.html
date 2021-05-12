@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Link to customized app &#8212; Nucleome Browser v0.9.3 documentation</title>
     <link rel="stylesheet" href="_static/nb.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -47,7 +45,7 @@ Examples of customized web pages we created are shown <a class="reference extern
 <p>The following example shows that it is possible to link the Nucleome Browser with the Jupyter notebook server provided by the 4DN DCIC. Users can process the raw 4DN data in the Jupyter notebook. Once users highlight some regions on the Nucleome Browser, the violin plot on the right will only show the genomic regions overlapping with the highlighted region on the Nucleome Browser.</p>
 <div class="figure align-center" id="id1" style="width: 640px">
 <img alt="_images/4DN_DCIC_jupyter.gif" src="_images/4DN_DCIC_jupyter.gif" />
-<p class="caption"><span class="caption-number">Fig. 66 </span><span class="caption-text">Interactive data exploration in 4DN DCIC Jupyter notebook</span></p>
+<p class="caption"><span class="caption-number">Fig. 66 </span><span class="caption-text">Interactive data exploration in 4DN DCIC Jupyter notebook</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="link-to-higlass">
@@ -56,17 +54,17 @@ Examples of customized web pages we created are shown <a class="reference extern
 <p>When you navigate on the genome browser, the HiGlass viewer will also update its genomic coordinates accordingly. The synchronized highlight is also supported as shown in the animation below.</p>
 <div class="figure align-center" id="id2" style="width: 720px">
 <img alt="_images/NB_linkto_HiGlass.gif" src="_images/NB_linkto_HiGlass.gif" />
-<p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">Use customized web page to link HiGlass with Nucleome Browser</span></p>
+<p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">Use customized web page to link HiGlass with Nucleome Browser</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>You can also upload a HiGlass config JSON file. For example, the animation below shows that you can upload a config file downloaded from the 4DN DCIC web portal. It will then link with Nucleome Browser with synchronized navigation and highlight.</p>
 <div class="figure align-center" id="id3" style="width: 720px">
 <img alt="_images/NB_load_DCIC_higlass.gif" src="_images/NB_load_DCIC_higlass.gif" />
-<p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">You can upload your HiGlass configuration file to view your HiGlass session</span></p>
+<p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">You can upload your HiGlass configuration file to view your HiGlass session</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>Another way to restore an existing HiGlass session is to construct a compound URL in the input URL box of this panel. For example, you can use <cite>http://vis.nucleome.org/static/apps/HiGlassDemo?config=`&lt;HiGlass session&gt;`&amp;genome=`&lt;Genome assembly version&gt;</cite> to load a HiGlass session. You should replace &lt;HiGlass session&gt; with the HiGlass share link and replace &lt;Genome assembly versio&gt; with supported genome version (e.g., hg19, hg38, mm10, etc.). The advantage of this method is that when you share the Nucleome Browser session with others the shared session also includes the HiGlass session link. The following example shows that you can also create two customized pages and show different HiGlass sessions in each panel. The flexible layout feature of Nucleome Browser thus provides a convenient way to compare different datasets even if the datasets are hosted in external data portals such as different HiGlass servers.</p>
 <div class="figure align-center" id="id4" style="width: 720px">
 <img alt="_images/NB_use_higlass_session.gif" src="_images/NB_use_higlass_session.gif" />
-<p class="caption"><span class="caption-number">Fig. 69 </span><span class="caption-text">You can also view the HiGlass session by attaching the HiGlass session link as parameters in the URL</span></p>
+<p class="caption"><span class="caption-number">Fig. 69 </span><span class="caption-text">You can also view the HiGlass session by attaching the HiGlass session link as parameters in the URL</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -136,7 +134,7 @@ Examples of customized web pages we created are shown <a class="reference extern
 <li class="toctree-l2"><a class="reference internal" href="component_other.html#dn-dcic-imaging-data">4DN DCIC imaging data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="plugin.html">Plugin usage</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="plugin.html">Plugins</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="plugin.html#nucleome-bridge-extension">Nucleome Bridge extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plugin.html#google-spreadsheet-add-on">Google Spreadsheet add-on</a></li>
 </ul>
@@ -186,13 +184,11 @@ Examples of customized web pages we created are shown <a class="reference extern
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -213,7 +209,7 @@ Examples of customized web pages we created are shown <a class="reference extern
       &copy;2017-2020 Nucleome Browser Authors .
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

@@ -1,9 +1,9 @@
-============
-Plugin usage
-============
+=======
+Plugins
+=======
 
 Nucleome Browser allows users to sync genome coordinates between other web applications/pages.
-The Nucleome Bridge web extension is available in `Chrome store <https://chrome.google.com/webstore/detail/nucleome-bridge/djcdicpaejhpgncicoglfckiappkoeof>`_, and can be used in several web browsers such as Chrome, Brave, Opera, and Edge (based on Chromium).
+The Nucleome Bridge web extension is available in `Chrome store <https://chrome.google.com/webstore/detail/nucleome-bridge/djcdicpaejhpgncicoglfckiappkoeof>`_, and can be used in several web browsers such as Chrome, Brave, Opera, and Edge (or any web browsers based on Chromium).
 It also works in browsers that support `external_connectable <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable>`_ web API.
 
 Nucleome Bridge extension
@@ -11,7 +11,7 @@ Nucleome Bridge extension
 
 Nucleome Browser can communicate genome coordinates event within the `UCSC Genome Browser <https://genome.ucsc.edu>`_ and the `WashU Epigenome Browser <https://epigenomegateway.wustl.edu>`_ through the `Nucleome Bridge <https://chrome.google.com/webstore/detail/nucleome-bridge/djcdicpaejhpgncicoglfckiappkoeof?hl=en>`_.
 
-When the user opens these two web applications in Nucleome Bridge, genome coordinates can be automatically synced between the nucleome browser and these two genome browsers. Users can navigate in any one browser, and the others will respond accordingly. Meanwhile, the user can highlight regions in Nucleome Browser, the UCSC Genome Browser, and/or WashU Epigenome Browser will respond as well. This feature makes users can easily compare tracks in two or three different genome browsers.
+When the user opens these two web applications in Nucleome Bridge, genome coordinates can be automatically synced between the nucleome browser and these two genome browsers. Meanwhile, the user can highlight regions in Nucleome Browser, the UCSC Genome Browser, and/or WashU Epigenome Browser will respond as well. This feature makes users can easily compare tracks in two or three different genome browsers.
 
 .. figure:: img/figures_chapter_4/ch4_3_browser.png
     :align: center

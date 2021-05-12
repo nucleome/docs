@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Other components &#8212; Nucleome Browser v0.9.3 documentation</title>
     <link rel="stylesheet" href="_static/nb.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +14,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Plugin usage" href="plugin.html" />
+    <link rel="next" title="Plugins" href="plugin.html" />
     <link rel="prev" title="3D structure viewer" href="component_3d.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -59,7 +57,7 @@ You can also search a region by its label using the region viewer shown at the b
 It also supports multi-region visualization by using a comma to separate multiple regions.</p>
 <div class="figure align-center" id="id1" style="width: 640px">
 <img alt="_images/ch3_google_sheet_panel.png" src="_images/ch3_google_sheet_panel.png" />
-<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Use the Google Sheet web component to explore the region of interest</span></p>
+<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Use the Google Sheet web component to explore the region of interest</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="fetch-dna-sequence">
@@ -69,7 +67,7 @@ It can only show the DNA sequence if the region’s length does not exceed 10000
 Notably, when multiple regions are being viewed, this tool will show the DNA sequence of each region separately.</p>
 <div class="figure align-center" id="id2" style="width: 640px">
 <img alt="_images/ch3_fetch_DNA.png" src="_images/ch3_fetch_DNA.png" />
-<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Fetch the DNA sequence of the currently viewed region (&lt; 10000bp)</span></p>
+<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Fetch the DNA sequence of the currently viewed region (&lt; 10000bp)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="dn-dcic-imaging-data">
@@ -82,7 +80,7 @@ Different images taken in one experiment are shown as a list of clickable thumbn
 You can view the raw image on the OMERO.iviwer by clicking the thumbnail or explore the details of this data on the DCIC website by clicking the number icon associated with each image.</p>
 <div class="figure align-center" id="id3" style="width: 640px">
 <img alt="_images/ch3_dcic_image.png" src="_images/ch3_dcic_image.png" />
-<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Use the DCIC image web component to view imaging hosted on the 4DN DCIC data portal</span></p>
+<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Use the DCIC image web component to view imaging hosted on the 4DN DCIC data portal</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -152,7 +150,7 @@ You can view the raw image on the OMERO.iviwer by clicking the thumbnail or expl
 <li class="toctree-l2"><a class="reference internal" href="#dn-dcic-imaging-data">4DN DCIC imaging data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="plugin.html">Plugin usage</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="plugin.html">Plugins</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="plugin.html#nucleome-bridge-extension">Nucleome Bridge extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plugin.html#google-spreadsheet-add-on">Google Spreadsheet add-on</a></li>
 </ul>
@@ -197,18 +195,16 @@ You can view the raw image on the OMERO.iviwer by clicking the thumbnail or expl
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="component_3d.html" title="previous chapter">3D structure viewer</a></li>
-      <li>Next: <a href="plugin.html" title="next chapter">Plugin usage</a></li>
+      <li>Next: <a href="plugin.html" title="next chapter">Plugins</a></li>
   </ul></li>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -229,7 +225,7 @@ You can view the raw image on the OMERO.iviwer by clicking the thumbnail or expl
       &copy;2017-2020 Nucleome Browser Authors .
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
