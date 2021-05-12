@@ -32,7 +32,7 @@ Currently, a whitelist of websites hosted in these two domains is automatically 
 - `*://*.allencell.org/*`,
 - `*://allencell.org/*`
 
-    Users can host their website on GitHub Gist and use `https://bl.ocks.org <https://bl.ocks.org>`_ to visualize it. Read more from `https://bl.ocks.org/-/about <https://bl.ocks.org/-/about>`_. A few demos of usage of the nb-dispatch is shown at `https://bl.ocks.org/nb1page <https://bl.ocks.org/nb1page>`_.
+Users can host their website on GitHub Gist and use `https://bl.ocks.org <https://bl.ocks.org>`_ to visualize it. Read more from `https://bl.ocks.org/-/about <https://bl.ocks.org/-/about>`_. A few demos of usage of the nb-dispatch is shown at `https://bl.ocks.org/nb1page <https://bl.ocks.org/nb1page>`_.
 
 Please contact us if you want to add your website to the allow-list of websites in Nucleome Bridge.
 

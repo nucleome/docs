@@ -24,7 +24,7 @@ The following example shows that it is possible to link the Nucleome Browser wit
 Link to HiGlass
 ===============
 
-We also create a customized web page to link the HiGlass session with Nucleome Browser. You can open a **Customized web page** panel in the Nucleome Browser can put this `link <http://vis.nucleome.org/static/apps/HiGlassDemo>`_ in the URL box. You should see a HiGlass viewer in the panel.
+We also create a customized web page to link the HiGlass session with Nucleome Browser. You can open a **Customized web page** panel in the Nucleome Browser can put this `link (http://vis.nucleome.org/static/apps/higlass/) <http://vis.nucleome.org/static/apps/higlass>`_ in the URL box. You should see a HiGlass viewer in the panel.
 
 When you navigate on the genome browser, the HiGlass viewer will also update its genomic coordinates accordingly. The synchronized highlight is also supported as shown in the animation below.
 
