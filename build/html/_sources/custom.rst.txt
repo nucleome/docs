@@ -59,7 +59,7 @@ Another way to restore an existing HiGlass session is to construct a compound UR
 Drag and Drop feature for DCIC web portal
 -----------------------------------------
 
-We also provide a convenient drag and drop for any HiGlass visualization pages on the 4DN DCIC web portal. In a **HiGlass Display page** (e.g., URL looks like https://data.4dnucleome.org/higlass-view-configs/ae89f1b2-bf71-42db-bee5-e3f7e8b6b590). You can use the mouse left button to drag the **View JSON** link to our HiGlass viewer page and drop it on the target box. The HiGlass viewer page will then fetch the HiGlass configuration file automatically so that you do not need to download and upload JSON file manually. 
+We also provide a convenient drag and drop for any HiGlass visualization pages on the 4DN DCIC web portal. In a **HiGlass Display page** (e.g., URL looks like https://data.4dnucleome.org/higlass-view-configs/ae89f1b2-bf71-42db-bee5-e3f7e8b6b590). You can use the mouse left button to drag the **View JSON** link to our HiGlass viewer page and drop it on the **target box** (The area in red or blue color). The HiGlass viewer page will then fetch the HiGlass configuration file automatically so that you do not need to download and upload JSON file manually. 
 
 .. figure:: img/figures_chapter_8/NB_use_higlass_drag_and_drop_opt.gif
     :align: center
