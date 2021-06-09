@@ -50,21 +50,35 @@ Examples of customized web pages we created are shown <a class="reference extern
 </div>
 <div class="section" id="link-to-higlass">
 <h2>Link to HiGlass<a class="headerlink" href="#link-to-higlass" title="Permalink to this headline">¶</a></h2>
-<p>We also create a customized web page to link the HiGlass session with Nucleome Browser. You can open a <strong>Customized web page</strong> panel in the Nucleome Browser can put this <a class="reference external" href="http://vis.nucleome.org/static/apps/higlass">link (http://vis.nucleome.org/static/apps/higlass/)</a> in the URL box. You should see a HiGlass viewer in the panel.</p>
+<p>We also create a customized web page to link the HiGlass session with Nucleome Browser. You can access this <strong>Customized web page</strong> through <a class="reference external" href="http://vis.nucleome.org/static/apps/higlass">http://vis.nucleome.org/static/apps/higlass/</a>. You should open this page along with the Nucleome Browser or access it using the <strong>Customized web page</strong> panel.</p>
 <p>When you navigate on the genome browser, the HiGlass viewer will also update its genomic coordinates accordingly. The synchronized highlight is also supported as shown in the animation below.</p>
 <div class="figure align-center" id="id2" style="width: 720px">
 <img alt="_images/NB_linkto_HiGlass.gif" src="_images/NB_linkto_HiGlass.gif" />
 <p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">Use customized web page to link HiGlass with Nucleome Browser</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
+<div class="section" id="upload-higlass-configuration-file">
+<h3>Upload HiGlass configuration file<a class="headerlink" href="#upload-higlass-configuration-file" title="Permalink to this headline">¶</a></h3>
 <p>You can also upload a HiGlass config JSON file. For example, the animation below shows that you can upload a config file downloaded from the 4DN DCIC web portal. It will then link with Nucleome Browser with synchronized navigation and highlight.</p>
 <div class="figure align-center" id="id3" style="width: 720px">
 <img alt="_images/NB_load_DCIC_higlass.gif" src="_images/NB_load_DCIC_higlass.gif" />
 <p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">You can upload your HiGlass configuration file to view your HiGlass session</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
-<p>Another way to restore an existing HiGlass session is to construct a compound URL in the input URL box of this panel. For example, you can use <cite>http://vis.nucleome.org/static/apps/HiGlassDemo?config=`&lt;HiGlass session&gt;`&amp;genome=`&lt;Genome assembly version&gt;</cite> to load a HiGlass session. You should replace &lt;HiGlass session&gt; with the HiGlass share link and replace &lt;Genome assembly versio&gt; with supported genome version (e.g., hg19, hg38, mm10, etc.). The advantage of this method is that when you share the Nucleome Browser session with others the shared session also includes the HiGlass session link. The following example shows that you can also create two customized pages and show different HiGlass sessions in each panel. The flexible layout feature of Nucleome Browser thus provides a convenient way to compare different datasets even if the datasets are hosted in external data portals such as different HiGlass servers.</p>
+</div>
+<div class="section" id="put-higlass-link-as-url-parameter">
+<h3>Put HiGlass link as URL parameter<a class="headerlink" href="#put-higlass-link-as-url-parameter" title="Permalink to this headline">¶</a></h3>
+<p>Another way to restore an existing HiGlass session is to construct a compound URL in the input URL. For example, you can use <cite>http://vis.nucleome.org/static/apps/higlass?config=&lt;HiGlass session&gt;&amp;genome=&lt;Genome assembly version&gt;&amp;channel=&lt;Channel ID&gt;</cite> to load a HiGlass session. You should replace &lt;HiGlass session&gt; with the HiGlass share link and replace &lt;Genome assembly version&gt; with supported genome version (e.g., hg19, hg38, mm10, etc.). &lt;Channel ID&gt; is an optional parameter. You can also change channel ID in the text input box on the top-right. The advantage of this method is that when you share the Nucleome Browser session with others the shared session also includes the HiGlass session link. The following example shows that you can also create two customized pages and show different HiGlass sessions in each panel. The flexible layout feature of Nucleome Browser thus provides a convenient way to compare different datasets even if the datasets are hosted in external data portals such as different HiGlass servers.</p>
 <div class="figure align-center" id="id4" style="width: 720px">
 <img alt="_images/NB_use_higlass_session.gif" src="_images/NB_use_higlass_session.gif" />
 <p class="caption"><span class="caption-number">Fig. 69 </span><span class="caption-text">You can also view the HiGlass session by attaching the HiGlass session link as parameters in the URL</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="drag-and-drop-feature-for-dcic-web-portal">
+<h3>Drag and Drop feature for DCIC web portal<a class="headerlink" href="#drag-and-drop-feature-for-dcic-web-portal" title="Permalink to this headline">¶</a></h3>
+<p>We also provide a convenient drag and drop for any HiGlass visualization pages on the 4DN DCIC web portal. In a <strong>HiGlass Display page</strong> (e.g., URL looks like <a class="reference external" href="https://data.4dnucleome.org/higlass-view-configs/ae89f1b2-bf71-42db-bee5-e3f7e8b6b590">https://data.4dnucleome.org/higlass-view-configs/ae89f1b2-bf71-42db-bee5-e3f7e8b6b590</a>). You can use the mouse left button to drag the <strong>View JSON</strong> link to our HiGlass viewer page and drop it on the target box. The HiGlass viewer page will then fetch the HiGlass configuration file automatically so that you do not need to download and upload JSON file manually.</p>
+<div class="figure align-center" id="id5" style="width: 720px">
+<img alt="_images/NB_use_higlass_drag_and_drop_opt.gif" src="_images/NB_use_higlass_drag_and_drop_opt.gif" />
+<p class="caption"><span class="caption-number">Fig. 70 </span><span class="caption-text">You can use the drag and drop feature to easily visualize any HiGlass displays on the 4DN DCIC web portal. HiGlass viewer then can synchronize with the Nucleome Browser such that you can use the Nucleome Browser to control the navigation on the HiGlass and also show highlighted region on the HiGlass.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -94,7 +108,7 @@ Examples of customized web pages we created are shown <a class="reference extern
 <li class="toctree-l2"><a class="reference internal" href="animation.html#d-structure-tutorial">3D structure tutorial</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="dcic.html">Use 4DN DCIC data</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="dcic.html">Browse 4DN DCIC data</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="dcic.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dcic.html#use-4dn-public-data">Use 4DN public data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dcic.html#explore-microscopy-data">Explore microscopy data</a></li>
