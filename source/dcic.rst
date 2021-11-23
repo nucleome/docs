@@ -11,7 +11,7 @@ Overview
     :align: center
     :figwidth: 640px
 
-    Number of tracks hosted by Nucleome Browser in 2020 and the lasted version (March 2020)
+    Number of tracks hosted by Nucleome Browser in 2020 and the lasted version (November 2021)
 
 Use 4DN public data
 ===================
