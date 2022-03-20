@@ -6,35 +6,33 @@ Overview
 ========
 
 Nucleome Browser adopts the concept of modular design in its architecture. 
-First, we created a series of composable, configurable, and communicable web components (i.e., customized HTML elements) to visualize and explore different types of data. 
-Each web component is built to handle a specific type of data (e.g., genomic data, 3D genome structures, or imaging data).
-Next, we standardized different web components into web containers (web panels) with the same interface such that these different web components can **communicate** with each other. 
-Therefore, users can combine multiple components/panels into tabs of the web browser in a flexible and user-friendly manner. 
-Currently, two types of messages triggered by a user can transmit bidirectionally across web components,  including 1) current viewed genomic regions; 2) highlighted genomic regions. 
-Furthermore, Nucleome Browser supports messages dispatching between web panels in the same web tab, across web tabs in the same domain, or even across web tabs in different domains (e.g., the UCSC Genome Browser). 
-This versatile and powerful feature is achieved through a hierarchical ``event-driven communication`` protocol. 
-To summarize, the Nucleome Browser is the first web-based platform that supports interactively browsing multi-modal.
+First, we created a series of web components (i.e., customized HTML elements) that can be flexibly arranged and customized by the user (i.e., composable and configurable) and that offer synchronized operations for integrative visualization of heterogeneous datasets or different views from the same data modality. 
+Each web component is designed to visualize a specific type of data (e.g., genomic data, 3D genome structure models, or imaging data).
+Next, we standardized different web components into web containers (web panels) with the same interface such that these different web components can **communicate** with each other with an adaptive communication mechanism (see below).
+Users can combine multiple components/panels into tabs of the web browser in a flexible and user-friendly manner. 
+Currently, two types of messages triggered by a user can transmit across web components, including 1) current viewed genomic regions; 2) highlighted genomic regions. 
+Nucleome Browser supports messages transmission across web panels in the same web tab, across web tabs in the same domain, or across websites in different domains (e.g., UCSC Genome Browser) through a web browser extension named Nucleome Bridge. 
+This versatile and powerful feature is achieved through a hierarchical adaptive communication mechanism. 
+To summarize, Nucleome Browser is the first platform that supports this multi-domain and multi-channel interactive visualization, which greatly enhances heterogeneous and multimodal data exploration.
 
 .. figure:: img/figures_chapter_2/ch2_architecture.png
     :align: center
     :figwidth: 640px
 
-    The roadmap of the Nucleome Browser: from data service to synchronization of heterogeneous web components
+    The overall design of Nucleome Browser: from data service to synchronization of web components. This diagram shows the key concepts as well as major functionalities introduced in Nucleome Browser to overcome the major challenges of multimodal data visualization for 4D Nucleome research. Each row of the diagram represents a layer of data processing step from bottom to top. Six columns refer to three main modalities (genomics, imaging, and 3D genome structure model) currently represented in Nucleome Browser, customized data type, external data portal, and Python Jupyter Notebook. From bottom to top, it shows the procedure of using data service to process different data types and various front-end to render and visualize these data types. The top two rows are the major components of the adaptive communication system. Web components are represented by composable web panels. We use different web APIs to allow communication between web components in different configurations. Importantly, we also developed Nucleome Bridge web browser extension to communicate with external web-based data portals.
 
 What is a panel?
 ================
 
-Web panel is perhaps the most important concept introduced by Nucleome Browser.
-You can consider different web panels as Lego bricks such that they have distinct functionalities while still possess the ability to **communicate** with each other.
-In Nucleome Browser, web panels are all contained in the same panel-container system, allowing web panels to synchronize with each other.
+You can consider different web panels as different Lego bricks such that they have distinct functionalities while still possessing the ability to **communicate** with each other.
+In Nucleome Browser, web panels are all contained in a panel-container system, allowing displays from web panels to synchronize with each other.
 Next, we will formally introduce some basic operations of web panels, including the creation of a new web panel, duplication of existing web panels, a panel-space widget to conveniently organize web panels, .etc.
 
 Create a new panel
 ==================
 
 Creating a new panel is easy.
-When the mouse hovers on the ``plus`` button (|top-plus|) on the top menu bar, a drop-down menu will appear showing all the different types of web component/panel.
-Clicking one type of web panel, a default panel will be added to the current web tab.
+When you mouse over the ``plus`` button (|top-plus|) on the top menu bar, a drop-down menu will appear showing all the different types of web component/panel that you can create.
 
 .. figure:: img/figures_chapter_2/ch2_create_a_panel.png
     :align: center
@@ -48,8 +46,8 @@ Clicking one type of web panel, a default panel will be added to the current web
 Basic operations
 ================
 
-A panel is like a sub-tab in the current web tab.
-You can control each panel using the configuration toolbar located on the top-right of its frame.
+A panel is like a sub-tab in one browser tab.
+You can configure each panel using the configuration toolbar located on the top-right of its frame.
 :numref:`panel_menu` shows the function of each button on the panel's configuration toolbar.
 
 .. figure:: img/figures_chapter_2/ch2_panel_menu_v2.png
