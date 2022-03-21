@@ -48,19 +48,19 @@ Basic operations
 
 A panel is like a sub-tab in one browser tab.
 You can configure each panel using the configuration toolbar located on the top-right of its frame.
-:numref:`panel_menu` shows the function of each button on the panel's configuration toolbar.
+:numref:`panel_menu` shows the function of each button on a panel's configuration toolbar.
 
 .. figure:: img/figures_chapter_2/ch2_panel_menu_v2.png
     :name: panel_menu
     :align: center
     :figwidth: 640px
 
-    Panel configuration toolbar on the top-right corner
+    Panel configuration toolbar locates on the top-right corner of a panel
 
-**Configuration mode of a panel**
+**Configuration of a panel**
 
-Clicking the ``configuration`` button (|panel-config|), you will see the configuration interface of this panel if that panel has the configuration mode. 
-In the configuration mode (the configuration button will turn to green color), you can go back to the visualization mode by clicking the button again.
+Clicking the ``configuration`` button (|panel-config|), you will see the configuration interface of this panel if that panel has a configuration mode. 
+In configuration mode (the configuration button will turn green color), you can go back to the visualization mode by clicking the button again.
 
 .. figure:: img/figures_chapter_2/ch2_toggle_config_mode_v2.png
     :align: center
@@ -73,27 +73,26 @@ In the configuration mode (the configuration button will turn to green color), y
 
 **Rename a panel**
 
-Clicking the ``rename`` button (|panel-rename|), you will see a dialog popping out.
-You can then change the title of this panel.
-This title will also be the default name when you save this panel to the panel space.
+Clicking the ``rename`` button (|panel-rename|), you will see a pop-out box allowing you to rename this panel.
+This name will also be the default name when you save this panel to the panel space.
 
 .. |panel-rename| image:: img/other/icon/icon-panel-rename_v2.png
     :height: 14px
 
 **Save a panel to panel space**
 
-Clicking the ``save`` button (|panel-save|), you can save the current panel into the panel space, which is hosted locally in the web browser’s IndexedDB.
-To view saved panels in the panel space, you can click the panel space button (|panel-space|) on the top menu bar.
-A window of panel space will be shown on the left side of the panel.
-Users can load panels saved in the panel space to the current web tab using the upload button (|panel-upload|) or delete saved panels using buttons next to each panel using the delete button (|panel-delete|).
-Panel space works similarly to the bookmarks of the web browser, allowing users to easily re-use and compose previous panels from different sessions.
-Notably, since panels in the panel space are saved into the web browser's IndexedDB, you will not find them if you use another computer.
+Clicking the ``save`` button (|panel-save|), you can save the current panel into panel space, which is hosted locally in the web browser’s IndexedDB.
+To view saved panels in your local panel space, you can click the panel space button (|panel-space|) on the top menu bar.
+A window of panel space will be shown on the left side of the current web tab.
+Users can load panels saved in the panel space to the current web tab using the upload button (|panel-upload|) or delete saved panels using the close button (|panel-delete|) next to each panel.
+Panel space works similarly to the bookmarks of the web browser, allowing users to easily load previous panels from different sessions.
+Notably, since panels in the panel space are saved into the web browser's IndexedDB, you will not find them if you use another computer or delete the cache of the web browser.
 
 .. figure:: img/figures_chapter_2/ch2_panel_space_v2.png
     :align: center
     :figwidth: 640px
     
-    Save a panel to Panel Space
+    Save a panel to panel space
 
 .. |panel-save| image:: img/other/icon/icon-panel-save_v2.png
     :height: 14px
@@ -109,9 +108,8 @@ Notably, since panels in the panel space are saved into the web browser's Indexe
 
 **Duplicate a panel**
 
-Clicking the ``duplication`` button (|panel-duplicate|) of a panel, you can duplicate this panel in the same web tab.
-This feature is useful when you want to create a similar panel by making small changes to an existing panel.
-It is also quite useful if you can create a similar genome browser panel with different zooming factors.
+Clicking the ``duplication`` button (|panel-duplicate|) of a panel, you can duplicate this panel in the current web tab.
+This feature is useful when you want to create a similar panel by making small changes to an existing panel or when you want to create some genome browser panels with different zooming factors.
 
 .. |panel-duplicate| image:: img/other/icon/icon-panel-duplicate_v2.png
     :height: 14px
@@ -145,8 +143,8 @@ In the second method, you can create an extended panel by clicking the ``Extende
 
 **Maximize a panel / Back to standard view**
 
-Clicking the ``maximization`` button (|panel-max|) of a panel, you will see the panel taking the full width of the current web browser. 
-You can click the ``minimization`` button (|panel-min|) of that panel to change back to the compact layout.
+Clicking the ``maximization`` button (|panel-max|) of a panel, you will see this panel taking all available space of the current web tab. 
+You can click the ``minimization`` button (|panel-min|) of that panel to change back to the previous layout.
 
 .. |panel-max| image:: img/other/icon/icon-panel-max_v2.png
     :height: 14px
@@ -164,13 +162,13 @@ You can close a panel by clicking the ``close`` button (|panel-close|).
 Flexible layout
 ===============
 
-Nucleome Browser uses `Golden Layout <https://golden-layout.com>`_ to control the layout of panels in the same web tab.
+Nucleome Browser uses `Golden Layout <https://golden-layout.com>`_ to control the layout of panels in one web tab.
 Users can move a panel to the desired position by clicking the title of a panel, holding the mouse, and dragging it to different positions of the web tab.
 The system will automatically adjust the height or the width of the panel (usually by horizontally splitting or vertically splitting panels) and show the preview of that panel as a grey box.
 You can arrange panels side-by-side or stack one on top of other panels.
 To resize a panel, you can move the mouse to the boundary of a panel.
-The mouse will turn into a resizing form when it close to the boundary of a panel. 
-You can then click and hold the mouse to change the height or width of a panel.
+The mouse will turn into a resizing form when it is close to the boundary of a panel. 
+You can then click and hold the mouse to change the height or width of this panel.
 
 .. figure:: img/figures_chapter_2/ch2_panel_layout.png
     :align: center
