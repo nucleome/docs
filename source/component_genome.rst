@@ -4,13 +4,14 @@
 Genome browser
 ==============
 
-Genome browser web component works as conventional genome browsers such as the UCSC Genome Browser, providing visualization support for commonly used genomic data including bigWig, bigBed, tabix, and .hic format.
+The genome browser web component in Nucleome Browser allows users to explore various genomic and epigenomic data in widely used formats, including bigWig, bigBed, Tabix, and .hic format.
 
 Visualization modes
 ===================
 
 :numref:`gbrowser_toolbar` summarizes the configuration buttons of the genome browser panel in the top toolbar.
-Notably, since the Nucleome Browser supports synchronization across multiple panels, two additional navigation modes are introduced in the genome browser web components, i.e., ``Map`` mode and ``Context`` mode.
+In Nucleome Browser, users can open multiple genome browser panels simultaneously and customize each panel.
+In particular, we developed three visualization modes to control the behaviors of synchronization across multiple panels.
 Users can choose a visualization mode by clicking the ``visualization mode button`` (|gb-mode|) on the right of the genome browser toolbar.
 
 .. figure:: img/figures_chapter_3/ch3_gbrowser_toolbar_v2.png
@@ -23,12 +24,12 @@ Users can choose a visualization mode by clicking the ``visualization mode butto
 .. |gb-mode| image:: img/other/icon/icon-genome-mode-normal.png
     :height: 14px
 
-Normal mode
------------
+Default mode
+------------
 
-If a genome browser web component is in the normal mode (|gb-mode-normal|), it will automatically update itself according to operations dispatched from other web components (for genome browser component they must also be in normal or context mode). 
-For example, when a user navigates to or highlights a genomic region in other web components, this genome browser component will also go to that region or show the same highlighted region. 
-Conversely, any operations that happened in this component will broadcast simultaneously to other components. 
+A genome browser panel with the default mode (|gb-mode-normal|) will synchronize its genomic coordinates and the highlight of region-of-interest (ROI) with other panels (e.g., another genome browser panel in the default mode, or 3D genome structure model panel, etc.). 
+For example, when a user navigates to or highlights a genomic region in other panels, this genome browser panel will also go to that region or show the same highlighted region. 
+Conversely, any operations that happened in this web component will broadcast simultaneously to other web components. 
 This mode is quite useful when you want to compare data hosted in different panels side-by-side.
 
 .. |gb-mode-normal| image:: img/other/icon/icon-genome-mode-normal.png
@@ -38,20 +39,20 @@ Context mode
 ------------
 
 ``Context mode`` is quite similar to the ``Normal mode``, except that users can set a zooming factor larger than 1x (e.g., 2x, 4x, etc.).
-If the zooming factor is 1x, the ``Context mode`` will act the same as the ``Normal mode``.
-However, when a genome browser component has a zooming factor larger than 1x, this component will automatically zoom out by this scale factor relative to other components. 
-For example, if other panels currently navigate to a 100kb region (e.g., chr1:10Mb-10.1Mb), a genome component with an 8x zooming factor will navigate to the 800kb region (chr1:9.65Mb-10.45Mb) centered on this 100kb region. 
-To help users view the relationship between the default region and the zoomed-out region, a light green transparent box will be shown in this genome browser to highlight the region on which other panels are viewing at.
-This mode is quite useful when you want to capture the big-picture of a region-of-interest. 
+If the zooming factor is 1x, the ``Context mode`` will be the same as the ``Default mode``.
+However, when a genome browser panel has a zooming factor larger than 1x, this component will automatically zoom out by this scaling factor relative to other panels. 
+For example, if other panels currently navigate to a 100kb region (e.g., chr1:10Mb-10.1Mb), a genome browser panel with an 8x zooming factor will navigate to an 800kb region (chr1:9.65Mb-10.45Mb) centered on this 100kb region. 
+A light green transparent box will show up in this genome browser panel to highlight the region on which other panels are viewing.
+Therefore, users can explore genomic signals at multiple scales by arranging multiple components side-by-side, one in the default mode and others in the context mode, which is particularly useful for exploring genomic data at region-of-interest and its local context simultaneously.
 For example, you can use one panel to visualize the details of a ChIP-seq peak and use another panel to reveal the context of the peak region without zoom-in and zoom-out back-and-forth.
 
-Map mode
---------
+Solo mode
+---------
 
-Finally, you can turn off the synchronization of a genome browser component by clicking the button of navigation mode until the icon becomes |gb-mode-map|.
-In the ``Map mode``, this panel will not respond to any operations that happened in other panels, and will also not automatically broadcast its operations to other panels. 
-However, users can still highlight a region in this panel and clicking the ``go-to button`` (|gb-goto|) to force all other panels to go to the highlighted region. 
-This mode is useful when you want to use one panel to view the big picture and examine details in other panels. 
+Finally, you can turn off the synchronization of a genome browser panel by clicking the button of navigation mode until the icon becomes |gb-mode-map|.
+In the ``Solo mode``, this panel will not respond to any operations triggered in other panels, and will not automatically broadcast its operations to other panels as well.
+However, users can still highlight a region in this panel and clicking the ``go-to button`` (|gb-goto|) to force all other panels to jump to the highlighted region. 
+This mode is useful when you want to use one panel to explore a different genomic region and compare multiple regions in differental panels.
 
 .. |gb-mode-map| image:: img/other/icon/icon-genome-mode-map.png
     :height: 14px
