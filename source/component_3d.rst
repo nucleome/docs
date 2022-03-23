@@ -1,11 +1,11 @@
-===================
-3D structure viewer
-===================
+================================
+3D genome structure model viewer
+================================
 
-Nucleome Browser provides a 3D genome structure web component to visualize 3D structure data.
-3D structure data is stored in a custom format called Nucle3d.
-The documentation of the Nucle3d format can be accessed at `https://github.com/nucleome/nucle3d <https://github.com/nucleome/nucle3d>`_.
-We also provided some scripts to convert common 3D structural data formats such as HSS and CMM into the Nucle3d format.
+Nucleome Browser provides a 3D genome structure model web component to visualize 3D structure data.
+We created a new data format named nucle3d to store spatial information of 3D genome structure models.
+The documentation of the nucle3d format can be found at `https://github.com/nucleome/nucle3d <https://github.com/nucleome/nucle3d>`_.
+We also provided some scripts to convert common 3D structure model data formats such as HSS and CMM into the nucle3d format.
 You can download these scripts at `https://github.com/nucleome/nucle <https://github.com/nucleome/nucle>`_.
 
 Once the data is formatted, you can upload the data to a web server and put the link in the 3D data URI box as shown below.
@@ -21,18 +21,18 @@ Two visualization modes
 
 By default, DNA molecules are shown as segments with color.
 Depending on the meaning of color, there are two visualization modes of 3D structures: 1) global mode showing all chromosomes; 2) local mode showing currently viewed regions.
-You can switch from these two modes by toggling the mode button.
+You can switch between these two modes by toggling the mode button.
 
 Global view mode
 ----------------
 
 In the global view mode, you can see all chromosomes.
-When the ``enable selection button`` is on, you can control the currently viewed chromosome on other panels by clicking on the chromosome on the 3D structure.
+When the ``enable selection button`` is on, you can jump up a chromosome by clicking a chromosome on the 3D structure model.Other panels will navigate to that chromosome as well.
 
 Local view mode
 ---------------
 
-In the local view mode, you can set what kind of scale the currently viewed region.
+In the local view mode, you can further determine how to what kind of regions are displayed with color. 
 There are three options: 1) currently viewed chromosome(s); 2) currently viewed region(s); 3) highlighted region(s).
 
 .. figure:: img/figures_chapter_3/ch3_3d_local_global_mode.png
