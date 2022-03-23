@@ -67,19 +67,19 @@ Type region(s) manually
 -----------------------
 
 You can navigate to a certain region(s) by manually typing the genomic coordinate(s) in the genomic coordinate box located on the left of the toolbar.
-The genome browser component can recognize any genomic coordinate formatted as chromosome:start-end, such as ``chr1:1000-2000``.
+The genome browser component can recognize a genomic coordinate formatted as chromosome:start-end, such as ``chr1:1000-2000``.
 Notably, it will assume the coordinates are 1-base and right-fully closed.
 It is also possible to view multiple regions together.
-Currently, you can type in at most five different genomic regions using a semicolon as the separator (e.g., ``chr1:1-20000;chr2:1-30000``).
+You can visualize up to five different genomic regions using a semicolon as the separator (e.g., ``chr1:1-20000;chr2:1-30000``).
 To view the entire chromosome, you can just type the name of a chromosome (e.g., ``chr1`` for viewing the whole chromosome 1, ``chr1;chr2`` for viewing chromosome 1 and chromosome 2 together).
-Similarly, at most five different chromosomes can be viewed at the same time.
-Nucleome Browser allows users to search for a gene by its name (requiring the gene annotation track).
+Similarly, up to five different chromosomes can be viewed in one panel.
+Nucleome Browser allows users to search for a gene by its name.
 You can type the gene's name in the genomic coordinates box and choose the gene in the drop-down list.
 
 Navigation buttons
 ------------------
 
-You can use four buttons to quickly navigate through the genome. 
+You can use four buttons to quickly navigate along the genome. 
 Clicking the ``zoom-out button`` (|gb-zoom-out|) will zoom out to a 3x length of the current region. 
 Clicking the ``zoom-in button`` (|gb-zoom-in|) will zoom in to a 1/3x length of the current region. 
 Clicking the ``move forward button`` (|gb-forward|) will move the currently viewing region to the right for a 1/2x length of the current region. 
@@ -90,7 +90,7 @@ Notably, multiple regions overlapping with each other will be automatically merg
     :align: center
     :figwidth: 480px
 
-    Use the genomic coordinate box to go to a certain region or use the navigation buttons to move along the genome and zoom-in/-out
+    Use the genomic coordinate box to go to a certain region or use navigation buttons to move along the genome
 
 .. figure:: img/figures_chapter_3/ch3_gbrowser_navigate_example.png
     :align: center
@@ -114,21 +114,21 @@ Highlight region(s)
 -------------------
 
 You can left-click the mouse and drag it on tracks to highlight a particular region.
-When you drag it on the Hi-C 2D matrix track, two regions will be highlighted.
-After you release the mouse, you can then left-click on the highlight region(s) and drag it to move it along the genome.
-Notably, when you highlight a region or move the highlighted region in one panel, other panels will also show the highlighted region as a transparent block simultaneously.
-This synchronization also works for highlights on multiple regions.
+When you drag it on the 2D matrix track, two regions will be highlighted with a highlighted rectangle on the 2D matrix. 
+After you release the mouse, you can then left-click on the highlight region(s) and drag it to move it along the 1D track or 2D track.
+Notably, when you highlight a region or move the highlighted region in one panel, other panels will also show the highlighted region as a transparent black block simultaneously.
+This synchronization also works when you highlight multiple regions.
 
 .. figure:: img/figures_chapter_3/ch3_gbrowser_highlight_v2.png
     :align: center
     :figwidth: 640px
 
-    Right-click the mouse to zoom into any highlighted track or Hi-C contact matrix
+    Right-click the mouse to zoom into any highlighted 1D and 2D track
 
-Right-clicking any place on the highlighted region, you will zoom into the region of highlight.
+Right-clicking any place on the highlighted region, you will zoom into that region.
 If a bed track shows categorical data with different colors (e.g., SPIN states, Hi-C subcomponents), you can highlight all the regions with the same annotation/color by left-clicking one region.
 Right-clicking on these highlighted regions, a zoom-in view of the highlighted regions will appear. 
-Notably, multiple regions separated from each other on the genome will be pseudo-merged together as shown below. 
+Notably, multiple regions separated from each other on the genome will be stitched as shown below. 
 
 .. figure:: img/figures_chapter_3/ch3_gbrowser_multiregion.png
     :align: center
@@ -161,7 +161,7 @@ You can also create a high-quality image of the current genome browser's view in
 You can choose a file format for the downloaded image from pixel-based graphics (png format) and vector-based graphics (SVG, pdf). 
 Vector-based graphics can be further edited for publication using the edit tool provided on the Nucleome Browser or commercial software such as Adobe Illustrator.
 Notably, the print function can only save the current panel into an image file. 
-You need to save views for different genome browser panels one-by-one.
+You need to save views for different genome browser panels one by one.
 
 .. figure:: img/figures_chapter_3/ch3_gbrowser_print.png
     :align: center
@@ -215,19 +215,19 @@ Some explanations of settings are shown below:
     :align: center
     :figwidth: 640px
 
-    Configure a single track
+    Configure a single track.
     
 To hide a track, you can right-click on the track label and click the ``hide button`` from the drop-down list. 
-To re-order a track, you can drag that track and move it up or down to the preferred location. 
+To re-order a track, you can drag that track and move it up or down to a preferred location. 
 
 Batch-configuration tool
 ------------------------
 
 You can also configure a series of tracks together using the batch-configuration tool.
 Clicking the ``batch-configuration button`` (|gb-batch-config|) in the genome browser panel toolbar, you will see the dialog of the batch-configuration tool.
-In this tool, you can select multiple tracks (holding the ``Control`` key to add a track one-by-one or the ``Shift`` key to select a range of tracks) and modify their appearance at the same time.
-Notably, only bigWig tracks are supported in this tool.
-This tool is quite useful to convert a large number of tracks into dense mode or set the same color for those tracks.
+In this tool, you can select multiple tracks (holding the ``Control`` key to add a track one-by-one or the ``Shift`` key to select a range of tracks) and then modify their appearance at the same time.
+Notably, the batch-configuration tool only works for bigWig tracks.
+This tool is quite useful to convert a large number of tracks into the dense mode or set the same color for those tracks.
 
 .. figure:: img/figures_chapter_3/ch3_gbrowser_bigwig_batch.png
     :align: center
@@ -248,17 +248,17 @@ You can access these buttons in the toolbar of the genome browser web component.
 Manage tracks
 =============
 
-Clicking the ``configuration button`` (|gb-config|) on the toolbar of the genome browser panel, you will see the configuration interface.
-You can also click the ``panel-configuration button`` (|panel-config|) on the top-right of the panel to enter the configuration interface.
-In the configuration interface, you will see the web page is separated into three parts: 1) data service module on the top; 2) currently loaded tracks shown on the left; 3) available tracks from data service on the right.
+Clicking the ``configuration button`` (|gb-config|) on the toolbar of the genome browser panel, you will see a configuration dialog box.
+You can also click the ``panel-configuration button`` (|panel-config|) on the top-right of the panel to view the configuration dialog box.
+In the configuration dialog page, you will see three parts: 1) a data service module on the top; 2) currently loaded tracks shown on the left;  and 3) available tracks from data service on the right.
 
 In the data service module, you can add data service to the existing list of genomic data services.
 
-In the currently loaded track module, you can quickly re-order tracks by dragging a track, view meta-information for a track, and super-impose a track on a 3D structure (see the 3D structure web component below).
+In the currently loaded track module, you can quickly re-order tracks by dragging a track, view meta-information for a track, and super-impose a track on a 3D genome structure model (see the 3D genome structure model web component).
 
 In the available tracks module, you can select a datasheet and add tracks to the list of loaded tracks. 
-You can filter tracks by clicking the ``search button`` and type in the keywords. 
-Clicking the ``read-more button``, you will be directed to a new website showing extra information about this track (for 4DN data, this leads to the meta-information website on the DCIC data portal).
+You can filter tracks by clicking the ``search button`` and using keywords to search tracks. 
+Clicking the ``read-more button``, you will be directed to a new website showing extra information about this track (for 4DN data, it leads to the meta-information web page on the DCIC data portal).
 
 .. figure:: img/figures_chapter_3/ch3_gbrowser_config.png
     :align: center
@@ -272,14 +272,14 @@ Clicking the ``read-more button``, you will be directed to a new website showing
 .. |panel-config| image:: img/other/icon/icon-panel-config_v2.png
     :height: 14px
 
-Scatterplot tool
-================
+Scatterplot analysis tool
+=========================
 
-Nucleome Browser provides a convenient scatterplot tool to interactively compare signals between two bigWig tracks. 
-Clicking the ``scatterplot button`` (|gb-scatterplot|), a window will appear on the right side of the genome browser panel.  
-After you select which tracks to be shown in the X-axis and Y-axis, an interactive scatterplot will be shown.
+Nucleome Browser provides an interactive scatterplot analysis tool to quantatively compare signals between two bigWig tracks. 
+Clicking the ``scatterplot button`` (|gb-scatterplot|), a box will appear on the right side of the genome browser panel.  
+After you select which tracks to be shown in the X-axis and Y-axis, an interactive scatterplot will appear.
 In this scatterplot, each dot indicates a genomic bin (the size of the genomic bin will be automatically adjusted based on the size of the currently viewed region). 
-Notably, if you highlight regions on genomic tracks or the ideogram of a chromosome, corresponding dots will also be highlighted (by a different color) in the scatterplot.
+Notably, if you highlight regions on genomic tracks, corresponding dots will also be highlighted with a different color in the scatterplot.
 When you drag the highlighted region, highlighted dots will automatically update.
 Conversely, when you use the rectangle or lasso selection tool to manually select a set of dots on the scatterplot, those regions will be highlighted on the tracks as well. 
 
