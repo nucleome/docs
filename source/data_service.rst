@@ -170,7 +170,7 @@ Go to the default genome browser panel or create a new genome browser panel.
 
 If you use the default port 8611, this local data server should automatically load in the Nucleome Browser.
 Otherwise, you can load it manually by following the procedures in :numref:`load_data_service`.
-First, click the \textbf{config} button in the genome browser panel as shown in Step 1 in :numref:`load_data_service`.
+First, click the ``config`` button in the genome browser panel as shown in Step 1 in :numref:`load_data_service`.
 In the configuration interface, click the data server setting button (gear icon in step 2 in :numref:`load_data_service`.
 In the data server setting menu, type a name for your data server in the ``Id`` column and type the web link of your local data server (e.g., ``http://127.0.0.1:<port id>``, here port id is the port specified in NucleServer or NucleData) in the ``URI`` column.
 Click the ``fresh`` button.
